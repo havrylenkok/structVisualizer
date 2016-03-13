@@ -1,18 +1,4 @@
 package structvisualizer;
-/*******************************************************************************
- * Initial author: Kyrylo Havrylenko
- * Written: 3/13/16
- * Last updated: 3/13/16
- * <p/>
- * Compilation: javac ListValuesFactory.java
- * Execution:   java ListValuesFactory
- * Dependencies: none
- * <p/>
- * <What program do>
- * <p/>
- * % java ListValuesFactory
- * <Example of output>
- *******************************************************************************/
 
 /*
  * ListValuesFactory   3/13/16, 21:34

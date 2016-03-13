@@ -1,18 +1,4 @@
 package structvisualizer;
-/*******************************************************************************
- * Initial author: Kyrylo Havrylenko
- * Written: 3/13/16
- * Last updated: 3/13/16
- * <p/>
- * Compilation: javac Collections.java
- * Execution:   java Collections
- * Dependencies: none
- * <p/>
- * <What program do>
- * <p/>
- * % java Collections
- * <Example of output>
- *******************************************************************************/
 
 /*
  * Collections   3/13/16, 22:10

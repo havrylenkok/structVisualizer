@@ -1,18 +1,4 @@
 package structvisualizer;
-/*******************************************************************************
- * Initial author: Kyrylo Havrylenko
- * Written: 3/13/16
- * Last updated: 3/13/16
- * <p/>
- * Compilation: javac AnimationController.java
- * Execution:   java AnimationController
- * Dependencies: none
- * <p/>
- * <What program do>
- * <p/>
- * % java AnimationController
- * <Example of output>
- *******************************************************************************/
 
 /*
  * AnimationController   3/13/16, 20:48
