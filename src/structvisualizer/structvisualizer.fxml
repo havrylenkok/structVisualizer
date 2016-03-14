@@ -42,11 +42,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" minWidth="800.0" spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Pane fx:id="canvasPane" minHeight="300.0" minWidth="520.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Circle fx:id="circleOnCanvas" fill="DODGERBLUE" layoutX="73.0" layoutY="65.0" radius="51.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </Pane>
+                  <Pane fx:id="canvasPane" minHeight="300.0" minWidth="520.0" HBox.hgrow="ALWAYS" />
                   <TextArea fx:id="codeOutput" editable="false" minHeight="300.0" minWidth="250.0" text="Code Output" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>

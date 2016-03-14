@@ -45,7 +45,7 @@ public class Main extends Application {
         });
 
         Parent root = FXMLLoader.load(getClass().getResource("structvisualizer.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Data Structure Visualizer");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinWidth(820);
         primaryStage.setMinHeight(620);
