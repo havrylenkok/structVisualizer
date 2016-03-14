@@ -40,8 +40,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -76,6 +75,7 @@ public class Controller implements Initializable {
     @FXML
     private void animate(ActionEvent event) {
 
+        // TODO: NORMAL ARCHITECTURE!!!
 
         StringBuilder codeOutput = new StringBuilder();
         if(collectionBox.getSelectionModel().getSelectedItem() != null) {
@@ -174,7 +174,10 @@ public class Controller implements Initializable {
 
         menuItemClose.setOnAction(event -> Main.askExit());
         menuItemAbout.setOnAction(event -> Main.showAbout());
-//
+
+//        canvasPane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY,
+//                BorderWidths.DEFAULT)));
+        canvasPane.setStyle("-fx-border-style: solid; -fx-border-color: #C1C1C1");
 
 
     }

@@ -53,6 +53,7 @@ public class ListValuesFactory {
     );
 
     private static final ObservableList<String> methodsArrayList = FXCollections.observableArrayList(
+            "()",
             "add(E e)",
             "clear",
             "contains(Object o)",
@@ -62,12 +63,13 @@ public class ListValuesFactory {
             "size()",
             "clone()",
             "get(int index)",
-            "set(int index, E element",
+            "set(int ind, E el",
             "indexOf(Object o)",
-            "sort(Comparator<? super E> c",
-            "subList(int fromIndex, int toIndex)"
+            "sort(Comparator c)",
+            "subList(int fromInd, int toInd)"
             );
     private static final ObservableList<String> methodsStack = FXCollections.observableArrayList(
+            "()",
             "empty()",
             "peek()",
             "pop()",
@@ -75,19 +77,21 @@ public class ListValuesFactory {
             "search(Object o)"
     );
     private static final ObservableList<String> methodsHashMap = FXCollections.observableArrayList(
+            "()",
             "clear()",
             "clone()",
             "containsKey(Object ket)",
-            "containsValue(Object value)",
+            "containsValue(Object val)",
             "get(Object key",
             "isEmpty()",
-            "put(K key, V Value)",
+            "put(K key, V val)",
             "remove (Object key",
-            "replace(K key, V value)",
+            "replace(K key, V val)",
             "size()",
             "values()"
     );
-    private static final ObservableList<String> methodsSet = FXCollections.observableArrayList(
+    private static final ObservableList<String> methodsSet = FXCollections.observableArrayList (
+            "()",
             "add(E e)",
             "clear()",
             "contains(Object o)",
