@@ -1,6 +1,6 @@
 package structvisualizer;
  /*
- * DataForAddMethodAnimate   3/15/16, 16:50
+ * DataForMethodAnimate   3/15/16, 16:50
  *
  * The MIT License (MIT)
  *
@@ -31,7 +31,7 @@ package structvisualizer;
  * @author Kyrylo Havrylenko
  * @see
  */
-class DataForAddMethodAnimate {
+class DataForMethodAnimate {
     private int numOfStackPanes = 3;
     private int width = 50;
     private int height = 50;

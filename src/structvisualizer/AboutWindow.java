@@ -58,7 +58,9 @@ public class AboutWindow {
 
         window.initModality(Modality.APPLICATION_MODAL); // make stage modal (нельзя переключить обратно, не закрыв это)
         window.setTitle("About");
-        window.setMinWidth(450);
+        window.setMinWidth(500);
+        window.setMaxWidth(500);
+        window.setMaxHeight(200);
 
         Hyperlink githubPage = new Hyperlink();
         githubPage.setText("https://github.com/robben1234/structVisualizer/");
@@ -75,7 +77,10 @@ public class AboutWindow {
         );
 
         Button okay = new Button("Okay");
-        okay.setOnAction(event -> window.close());
+        okay.setOnAction(event -> {
+            event.consume();
+            window.close();
+        });
         okay.setAlignment(Pos.CENTER);
 
         VBox layout = new VBox(10);

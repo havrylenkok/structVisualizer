@@ -1,6 +1,6 @@
 package structvisualizer;
  /*
- * AnimateMethod   3/15/16, 15:41
+ * AnimateMethodConstructArrayList   3/15/16, 17:39
  *
  * The MIT License (MIT)
  *
@@ -33,24 +33,24 @@ import javafx.scene.layout.Pane;
  * @author Kyrylo Havrylenko
  * @see
  */
-class AnimateMethod {
-    Pane canvasPane;
-    String type;
-    DataForMethodAnimate data;
+public class AnimateMethodConstructArrayList  extends AnimateMethod {
 
-    AnimateMethod(Pane canvasPane, String type) {
-        this.canvasPane = canvasPane;
-        this.type = type;
-        this.data = new DataForMethodAnimate();
+    AnimateMethodConstructArrayList(Pane canvasPane, String type) {
+        super(canvasPane, type);
     }
 
+    @Override
     void animate(String type) {
-        throw new UnsupportedOperationException();
+        super.animate(type);
     }
+
+    @Override
     String getCode(OutputStrings os) {
-        throw new UnsupportedOperationException();
+        return super.getCode(os);
     }
+
+    @Override
     String getOutput(OutputStrings os) {
-        throw new UnsupportedOperationException();
+        return super.getOutput(os);
     }
 }

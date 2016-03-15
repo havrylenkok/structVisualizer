@@ -41,7 +41,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setOnCloseRequest(e -> {
-            askExit();
+            if(askExit()) {
+                primaryStage.close();
+            } else {
+                e.consume();
+            }
         });
 
         Parent root = FXMLLoader.load(getClass().getResource("structvisualizer.fxml"));
@@ -57,9 +61,8 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static void askExit() {
-        ConfirmBox.display("Confirm exit", "Do you really wan't to exit?");
-
+    public static boolean askExit() {
+        return ConfirmBox.display("Confirm exit", "Do you really wan't to exit?");
     }
 
     public static void showAbout() {

@@ -48,7 +48,10 @@ public class ConfirmBox {
 
         window.initModality(Modality.APPLICATION_MODAL); // make stage modal (нельзя переключить обратно, не закрыв это)
         window.setTitle(title);
+        window.setMinHeight(100);
+        window.setMaxHeight(100);
         window.setMinWidth(250);
+        window.setMaxWidth(250);
 
         Label label = new Label();
         label.setText(message);

@@ -38,20 +38,22 @@ import java.util.ArrayList;
 public class AnimateArrayList implements AnimateStructure {
     String collectionType = Collections.ARRAY_LIST;
     AnimateMethod am;
+    OutputStrings os;
     @Override
     public void animate(String method, String type, Pane canvasPane) {
 
         am = AnimateMethodFactory.get(method, canvasPane, collectionType, type);
+        os = new OutputStrings(collectionType, method, type);
         am.animate(type);
     }
 
     @Override
     public String getCode() {
-        return am.getCode();
+        return am.getCode(os);
     }
 
     @Override
     public String getOutput() {
-        return am.getOutput();
+        return am.getOutput(os);
     }
 }

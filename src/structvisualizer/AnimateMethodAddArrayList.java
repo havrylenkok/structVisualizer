@@ -103,7 +103,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 
 
     @Override
-    public String getCode() {
+    public String getCode(OutputStrings os) {
 //        StringBuilder codeOutput = new StringBuilder();
 //        if(collectionBox.getSelectionModel().getSelectedItem() != null) {
 //
@@ -118,11 +118,26 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 //        }
 //        return codeOutput.toString();
 
-        return "ArrayList<Integer>.add(E e)";
+        StringBuilder addCode = new StringBuilder();
+        addCode
+                .append("tmp.add(").append(data.getNumOfStackPanes()).append(", ").append(data.getNumOfStackPanes())
+                .append(");\n\t}\n}");
+        os.setCode(os.getCode() + addCode.toString());
+
+        return os.getCode();
     }
 
     @Override
-    public String getOutput() {
-        return "el1->el2->el3->el4";
+    public String getOutput(OutputStrings os) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
+            sb.append("valueAtIndex(").append(i).append("), ");
+        }
+        sb.append("valueAtIndex(").append(data.getNumOfStackPanes()).append(" ]");
+
+        os.setOutput(sb.toString());
+
+        return os.getOutput();
     }
 }
