@@ -1,6 +1,6 @@
 package structvisualizer;
  /*
- * AnimateMethod   3/15/16, 15:41
+ * TypeValueFactory   3/15/16, 18:57
  *
  * The MIT License (MIT)
  *
@@ -25,32 +25,30 @@ package structvisualizer;
  * SOFTWARE.
  */
 
-import javafx.scene.layout.Pane;
-
 /**
  * <what class do>
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-class AnimateMethod {
-    Pane canvasPane;
-    String type;
-    static DataForMethodAnimate data;
+public class TypeValueFactory {
 
-    AnimateMethod(Pane canvasPane, String type) {
-        this.canvasPane = canvasPane;
-        this.type = type;
-        this.data = new DataForMethodAnimate();
-    }
+    static String get(String type, int iteration) {
 
-    void animate(String type) {
-        throw new UnsupportedOperationException();
-    }
-    String getCode(OutputStrings os) {
-        throw new UnsupportedOperationException();
-    }
-    String getOutput(OutputStrings os) {
-        throw new UnsupportedOperationException();
+        switch (type) {
+            case Types.INT:
+                int intRes = 0;
+                for (; intRes < iteration; intRes++);
+                return "" + intRes;
+            case Types.STRING:
+                char strRes = 'a';
+                for (int i = 0; i < iteration; i++) {
+                    strRes++;
+                }
+                return ""+ strRes;
+            default:
+                return "";
+        }
+
     }
 }

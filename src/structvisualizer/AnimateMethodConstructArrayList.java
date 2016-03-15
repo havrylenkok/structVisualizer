@@ -26,6 +26,13 @@ package structvisualizer;
  */
 
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <what class do>
@@ -33,24 +40,49 @@ import javafx.scene.layout.Pane;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateMethodConstructArrayList  extends AnimateMethod {
+public class AnimateMethodConstructArrayList extends AnimateMethod {
 
     AnimateMethodConstructArrayList(Pane canvasPane, String type) {
         super(canvasPane, type);
     }
 
+    static ArrayList<StackPane> createArrayList(String type) {
+
+        ArrayList<StackPane> rectangles = new ArrayList<>();
+        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
+            StackPane stack = new StackPane();
+            stack.setMinWidth(data.getWidth());
+            stack.setLayoutX(data.getWidth() + i * data.getWidth());
+            rectangles.add(i, stack);
+
+            Rectangle r = new Rectangle();
+            r.setWidth(data.getWidth());
+            r.setHeight(data.getHeight());
+            r.setFill(Color.TRANSPARENT);
+            r.setStroke(Color.BLACK);
+
+            Text text = new Text(TypeValueFactory.get(type, i));
+
+            rectangles.get(i).getChildren().addAll(r, text);
+        }
+        return rectangles;
+    }
+
     @Override
     void animate(String type) {
-        super.animate(type);
+
+        ArrayList<StackPane> rectangles = createArrayList(type);
+
+        canvasPane.getChildren().addAll(rectangles);
     }
 
     @Override
     String getCode(OutputStrings os) {
-        return super.getCode(os);
+        return os.getCode();
     }
 
     @Override
     String getOutput(OutputStrings os) {
-        return super.getOutput(os);
+        return AnimateMethodAddArrayList.formOutput();
     }
 }

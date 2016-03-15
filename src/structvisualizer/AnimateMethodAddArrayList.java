@@ -49,74 +49,49 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 
     }
 
+    static ArrayList<StackPane> addToArrayList(ArrayList<StackPane> rectangles, String type) {
+        StackPane stack = new StackPane();
+        stack.setLayoutX(data.getStackPaneSize());
+        stack.setLayoutY(data.getStackPaneSize());
+        rectangles.add(data.getNumOfStackPanes(), stack);
+        Rectangle r = new Rectangle();
+        r.setWidth(data.getWidth());
+        r.setHeight(data.getHeight());
+        r.setFill(Color.TRANSPARENT);
+        r.setStroke(Color.BLACK);
+
+        Text text = new Text(TypeValueFactory.get(type, data.getNumOfStackPanes()));
+
+        rectangles.get(data.getNumOfStackPanes()).getChildren().addAll(r, text);
+        return rectangles;
+    }
+
 
     @Override
     public void animate(String type) {
 
-        System.out.println("Hello");
 
-            ArrayList<StackPane> rectangles = new ArrayList<>();
-            for (int i = 0; i < data.getNumOfStackPanes(); i++) {
-                StackPane stack = new StackPane();
-                stack.setMinWidth(data.getWidth());
-                stack.setLayoutX(data.getWidth() + i * data.getWidth());
-                rectangles.add(i, stack);
+        ArrayList<StackPane> rectangles = AnimateMethodConstructArrayList.createArrayList(type);
 
-                Rectangle r = new Rectangle();
-                r.setWidth(data.getWidth());
-                r.setHeight(data.getHeight());
-                r.setFill(Color.TRANSPARENT);
-                r.setStroke(Color.BLACK);
+        rectangles = addToArrayList(rectangles, type);
 
-                Text text = new Text("" + i);
+        canvasPane.getChildren().addAll(rectangles);
 
-                rectangles.get(i).getChildren().addAll(r, text);
-            }
+        FadeTransition ft = new FadeTransition(Duration.millis(data.getTimeFade()), rectangles.get(data.getNumOfStackPanes()));
+        ft.setFromValue(data.getTransitionInvisible());
+        ft.setToValue(data.getTransitionVisible());
+        ft.play();
 
-
-            StackPane stack = new StackPane();
-            stack.setLayoutX(data.getStackPaneSize());
-            stack.setLayoutY(data.getStackPaneSize());
-            rectangles.add(data.getNumOfStackPanes(), stack);
-            Rectangle r = new Rectangle();
-            r.setWidth(data.getWidth());
-            r.setHeight(data.getHeight());
-            r.setFill(Color.TRANSPARENT);
-            r.setStroke(Color.BLACK);
-
-            Text text = new Text("" + data.getNumOfStackPanes());
-
-            rectangles.get(data.getNumOfStackPanes()).getChildren().addAll(r, text);
-            canvasPane.getChildren().addAll(rectangles);
-
-            FadeTransition ft = new FadeTransition(Duration.millis(data.getTimeFade()), rectangles.get(data.getNumOfStackPanes()));
-            ft.setFromValue(data.getTransitionInvisible());
-            ft.setToValue(data.getTransitionVisible());
-            ft.play();
-
-            TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), rectangles.get
-                    (data.getNumOfStackPanes()));
-            tt.setByY(-1f * data.getStackPaneSize());
-            tt.play();
+        TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), rectangles.get
+                (data.getNumOfStackPanes()));
+        tt.setByY(-1f * data.getStackPaneSize());
+        tt.play();
 
     }
 
 
     @Override
     public String getCode(OutputStrings os) {
-//        StringBuilder codeOutput = new StringBuilder();
-//        if(collectionBox.getSelectionModel().getSelectedItem() != null) {
-//
-//            codeOutput
-//                    .append(collectionBox.getSelectionModel().getSelectedItem().toString())
-//                    .append(".")
-//                    .append(methodBox.getValue())
-//                    .append(".")
-//                    .append(typeBox.getValue());
-//        } else {
-//            codeOutput.append("Pick your collection!");
-//        }
-//        return codeOutput.toString();
 
         StringBuilder addCode = new StringBuilder();
         addCode
@@ -127,16 +102,22 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         return os.getCode();
     }
 
-    @Override
-    public String getOutput(OutputStrings os) {
+    static String formOutput() {
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");
         for (int i = 0; i < data.getNumOfStackPanes(); i++) {
             sb.append("valueAtIndex(").append(i).append("), ");
         }
-        sb.append("valueAtIndex(").append(data.getNumOfStackPanes()).append(" ]");
+        sb.append("valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
 
-        os.setOutput(sb.toString());
+        return sb.toString();
+    }
+
+    @Override
+    public String getOutput(OutputStrings os) {
+
+
+        os.setOutput(formOutput());
 
         return os.getOutput();
     }

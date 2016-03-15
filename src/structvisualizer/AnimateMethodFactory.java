@@ -44,6 +44,12 @@ public class AnimateMethodFactory {
                         return new AnimateMethod(canvas, type);
                 }
             case Methods.CONSTRUCT:
+                switch (collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodConstructArrayList(canvas, type);
+                    default:
+                        return new AnimateMethod(canvas, type);
+                }
             case Methods.CLEAR:
             case Methods.CONTAINS:
             case Methods.EQUALS:
