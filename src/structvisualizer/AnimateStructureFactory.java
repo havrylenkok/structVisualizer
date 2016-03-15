@@ -1,6 +1,6 @@
 package structvisualizer;
  /*
- * AnimateStrucutreFactory   3/15/16, 15:27
+ * AnimateStructureFactory   3/15/16, 15:27
  *
  * The MIT License (MIT)
  *
@@ -26,12 +26,18 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
+ * Factory to pick right AnimateClass for input structure of data type
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateStrucutreFactory {
+public class AnimateStructureFactory {
+    /**
+     * getter
+     *
+     * @param structName
+     * @return object of right type for input structure of data name
+     */
     static AnimateStructure get(String structName) {
 
         switch (structName) {

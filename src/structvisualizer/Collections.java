@@ -27,12 +27,10 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
- *
- * @see
+ * Enum for supported structures of data
  *
  * @author Kyrylo Havrylenko
- *
+ * @see
  */
 interface Collections {
     final String ARRAY_LIST = "ArrayList";

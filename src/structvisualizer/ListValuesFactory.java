@@ -34,14 +34,11 @@ import javafx.collections.ObservableList;
 import java.util.*;
 
 
-
 /**
- * <what class do>
- *
- * @see
+ * Factory for combobox values in javafx app and also for animation API
  *
  * @author Kyrylo Havrylenko
- *
+ * @see
  */
 public class ListValuesFactory {
 
@@ -67,7 +64,7 @@ public class ListValuesFactory {
             Methods.GET_INDEX,
             Methods.SORT,
             Methods.SUBLIST
-            );
+    );
     private static final ObservableList<String> methodsStack = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
             Methods.IS_EMPTY,
@@ -90,7 +87,7 @@ public class ListValuesFactory {
             Methods.SIZE,
             Methods.VALUES
     );
-    private static final ObservableList<String> methodsSet = FXCollections.observableArrayList (
+    private static final ObservableList<String> methodsSet = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
             Methods.ADD,
             Methods.CLEAR,
@@ -106,6 +103,7 @@ public class ListValuesFactory {
     );
 
     /**
+     * getter
      *
      * @param collection string with name of collection
      * @return ObservableList<String> of methods for INPUT collection-type
@@ -128,6 +126,7 @@ public class ListValuesFactory {
 
     /**
      * getter
+     *
      * @return
      */
     public static ObservableList<String> getCollectionOptions() {
@@ -136,6 +135,7 @@ public class ListValuesFactory {
 
     /**
      * getter
+     *
      * @return
      */
     public static ObservableList<String> getTypesOptions() {

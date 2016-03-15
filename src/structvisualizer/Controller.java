@@ -26,14 +26,9 @@ package structvisualizer;
  * SOFTWARE.
  */
 
-import javafx.animation.*;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -41,16 +36,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of javafx app
+ */
 public class Controller implements Initializable {
 
     @FXML
@@ -74,7 +66,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void animate(ActionEvent event) {
-        if(collectionBox.getSelectionModel().getSelectedItem() != null) {
+        if (collectionBox.getSelectionModel().getSelectedItem() != null) {
 
             canvasPane.getChildren().clear();
 
@@ -82,7 +74,7 @@ public class Controller implements Initializable {
             String method = methodBox.getValue().toString();
             String type = typeBox.getValue().toString();
 
-            AnimateStructure animationStruct = AnimateStrucutreFactory.get(collection);
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection);
             animationStruct.animate(method, type, canvasPane);
             setCodeOutput(animationStruct.getCode());
             setOutput(animationStruct.getOutput());
@@ -97,7 +89,8 @@ public class Controller implements Initializable {
         codeOutput.setText(text);
     }
 
-    @FXML private void setOutput(String text) {
+    @FXML
+    private void setOutput(String text) {
         output.setText(text);
     }
 

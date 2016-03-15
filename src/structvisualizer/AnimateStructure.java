@@ -30,13 +30,32 @@ import javafx.scene.layout.Pane;
 import java.util.Collection;
 
 /**
- * <what class do>
+ * Interface for classes to draw COLLECTION's methods
  *
  * @author Kyrylo Havrylenko
  * @see
  */
 public interface AnimateStructure {
+    /**
+     * animate method
+     *
+     * @param method     methodName
+     * @param type       typeName
+     * @param canvasPane Pane where to draw
+     */
     void animate(String method, String type, Pane canvasPane);
+
+    /**
+     * get code to recreate process in animation
+     *
+     * @return Strng
+     */
     String getCode();
+
+    /**
+     * get output of {@link AnimateStructure#getCode()} method's execution
+     *
+     * @return String
+     */
     String getOutput();
 }

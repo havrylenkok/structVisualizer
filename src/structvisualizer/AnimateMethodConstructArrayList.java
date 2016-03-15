@@ -35,18 +35,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <what class do>
+ * Animates constructor of ArrayList with 3 elements
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.AnimateMethod
  */
 public class AnimateMethodConstructArrayList extends AnimateMethod {
 
+    /**
+     * @param canvasPane
+     * @param type
+     * @see structvisualizer.AnimateMethod
+     */
     AnimateMethodConstructArrayList(Pane canvasPane, String type) {
         super(canvasPane, type);
     }
 
-    static ArrayList<StackPane> createArrayList(String type) {
+    /**
+     * Static method to create ArrayList with StackPane elements which will be next added to Pane (canvas) in app
+     *
+     * @param type String
+     * @return ArrayList<StackPane>
+     */
+    public static ArrayList<StackPane> createArrayList(String type) {
 
         ArrayList<StackPane> rectangles = new ArrayList<>();
         for (int i = 0; i < data.getNumOfStackPanes(); i++) {
@@ -68,6 +79,10 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         return rectangles;
     }
 
+    /**
+     * @param type
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     void animate(String type) {
 
@@ -76,11 +91,21 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         canvasPane.getChildren().addAll(rectangles);
     }
 
+    /**
+     * @param os Class with templates of result
+     * @return
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     String getCode(OutputStrings os) {
         return os.getCode();
     }
 
+    /**
+     * @param os Class with templates of result
+     * @return
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     String getOutput(OutputStrings os) {
         return AnimateMethodAddArrayList.formOutput();

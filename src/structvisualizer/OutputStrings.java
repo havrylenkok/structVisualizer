@@ -28,7 +28,7 @@ package structvisualizer;
 import java.util.List;
 
 /**
- * <what class do>
+ * Base class to create text for codeOutput and output TextAreas in javafx GUI
  *
  * @author Kyrylo Havrylenko
  * @see

@@ -30,15 +30,23 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 
 /**
- * <what class do>
+ * Animates ArrayList
  *
  * @author Kyrylo Havrylenko
  * @see
  */
 public class AnimateArrayList implements AnimateStructure {
-    String collectionType = Collections.ARRAY_LIST;
-    AnimateMethod am;
-    OutputStrings os;
+    private String collectionType = Collections.ARRAY_LIST;
+    private AnimateMethod am;
+    private OutputStrings os;
+
+    /**
+     * Draws animation of method from ArrayList interface with stated type on stated Pane
+     *
+     * @param method     name of method
+     * @param type       name of type
+     * @param canvasPane link to Pane where to draw
+     */
     @Override
     public void animate(String method, String type, Pane canvasPane) {
 
@@ -47,11 +55,18 @@ public class AnimateArrayList implements AnimateStructure {
         am.animate(type);
     }
 
+    /**
+     * @return string with code to write in your program to recreate animation's process
+     */
     @Override
     public String getCode() {
         return am.getCode(os);
     }
 
+    /**
+     * @return string with supposed output of getCode()
+     * @see {@link #getCode() getCode} method
+     */
     @Override
     public String getOutput() {
         return am.getOutput(os);

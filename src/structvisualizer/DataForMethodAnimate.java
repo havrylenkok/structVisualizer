@@ -26,12 +26,12 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
+ * Magic constants for app
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-class DataForMethodAnimate {
+public class DataForMethodAnimate {
     private int numOfStackPanes = 3;
     private int width = 50;
     private int height = 50;

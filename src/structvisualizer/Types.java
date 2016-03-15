@@ -26,7 +26,7 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
+ * Enum inteface for supported types
  *
  * @author Kyrylo Havrylenko
  * @see

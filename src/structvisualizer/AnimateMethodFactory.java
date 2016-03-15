@@ -28,12 +28,22 @@ package structvisualizer;
 import javafx.scene.layout.Pane;
 
 /**
- * <what class do>
+ * Factory of methods which select needed class of <T extends AnimateMethod>
  *
  * @author Kyrylo Havrylenko
  * @see
  */
 public class AnimateMethodFactory {
+    /**
+     * Factory of methods which select needed class of <T extends AnimateMethod>
+     *
+     * @param methodName
+     * @param canvas         Pane where to draw
+     * @param collectionName
+     * @param type           typeName
+     * @return object of needed animation class
+     * @see structvisualizer.AnimateMethod
+     */
     static AnimateMethod get(String methodName, Pane canvas, String collectionName, String type) {
         switch (methodName) {
             case Methods.ADD:
@@ -71,7 +81,8 @@ public class AnimateMethodFactory {
             case Methods.PUT:
             case Methods.VALUES:
             case Methods.REPLACE:
-            default: return new AnimateMethod(canvas, type);
+            default:
+                return new AnimateMethod(canvas, type);
         }
     }
 }

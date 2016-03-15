@@ -28,22 +28,39 @@ package structvisualizer;
 import javafx.scene.layout.Pane;
 
 /**
- * <what class do>
+ * method with nothing to draw for unsupported collection or set
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.AnimateStructure
  */
 public class AnimateNothing implements AnimateStructure {
+    /**
+     * @param method
+     * @param type
+     * @param canvasPane
+     * @throws UnsupportedOperationException
+     * @see structvisualizer.AnimateStructure
+     */
     @Override
     public void animate(String method, String type, Pane canvasPane) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * @return
+     * @throws UnsupportedOperationException
+     * @see structvisualizer.AnimateStructure
+     */
     @Override
     public String getCode() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * @return
+     * @throws UnsupportedOperationException
+     * @see structvisualizer.AnimateStructure
+     */
     @Override
     public String getOutput() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();

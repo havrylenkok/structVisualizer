@@ -35,13 +35,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Main javafx class
+ */
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setOnCloseRequest(e -> {
-            if(askExit()) {
+            if (askExit()) {
                 primaryStage.close();
             } else {
                 e.consume();
@@ -61,10 +64,18 @@ public class Main extends Application {
         launch(args);
     }
 
+    /**
+     * Shows user new window with confirmation whether he actually want to close app
+     *
+     * @return true if still wanted, false if dont want
+     */
     public static boolean askExit() {
         return ConfirmBox.display("Confirm exit", "Do you really wan't to exit?");
     }
 
+    /**
+     * Shows user new window with about information of the app
+     */
     public static void showAbout() {
         if (AboutWindow.display()) {
             Platform.exit();

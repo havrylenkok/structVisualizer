@@ -26,7 +26,7 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
+ * Enum interface with strings for animation API and comboboxes in GUI javafx
  *
  * @author Kyrylo Havrylenko
  * @see

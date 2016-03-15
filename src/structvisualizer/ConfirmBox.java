@@ -37,14 +37,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Created by robben1 on 23.02.16.
+ * Shows confirmation javafx window when user tries to exit
  */
 public class ConfirmBox {
 
     static boolean answer;
 
     public static boolean display(String title, String message) {
-        Stage window  = new Stage(); // пустое окно (stage)
+        Stage window = new Stage(); // пустое окно (stage)
 
         window.initModality(Modality.APPLICATION_MODAL); // make stage modal (нельзя переключить обратно, не закрыв это)
         window.setTitle(title);

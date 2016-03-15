@@ -26,7 +26,7 @@ package structvisualizer;
  */
 
 /**
- * <what class do>
+ * Factory for values in output TextArea and in StackPane (animation) which returns value of the right type
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -38,14 +38,14 @@ public class TypeValueFactory {
         switch (type) {
             case Types.INT:
                 int intRes = 0;
-                for (; intRes < iteration; intRes++);
+                for (; intRes < iteration; intRes++) ;
                 return "" + intRes;
             case Types.STRING:
                 char strRes = 'a';
                 for (int i = 0; i < iteration; i++) {
                     strRes++;
                 }
-                return ""+ strRes;
+                return "" + strRes;
             default:
                 return "";
         }

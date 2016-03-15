@@ -47,14 +47,14 @@ import java.io.IOException;
 import java.net.URI;
 
 /**
- * Created by robben1 on 23.02.16.
+ * Shows user about window with info about app
  */
 public class AboutWindow {
 
     static boolean answer;
 
     public static boolean display() {
-        Stage window  = new Stage(); // пустое окно (stage)
+        Stage window = new Stage(); // пустое окно (stage)
 
         window.initModality(Modality.APPLICATION_MODAL); // make stage modal (нельзя переключить обратно, не закрыв это)
         window.setTitle("About");
@@ -73,7 +73,7 @@ public class AboutWindow {
         });
 
         TextFlow about = new TextFlow(
-                new Text("About application\n\nAuthor: Kyrylo Havrylenko\nGithub page of app: "),  githubPage
+                new Text("About application\n\nAuthor: Kyrylo Havrylenko\nGithub page of app: "), githubPage
         );
 
         Button okay = new Button("Okay");

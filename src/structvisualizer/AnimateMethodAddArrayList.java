@@ -37,18 +37,30 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 /**
- * <what class do>
+ * Animates ArrayList.add() on Pane
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.AnimateMethod
  */
 public class AnimateMethodAddArrayList extends AnimateMethod {
 
+    /**
+     * @param canvasPane
+     * @param type
+     * @see structvisualizer.AnimateMethod
+     */
     AnimateMethodAddArrayList(Pane canvasPane, String type) {
         super(canvasPane, type);
 
     }
 
+    /**
+     * Static method to create ArrayList<StackPane> of elements to show on Pane (canvas)
+     *
+     * @param rectangles ArrayList where to add StackPane
+     * @param type       Type of values in ArrayList
+     * @return ArrayList<StackPane>
+     */
     static ArrayList<StackPane> addToArrayList(ArrayList<StackPane> rectangles, String type) {
         StackPane stack = new StackPane();
         stack.setLayoutX(data.getStackPaneSize());
@@ -67,6 +79,10 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     }
 
 
+    /**
+     * @param type string with type of values in ArrayList
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     public void animate(String type) {
 
@@ -89,7 +105,11 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 
     }
 
-
+    /**
+     * @param os
+     * @return
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     public String getCode(OutputStrings os) {
 
@@ -102,7 +122,12 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         return os.getCode();
     }
 
-    static String formOutput() {
+    /**
+     * static method to form string with output
+     *
+     * @return String
+     */
+    public static String formOutput() {
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");
         for (int i = 0; i < data.getNumOfStackPanes(); i++) {
@@ -113,6 +138,11 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         return sb.toString();
     }
 
+    /**
+     * @param os
+     * @return
+     * @see structvisualizer.AnimateMethod
+     */
     @Override
     public String getOutput(OutputStrings os) {
 
