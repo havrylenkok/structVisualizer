@@ -74,78 +74,20 @@ public class Controller implements Initializable {
 
     @FXML
     private void animate(ActionEvent event) {
-
-        // TODO: NORMAL ARCHITECTURE!!!
-
-        StringBuilder codeOutput = new StringBuilder();
         if(collectionBox.getSelectionModel().getSelectedItem() != null) {
 
-            codeOutput
-                    .append(collectionBox.getSelectionModel().getSelectedItem().toString())
-                    .append(".")
-                    .append(methodBox.getValue())
-                    .append(".")
-                    .append(typeBox.getValue());
+            canvasPane.getChildren().clear();
+
+            String collection = collectionBox.getValue().toString();
+            String method = methodBox.getValue().toString();
+            String type = typeBox.getValue().toString();
+
+            AnimateStructure animationStruct = AnimateStrucutreFactory.get(collection);
+            animationStruct.animate(method, type, canvasPane);
+            setCodeOutput(animationStruct.getCode());
+            setOutput(animationStruct.getOutput());
         } else {
-            codeOutput.append("Pick your collection!");
-        }
-
-        setCodeOutput(codeOutput.toString());
-
-//        FadeTransition fadeTransition = new FadeTransition(Duration.millis(3000), circleOnCanvas);
-//        fadeTransition.setFromValue(1.0f);
-//        fadeTransition.setToValue(0.0f);
-//        ParallelTransition parallelTransition = new ParallelTransition();
-//        parallelTransition.getChildren().addAll(fadeTransition);
-//        parallelTransition.setCycleCount(1);
-//        parallelTransition.play();
-
-        if(collectionBox.getValue() == "ArrayList<>" && methodBox.getValue() == "add(E e)" && typeBox.getValue()
-                == "Integer") {
-            ArrayList<StackPane> rectangles = new ArrayList<>();
-            for (int i = 0; i < 3; i++) {
-                StackPane stack = new StackPane();
-                stack.setMinWidth(50);
-                stack.setLayoutX(50 + i * 50);
-                rectangles.add(i, stack);
-
-                Rectangle r = new Rectangle();
-                r.setWidth(50);
-                r.setHeight(50);
-                r.setFill(Color.TRANSPARENT);
-                r.setStroke(Color.BLACK);
-
-                Text text = new Text("" + i);
-
-                rectangles.get(i).getChildren().addAll(r, text);
-            }
-
-
-            StackPane stack = new StackPane();
-            stack.setLayoutX(200);
-            stack.setLayoutY(200);
-            rectangles.add(3, stack);
-            Rectangle r = new Rectangle();
-            r.setWidth(50);
-            r.setHeight(50);
-            r.setFill(Color.TRANSPARENT);
-            r.setStroke(Color.BLACK);
-
-            Text text = new Text("" + 3);
-
-            rectangles.get(3).getChildren().addAll(r, text);
-            canvasPane.getChildren().addAll(rectangles);
-
-            FadeTransition ft = new FadeTransition(Duration.millis(1000), rectangles.get(3));
-            ft.setFromValue(0.0f);
-            ft.setToValue(1.0f);
-            ft.play();
-
-            TranslateTransition tt = new TranslateTransition(Duration.millis(3000), rectangles.get(3));
-            tt.setByY(-200f);
-            tt.play();
-
-            output.setText(rectangles.toString());
+            // TODO: Throw Error window
         }
 
     }

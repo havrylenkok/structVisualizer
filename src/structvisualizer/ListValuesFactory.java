@@ -53,57 +53,56 @@ public class ListValuesFactory {
     );
 
     private static final ObservableList<String> methodsArrayList = FXCollections.observableArrayList(
-            "()",
-            "add(E e)",
-            "clear",
-            "contains(Object o)",
-            "equals(Object o)",
-            "isEmpty()",
-            "remove(Object o)",
-            "size()",
-            "clone()",
-            "get(int index)",
-            "set(int ind, E el",
-            "indexOf(Object o)",
-            "sort(Comparator c)",
-            "subList(int fromInd, int toInd)"
+            Methods.CONSTRUCT,
+            Methods.ADD,
+            Methods.CLEAR,
+            Methods.CONTAINS,
+            Methods.EQUALS,
+            Methods.IS_EMPTY,
+            Methods.REMOVE,
+            Methods.SIZE,
+            Methods.CLONE,
+            Methods.GET,
+            Methods.SET,
+            Methods.GET_INDEX,
+            Methods.SORT,
+            Methods.SUBLIST
             );
     private static final ObservableList<String> methodsStack = FXCollections.observableArrayList(
-            "()",
-            "empty()",
-            "peek()",
-            "pop()",
-            "push(E item)",
-            "search(Object o)"
+            Methods.CONSTRUCT,
+            Methods.IS_EMPTY,
+            Methods.PEEK,
+            Methods.POP,
+            Methods.PUSH,
+            Methods.SEARCH
     );
     private static final ObservableList<String> methodsHashMap = FXCollections.observableArrayList(
-            "()",
-            "clear()",
-            "clone()",
-            "containsKey(Object ket)",
-            "containsValue(Object val)",
-            "get(Object key",
-            "isEmpty()",
-            "put(K key, V val)",
-            "remove (Object key",
-            "replace(K key, V val)",
-            "size()",
-            "values()"
+            Methods.CONSTRUCT,
+            Methods.CLEAR,
+            Methods.CLONE,
+            Methods.CONTAINS_KEY,
+            Methods.CONTAINS_VALUE,
+            Methods.GET,
+            Methods.IS_EMPTY,
+            Methods.PUT,
+            Methods.REMOVE,
+            Methods.REPLACE,
+            Methods.SIZE,
+            Methods.VALUES
     );
     private static final ObservableList<String> methodsSet = FXCollections.observableArrayList (
-            "()",
-            "add(E e)",
-            "clear()",
-            "contains(Object o)",
-            "contains(Object o)",
-            "equals(Object o",
-            "isEmpty()",
-            "size()",
-            "remove(Object o"
+            Methods.CONSTRUCT,
+            Methods.ADD,
+            Methods.CLEAR,
+            Methods.CONTAINS,
+            Methods.EQUALS,
+            Methods.IS_EMPTY,
+            Methods.SIZE,
+            Methods.REMOVE
     );
     private static final ObservableList<String> types = FXCollections.observableArrayList(
-            "Integer",
-            "String"
+            Types.INT,
+            Types.STRING
     );
 
     /**
