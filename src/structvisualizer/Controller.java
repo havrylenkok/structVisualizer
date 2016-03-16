@@ -66,7 +66,8 @@ public class Controller implements Initializable {
 
     @FXML
     private void animate(ActionEvent event) {
-        if (collectionBox.getSelectionModel().getSelectedItem() != null) {
+        if (collectionBox.getSelectionModel().getSelectedItem() != null && methodBox.getSelectionModel()
+                .getSelectedItem() != null && typeBox.getSelectionModel().getSelectedItem() != null) {
 
             canvasPane.getChildren().clear();
 
@@ -79,7 +80,7 @@ public class Controller implements Initializable {
             setCodeOutput(animationStruct.getCode());
             setOutput(animationStruct.getOutput());
         } else {
-            // TODO: Throw Error window
+            ErrorWindow.display("You should pick collection, method and type before animating!");
         }
 
     }
