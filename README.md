@@ -1,4 +1,4 @@
-# Struct Visualizer <a href="https://codeclimate.com/github/robben1234/structVisualizer"><img src="https://codeclimate.com/github/robben1234/structVisualizer/badges/issue_count.svg" /></a> <a href="https://codeclimate.com/github/robben1234/structVisualizer/coverage"><img src="https://codeclimate.com/github/robben1234/structVisualizer/badges/coverage.svg" /></a> 
+# Struct Visualizer <a href="https://codeclimate.com/github/robben1234/structVisualizer"><img src="https://codeclimate.com/github/robben1234/structVisualizer/badges/issue_count.svg" /></a><a href="https://codeclimate.com/github/robben1234/structVisualizer/coverage"><img src="https://codeclimate.com/github/robben1234/structVisualizer/badges/coverage.svg" /></a>
 
 Struct Visualizer is an educational program written on JavaFX. 
 
