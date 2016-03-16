@@ -42,18 +42,18 @@ public interface Methods {
     final String SIZE = "size()";
     final String CLONE = "clone()";
     final String GET = "get(int index)";
-    final String SET = "set()"; // TODO: params
-    final String GET_INDEX = "getIndex()"; // TODO: params
+    final String SET = "set(int index, E e)";
+    final String GET_INDEX = "getIndex(O o)";
     final String SORT = "sort()";
     final String SUBLIST = "sublist()";
     final String PEEK = "peek()";
-    final String POP = "pop()"; // TODO: params
-    final String PUSH = "push()"; // TODO: params
-    final String SEARCH = "search()"; // TODO: params
-    final String CONTAINS_KEY = "containsKey()"; // TODO: params
-    final String CONTAINS_VALUE = "containsValue()"; // TODO: params
-    final String REPLACE = "replace()"; // TODO: params
-    final String VALUES = "values()"; // TODO: params
-    final String PUT = "put()"; // TODO: params
+    final String POP = "pop()";
+    final String PUSH = "push(E e)";
+    final String SEARCH = "search(O o)";
+    final String CONTAINS_KEY = "containsKey(O key)";
+    final String CONTAINS_VALUE = "containsValue(O val)";
+    final String REPLACE = "replace(K k, V v)";
+    final String VALUES = "values()";
+    final String PUT = "put(K k, V v)";
 
 }
