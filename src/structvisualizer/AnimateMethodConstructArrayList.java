@@ -99,7 +99,7 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
     @Override
     String getCode(OutputStrings os) {
 
-        String result = os.getCode() + "\n\t\t}\n}";
+        String result = os.getCode() + "\n\t}\n}";
 
         return result;
     }
