@@ -40,6 +40,13 @@ public class AnimateStructure {
     private OutputStrings os;
     private String collectionType;
 
+    /**
+     * Constructor
+     * @param collection collectionName
+     * @param method methodName
+     * @param type typeName
+     * @param canvasPane Pane where to draw
+     */
     public AnimateStructure(String collection, String method, String type, Pane canvasPane) {
         collectionType = collection;
         am = AnimateMethodFactory.get(method, canvasPane, collectionType, type);
@@ -50,9 +57,7 @@ public class AnimateStructure {
     /**
      * animate method
      *
-     * @param method     methodName
      * @param type       typeName
-     * @param canvasPane Pane where to draw
      */
     void animate(String type) {
         am.animate(type);
