@@ -64,23 +64,26 @@ public class Controller implements Initializable {
     @FXML
     MenuItem menuItemAbout;
 
-    @FXML
-    private void animate(ActionEvent event) {
+    private boolean checkIfComboxesIsNotNull() {
+
         if (collectionBox.getSelectionModel().getSelectedItem() != null && methodBox.getSelectionModel()
                 .getSelectedItem() != null && typeBox.getSelectionModel().getSelectedItem() != null) {
+            return true;
+        } else return false;
+    }
+
+    @FXML
+    private void animate(ActionEvent event) {
+        if (checkIfComboxesIsNotNull()) {
 
             canvasPane.getChildren().clear();
-            output.clear();
-            codeOutput.clear();
 
             String collection = collectionBox.getValue().toString();
             String method = methodBox.getValue().toString();
             String type = typeBox.getValue().toString();
 
-            AnimateStructure animationStruct = AnimateStructureFactory.get(collection);
-            animationStruct.animate(method, type, canvasPane);
-            setCodeOutput(animationStruct.getCode());
-            setOutput(animationStruct.getOutput());
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+            animationStruct.animate(type);
         } else {
             ErrorWindow.display("You should pick collection, method and type before animating!");
         }
@@ -112,6 +115,40 @@ public class Controller implements Initializable {
 
         menuItemClose.setOnAction(event -> Main.askExit());
         menuItemAbout.setOnAction(event -> Main.showAbout());
+
+        typeBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                output.clear();
+                codeOutput.clear();
+                if(checkIfComboxesIsNotNull()) {
+                    String collection = collectionBox.getValue().toString();
+                    String method = methodBox.getValue().toString();
+                    String type = typeBox.getValue().toString();
+
+                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+                    setCodeOutput(animationStruct.getCode());
+                    setOutput(animationStruct.getOutput());
+                }
+            }
+        });
+
+        methodBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                output.clear();
+                codeOutput.clear();
+                if(checkIfComboxesIsNotNull()) {
+                    String collection = collectionBox.getValue().toString();
+                    String method = methodBox.getValue().toString();
+                    String type = typeBox.getValue().toString();
+
+                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+                    setCodeOutput(animationStruct.getCode());
+                    setOutput(animationStruct.getOutput());
+                }
+            }
+        });
 
 //        canvasPane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY,
 //                BorderWidths.DEFAULT)));

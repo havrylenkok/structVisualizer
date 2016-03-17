@@ -35,7 +35,18 @@ import java.util.Collection;
  * @author Kyrylo Havrylenko
  * @see
  */
-public interface AnimateStructure {
+public class AnimateStructure {
+    private AnimateMethod am;
+    private OutputStrings os;
+    private String collectionType;
+
+    public AnimateStructure(String collection, String method, String type, Pane canvasPane) {
+        collectionType = collection;
+        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type);
+        os = new OutputStrings(collectionType, method, type);
+    }
+
+
     /**
      * animate method
      *
@@ -43,19 +54,25 @@ public interface AnimateStructure {
      * @param type       typeName
      * @param canvasPane Pane where to draw
      */
-    void animate(String method, String type, Pane canvasPane);
+    void animate(String type) {
+        am.animate(type);
+    }
 
     /**
      * get code to recreate process in animation
      *
      * @return Strng
      */
-    String getCode();
+    String getCode() {
+        return am.getCode(os);
+    }
 
     /**
      * get output of {@link AnimateStructure#getCode()} method's execution
      *
      * @return String
      */
-    String getOutput();
+    String getOutput() {
+        return am.getOutput(os);
+    }
 }

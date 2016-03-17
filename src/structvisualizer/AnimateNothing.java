@@ -33,7 +33,12 @@ import javafx.scene.layout.Pane;
  * @author Kyrylo Havrylenko
  * @see structvisualizer.AnimateStructure
  */
-public class AnimateNothing implements AnimateStructure {
+public class AnimateNothing extends AnimateStructure {
+
+    public AnimateNothing(String method, String type, Pane canvasPane) {
+        super(Collections.ARRAY_LIST, method, type, canvasPane);
+    }
+
     /**
      * @param method
      * @param type
@@ -42,7 +47,8 @@ public class AnimateNothing implements AnimateStructure {
      * @see structvisualizer.AnimateStructure
      */
     @Override
-    public void animate(String method, String type, Pane canvasPane) throws UnsupportedOperationException {
+    public void animate(String type) throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation animate(" + type + ") -> AnimateNothig.java(51)"); // TODO: log
         throw new UnsupportedOperationException();
     }
 
@@ -53,6 +59,7 @@ public class AnimateNothing implements AnimateStructure {
      */
     @Override
     public String getCode() throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation on getCode(AnimateNothing->57)"); // TODO: log
         throw new UnsupportedOperationException();
     }
 
@@ -63,6 +70,7 @@ public class AnimateNothing implements AnimateStructure {
      */
     @Override
     public String getOutput() throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation on getOutput(AnimateNothing->68)"); // TODO: log
         throw new UnsupportedOperationException();
     }
 }

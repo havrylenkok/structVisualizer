@@ -98,7 +98,29 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      */
     @Override
     String getCode(OutputStrings os) {
-        return os.getCode();
+
+        String result = os.getCode() + "\n\t\t}\n}";
+
+        return result;
+    }
+
+    /**
+     * static method to form string with output
+     *
+     * @return String
+     */
+    public static String formOutput() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
+            if(i < data.getNumOfStackPanes() - 1) {
+                sb.append("valueAtIndex(").append(i).append("), ");
+            } else {
+                sb.append("valueAtIndex(").append(i).append(") ");
+            }
+        }
+
+        return sb.toString();
     }
 
     /**
@@ -108,6 +130,6 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      */
     @Override
     String getOutput(OutputStrings os) {
-        return AnimateMethodAddArrayList.formOutput();
+        return formOutput() + "]";
     }
 }

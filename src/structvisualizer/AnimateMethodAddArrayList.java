@@ -127,13 +127,10 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
      *
      * @return String
      */
-    public static String formOutput() {
+    public static String formOutput(String origin) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
-            sb.append("valueAtIndex(").append(i).append("), ");
-        }
-        sb.append("valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
+        sb.append(origin)
+                .append(", valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
 
         return sb.toString();
     }
@@ -147,7 +144,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     public String getOutput(OutputStrings os) {
 
 
-        os.setOutput(formOutput());
+        os.setOutput(formOutput(AnimateMethodConstructArrayList.formOutput()));
 
         return os.getOutput();
     }

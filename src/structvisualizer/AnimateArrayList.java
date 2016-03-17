@@ -35,40 +35,9 @@ import java.util.ArrayList;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateArrayList implements AnimateStructure {
-    private String collectionType = Collections.ARRAY_LIST;
-    private AnimateMethod am;
-    private OutputStrings os;
+public class AnimateArrayList extends AnimateStructure {
 
-    /**
-     * Draws animation of method from ArrayList interface with stated type on stated Pane
-     *
-     * @param method     name of method
-     * @param type       name of type
-     * @param canvasPane link to Pane where to draw
-     */
-    @Override
-    public void animate(String method, String type, Pane canvasPane) {
-
-        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type);
-        os = new OutputStrings(collectionType, method, type);
-        am.animate(type);
-    }
-
-    /**
-     * @return string with code to write in your program to recreate animation's process
-     */
-    @Override
-    public String getCode() {
-        return am.getCode(os);
-    }
-
-    /**
-     * @return string with supposed output of getCode()
-     * @see {@link #getCode() getCode} method
-     */
-    @Override
-    public String getOutput() {
-        return am.getOutput(os);
+    public AnimateArrayList(String method, String type, Pane canvasPane) {
+        super(Collections.ARRAY_LIST, method, type, canvasPane);
     }
 }
