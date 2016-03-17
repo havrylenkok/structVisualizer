@@ -34,4 +34,5 @@ package structvisualizer;
 public interface Types {
     final String INT = "Integer";
     final String STRING = "String";
+    final String CUSTOR = "Your Object";
 }
