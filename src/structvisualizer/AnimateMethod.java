@@ -57,6 +57,7 @@ public class AnimateMethod {
      * @throws UnsupportedOperationException
      */
     void animate(String type) throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation" + type); // TODO: log
         throw new UnsupportedOperationException();
     }
 
@@ -68,6 +69,7 @@ public class AnimateMethod {
      * @throws UnsupportedOperationException
      */
     String getCode(OutputStrings os) throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation" + type); // TODO: log
         throw new UnsupportedOperationException();
     }
 
@@ -79,6 +81,7 @@ public class AnimateMethod {
      * @throws UnsupportedOperationException
      */
     String getOutput(OutputStrings os) throws UnsupportedOperationException {
+        System.err.println("UnsupportedOperation" + type); // TODO: log
         throw new UnsupportedOperationException();
     }
 }

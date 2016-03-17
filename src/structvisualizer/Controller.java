@@ -70,6 +70,8 @@ public class Controller implements Initializable {
                 .getSelectedItem() != null && typeBox.getSelectionModel().getSelectedItem() != null) {
 
             canvasPane.getChildren().clear();
+            output.clear();
+            codeOutput.clear();
 
             String collection = collectionBox.getValue().toString();
             String method = methodBox.getValue().toString();
