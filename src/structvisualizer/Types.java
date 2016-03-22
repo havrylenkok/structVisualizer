@@ -9,5 +9,8 @@ package structvisualizer;
 public interface Types {
     final String INT = "Integer";
     final String STRING = "String";
-    final String CUSTOR = "Your Object";
+    final String SOME_CLASS = "SomeClass";
+    final String CUSTOM = "Custom class";
+    final String CHAR = "Char";
+    final String DOUBLE = "Double";
 }

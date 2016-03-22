@@ -5,6 +5,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import parser.SomeClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,8 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      * @param type
      * @see structvisualizer.AnimateMethod
      */
-    AnimateMethodConstructArrayList(Pane canvasPane, String type) {
-        super(canvasPane, type);
+    AnimateMethodConstructArrayList(Pane canvasPane, String type, SomeClass obj) {
+        super(canvasPane, type, obj);
     }
 
     /**
@@ -64,6 +65,7 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         ArrayList<StackPane> rectangles = createArrayList(type);
 
         canvasPane.getChildren().addAll(rectangles);
+        AnimateMethod.setTooltip(rectangles, type, customClass);
     }
 
     /**

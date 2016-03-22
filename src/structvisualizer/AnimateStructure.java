@@ -1,6 +1,7 @@
 package structvisualizer;
 
 import javafx.scene.layout.Pane;
+import parser.SomeClass;
 
 import java.util.Collection;
 
@@ -22,9 +23,9 @@ public class AnimateStructure {
      * @param type typeName
      * @param canvasPane Pane where to draw
      */
-    public AnimateStructure(String collection, String method, String type, Pane canvasPane) {
+    public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj) {
         collectionType = collection;
-        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type);
+        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type, obj);
         os = new OutputStrings(collectionType, method, type);
     }
 

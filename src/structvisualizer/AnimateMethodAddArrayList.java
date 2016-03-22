@@ -2,12 +2,17 @@ package structvisualizer;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import parser.SomeClass;
 
 import java.util.ArrayList;
 
@@ -24,8 +29,8 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
      * @param type
      * @see structvisualizer.AnimateMethod
      */
-    AnimateMethodAddArrayList(Pane canvasPane, String type) {
-        super(canvasPane, type);
+    AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {
+        super(canvasPane, type, obj);
 
     }
 
@@ -40,6 +45,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         StackPane stack = new StackPane();
         stack.setLayoutX(data.getStackPaneSize());
         stack.setLayoutY(data.getStackPaneSize());
+
         rectangles.add(data.getNumOfStackPanes(), stack);
         Rectangle r = new Rectangle();
         r.setWidth(data.getWidth());
@@ -67,6 +73,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         rectangles = addToArrayList(rectangles, type);
 
         canvasPane.getChildren().addAll(rectangles);
+        AnimateMethod.setTooltip(rectangles, type, customClass);
 
         FadeTransition ft = new FadeTransition(Duration.millis(data.getTimeFade()), rectangles.get(data.getNumOfStackPanes()));
         ft.setFromValue(data.getTransitionInvisible());

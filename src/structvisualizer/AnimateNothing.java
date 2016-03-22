@@ -1,6 +1,7 @@
 package structvisualizer;
 
 import javafx.scene.layout.Pane;
+import parser.SomeClass;
 
 /**
  * method with nothing to draw for unsupported collection or set
@@ -10,8 +11,8 @@ import javafx.scene.layout.Pane;
  */
 public class AnimateNothing extends AnimateStructure {
 
-    public AnimateNothing(String method, String type, Pane canvasPane) {
-        super(Collections.ARRAY_LIST, method, type, canvasPane);
+    public AnimateNothing(String method, String type, Pane canvasPane, SomeClass obj) {
+        super(Collections.ARRAY_LIST, method, type, canvasPane, obj);
     }
 
     /**

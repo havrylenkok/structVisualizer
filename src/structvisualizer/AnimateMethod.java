@@ -1,6 +1,11 @@
 package structvisualizer;
 
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import parser.SomeClass;
+
+import java.util.ArrayList;
 
 /**
  * Parent class for concrete animation classes
@@ -11,6 +16,7 @@ import javafx.scene.layout.Pane;
 public class AnimateMethod {
     Pane canvasPane;
     String type;
+    SomeClass customClass = null;
     static DataForMethodAnimate data;
 
     /**
@@ -19,9 +25,10 @@ public class AnimateMethod {
      * @param canvasPane
      * @param type       string with name of type
      */
-    AnimateMethod(Pane canvasPane, String type) {
+    AnimateMethod(Pane canvasPane, String type, SomeClass obj) {
         this.canvasPane = canvasPane;
         this.type = type;
+        this.customClass = obj;
         this.data = new DataForMethodAnimate();
     }
 
@@ -33,6 +40,14 @@ public class AnimateMethod {
      */
     void animate(String type) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
+    }
+
+    public static void setTooltip(ArrayList<StackPane> where, String type, SomeClass obj) {
+        int i = 0;
+        for(StackPane s : where) {
+            Tooltip.install(s, new Tooltip(TooltipValueFactory.get(type, i, obj)));
+            i++;
+        }
     }
 
     /**

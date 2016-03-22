@@ -73,7 +73,9 @@ public class ListValuesFactory {
     );
     private static final ObservableList<String> types = FXCollections.observableArrayList(
             Types.INT,
-            Types.STRING
+            Types.STRING,
+            Types.SOME_CLASS,
+            Types.CUSTOM
     );
 
     /**

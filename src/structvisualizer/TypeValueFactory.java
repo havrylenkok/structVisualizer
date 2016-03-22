@@ -12,15 +12,15 @@ public class TypeValueFactory {
 
         switch (type) {
             case Types.INT:
-                int intRes = 0;
-                for (; intRes < iteration; intRes++) ;
-                return "" + intRes;
+                return "" + iteration;
             case Types.STRING:
-                char strRes = 'a';
-                for (int i = 0; i < iteration; i++) {
-                    strRes++;
-                }
-                return "" + strRes;
+                return TooltipValueFactory.getStringValue(iteration);
+            case Types.SOME_CLASS:
+                StringBuilder scRes = new StringBuilder("obj").append(iteration);
+                return scRes.toString();
+            case Types.CUSTOM:
+                StringBuilder cRes = new StringBuilder("obj").append(iteration);
+                return cRes.toString();
             default:
                 return "";
         }

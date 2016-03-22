@@ -5,11 +5,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import parser.SomeClass;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,13 +35,18 @@ public class Controller implements Initializable {
     MenuItem menuItemClose;
     @FXML
     MenuItem menuItemAbout;
+    SomeClass customClass = null;
 
     private boolean checkIfComboxesIsNotNull() {
 
         if (collectionBox.getSelectionModel().getSelectedItem() != null && methodBox.getSelectionModel()
-                .getSelectedItem() != null && typeBox.getSelectionModel().getSelectedItem() != null) {
+                .getSelectedItem() != null && checkIfTypeNotNull()) {
             return true;
         } else return false;
+    }
+
+    private boolean checkIfTypeNotNull() {
+        return typeBox.getSelectionModel().getSelectedItem() != null;
     }
 
     @FXML
@@ -56,7 +59,7 @@ public class Controller implements Initializable {
             String method = methodBox.getValue().toString();
             String type = typeBox.getValue().toString();
 
-            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane, customClass);
             animationStruct.animate(type);
         } else {
             ErrorWindow.display("You should pick collection, method and type before animating!");
@@ -95,12 +98,19 @@ public class Controller implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 output.clear();
                 codeOutput.clear();
+                customClass = null;
+
+                if(checkIfTypeNotNull() && typeBox.getValue().toString() == Types.CUSTOM ) {
+                    customClass = Main.showCustomClassDialog();
+                }
+
                 if(checkIfComboxesIsNotNull()) {
                     String collection = collectionBox.getValue().toString();
                     String method = methodBox.getValue().toString();
                     String type = typeBox.getValue().toString();
 
-                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
+                                                                                   canvasPane, customClass);
                     setCodeOutput(animationStruct.getCode());
                     setOutput(animationStruct.getOutput());
                 }
@@ -117,7 +127,8 @@ public class Controller implements Initializable {
                     String method = methodBox.getValue().toString();
                     String type = typeBox.getValue().toString();
 
-                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane);
+                    AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
+                                                                                   canvasPane, customClass);
                     setCodeOutput(animationStruct.getCode());
                     setOutput(animationStruct.getOutput());
                 }

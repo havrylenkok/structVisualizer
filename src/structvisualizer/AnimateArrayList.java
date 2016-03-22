@@ -1,6 +1,7 @@
 package structvisualizer;
 
 import javafx.scene.layout.Pane;
+import parser.SomeClass;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class AnimateArrayList extends AnimateStructure {
      * @param type
      * @param canvasPane
      */
-    public AnimateArrayList(String method, String type, Pane canvasPane) {
-        super(Collections.ARRAY_LIST, method, type, canvasPane);
+    public AnimateArrayList(String method, String type, Pane canvasPane, SomeClass obj) {
+        super(Collections.ARRAY_LIST, method, type, canvasPane, obj);
     }
 }
