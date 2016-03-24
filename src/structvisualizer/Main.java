@@ -60,6 +60,10 @@ public class Main extends Application {
         }
     }
 
+    public static String showInput() {
+        return InputWindow.display();
+    }
+
     public static SomeClass showCustomClassDialog() {
        return InputClassWindow.display();
     }

@@ -25,6 +25,10 @@ public class SomeClass {
     Character[] charFields;
 
     public SomeClass(int ints, int doubles, int strings, int chars) {
+        this(ints, doubles, strings, chars, "a");
+    }
+
+    public SomeClass(int ints, int doubles, int strings, int chars, String inp) {
         if(ints > 0) {
             intFields = new Integer[ints];
             for(int i = 0; i < intFields.length; i++) {
@@ -39,11 +43,12 @@ public class SomeClass {
         }
         if(strings > 0) {
             stringFields = new String[strings];
-            Arrays.fill(stringFields, "a");
-            String str = "a";
+            Arrays.fill(stringFields, inp);
+            int str = 1;
             for(int i = 0; i < stringFields.length; i++) {
                 for(int j = 0; j < i; j++) {
                     stringFields[i] += str;
+                    str++;
                 }
             }
 
@@ -57,6 +62,10 @@ public class SomeClass {
             }
         }
     }
+
+//    public SomeClass(SomeClass obj, String inp) {
+//        this(obj.intFields.length, obj.doubleFields.length, obj.stringFields.length, obj.charFields.length, inp);
+//    }
 
     private SomeClass(SomeClass obj, int iteration) {
         this.intFields = obj.intFields;

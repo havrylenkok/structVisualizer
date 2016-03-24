@@ -11,8 +11,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
 import javafx.geometry.*;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
@@ -35,17 +37,20 @@ import java.util.HashMap;
  */
 public class InputClassWindow {
     static boolean answer;
+    static SomeClass sc = null;
 
 
     public static SomeClass display() {
+        String[] userInput = new String[1];
+        userInput[0] = "";
         Stage window = new Stage(); // пустое окно (stage)
         String[] types = { "int", "double", "String", "char" };
         ObservableList<Integer> values = FXCollections.observableArrayList(0, 1, 2, 3, 4, 5);
 
         window.initModality(Modality.APPLICATION_MODAL); // make stage modal (нельзя переключить обратно, не закрыв это)
         window.setTitle("Custom class constructor");
-        window.setMinWidth(400);
-        window.setMaxWidth(400);
+        window.setMinWidth(420);
+        window.setMaxWidth(420);
         window.setMaxHeight(250);
         window.setMinHeight(250);
 
@@ -67,7 +72,21 @@ public class InputClassWindow {
             labels.put(types[i], l);
         }
         for(int i = 0; i < types.length; i++) {
-            comboContainer.getChildren().addAll(labels.get(types[i]), comboboxes.get(types[i]));
+            if(types[i] == Types.STRING) {
+                HBox containerInputString = new HBox();
+                containerInputString.setSpacing(10);
+                Button inputString = new Button("Create a custom String");
+                inputString.setMinWidth(170);
+                inputString.setOnAction(event -> {
+                    event.consume();
+                    userInput[0] = Main.showInput();
+                });
+                comboboxes.get((types[i])).getSelectionModel().select(values.get(0));
+                containerInputString.getChildren().addAll(comboboxes.get(types[i]), inputString);
+                comboContainer.getChildren().addAll(labels.get(types[i]), containerInputString);
+            } else {
+                comboContainer.getChildren().addAll(labels.get(types[i]), comboboxes.get(types[i]));
+            }
         }
 
         codeContainer.getChildren().addAll(comboContainer);
@@ -81,6 +100,17 @@ public class InputClassWindow {
         setCustomClass.setMinWidth(150);
         setCustomClass.setOnAction(event -> {
             event.consume();
+            sc = new SomeClass(Integer.parseInt(comboboxes.get(types[0]).getValue().toString()),
+                               Integer.parseInt(comboboxes.get(types[1]).getValue().toString()),
+                               Integer.parseInt(comboboxes.get(types[2]).getValue().toString()),
+                               Integer.parseInt(comboboxes.get(types[3]).getValue().toString()));
+            if(!userInput[0].isEmpty()) {
+                sc = new SomeClass(Integer.parseInt(comboboxes.get(types[0]).getValue().toString()),
+                                   Integer.parseInt(comboboxes.get(types[1]).getValue().toString()),
+                                   Integer.parseInt(comboboxes.get(types[2]).getValue().toString()),
+                                   Integer.parseInt(comboboxes.get(types[3]).getValue().toString()),
+                                   userInput[0]);
+            }
             window.close();
         });
 
@@ -97,9 +127,7 @@ public class InputClassWindow {
         window.setScene(scene);
         window.showAndWait(); // fn+f1 to see documentation | ждет пока окно закроется прежде чем показывать другу сцену
 
-        return new SomeClass(Integer.parseInt(comboboxes.get(types[0]).getValue().toString()),
-                             Integer.parseInt(comboboxes.get(types[1]).getValue().toString()),
-                             Integer.parseInt(comboboxes.get(types[2]).getValue().toString()),
-                             Integer.parseInt(comboboxes.get(types[3]).getValue().toString()));
+        System.out.println("User input is empty?" + userInput[0].isEmpty()); //// TODO: 3/24/16 log 
+        return sc;
     }
 }
