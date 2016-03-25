@@ -3,6 +3,9 @@ package parser.Tests;
 import org.junit.*;
 import parser.SomeClass;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static org.junit.Assert.assertEquals;
 
  /*
@@ -19,6 +22,7 @@ import static org.junit.Assert.assertEquals;
  * @see
  */
 public class TestSomeClass {
+    private static final Logger logger = Logger.getLogger(TestSomeClass.class.getName());
 
     @Test
     public void incrementDoubleValues() {
@@ -33,7 +37,7 @@ public class TestSomeClass {
         SomeClass sc = new SomeClass(0, 0, 2, 0, inp);
 
         String[] strings = { inp, inp + 1 };
-        System.out.println(sc.stringFields[0] + ", " + sc.stringFields[1]); // // TODO: 3/25/16 log
+        logger.log(Level.FINE, sc.stringFields[0] + ", " + sc.stringFields[1]);
 
         Assert.assertArrayEquals(sc.stringFields, strings);
     }

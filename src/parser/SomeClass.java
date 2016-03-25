@@ -10,6 +10,8 @@ package parser;
 import structvisualizer.data.Types;
 
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <what class do>
@@ -18,6 +20,7 @@ import java.util.Arrays;
  * @see
  */
 public class SomeClass {
+    private static final Logger logger = Logger.getLogger(SomeClass.class.getName());
     public Integer[] intFields;
     public Double[] doubleFields;
     public String[] stringFields;
@@ -25,22 +28,27 @@ public class SomeClass {
 
     public SomeClass(int ints, int doubles, int strings, int chars) {
         this(ints, doubles, strings, chars, "a");
+        logger.log(Level.FINE, "Args:\tint " + ints + " double" + doubles + " String" + strings + " char" + chars);
     }
 
     public SomeClass(int ints, int doubles, int strings, int chars, String inp) {
+        logger.log(Level.FINE, "New SomeClass object");
         if(ints > 0) {
+            logger.log(Level.FINER, "Number of ints in object: " + ints);
             intFields = new Integer[ints];
             for(int i = 0; i < intFields.length; i++) {
                 intFields[i] = i + 1;
             }
         }
         if(doubles > 0) {
+            logger.log(Level.FINER, "Number of doubles in object: " + doubles);
             doubleFields = new Double[doubles];
             for(int i = 0; i < doubleFields.length; i++) {
                 doubleFields[i] = 0.0 + i + 1;
             }
         }
         if(strings > 0) {
+            logger.log(Level.FINER, "Number of strings in object: " + strings);
             stringFields = new String[strings];
             Arrays.fill(stringFields, inp);
             int str = 1;
@@ -50,10 +58,11 @@ public class SomeClass {
                     str++;
                 }
             }
-            System.out.println(stringFields[0] + ", " + stringFields[1]); // // TODO: 3/25/16 log
+            logger.log(Level.FINER, "First strings: " + stringFields[0] + ", " + stringFields[1]);
 
         }
         if(chars > 0) {
+            logger.log(Level.FINER, "Number of chars in object: " + chars);
             charFields = new Character[chars];
             char ch = 'a';
             for(int i = 0; i < charFields.length; i++) {
@@ -64,6 +73,7 @@ public class SomeClass {
     }
 
     private SomeClass(SomeClass obj, int iteration) {
+        logger.log(Level.FINE, "New SomeClass with iteration: " + iteration);
         this.intFields = obj.intFields;
         this.doubleFields = obj.doubleFields;
         this.charFields = obj.charFields;
@@ -96,24 +106,29 @@ public class SomeClass {
     }
 
     public SomeClass(int[] args) {
-            this(args[0], args[1], args[2], args[3]);
+        this(args[0], args[1], args[2], args[3]);
+        logger.log(Level.FINE, "New SomeClass obj via int[] args: " + this);
     }
 
     public String getThisToStringForIteration(int index) {
         SomeClass tmp = new SomeClass(this, index);
+        logger.log(Level.FINE, "Get toString for iteration" + index + "in " + this);
         return tmp.toString();
     }
 
     private String iterateForToString(Object[] arr, String type) {
         StringBuilder sb = new StringBuilder();
+        logger.log(Level.FINE, "Iterating SomeClass strings");
         for(int i = 0; i < arr.length; i++) {
             sb.append("\t").append(type).append(" : ").append(arr[i]).append("\n");
         }
+        logger.log(Level.FINE, "Iterated string: " + sb.toString());
         return sb.toString();
     }
 
     @Override
     public String toString() {
+        logger.log(Level.FINE, "Called SomeClass toString " + this);
         StringBuilder sb = new StringBuilder();
         if(intFields != null) {
             sb.append("Int fields:\n").append(iterateForToString(intFields, Types.INT));

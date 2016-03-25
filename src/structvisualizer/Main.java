@@ -14,16 +14,24 @@ import structvisualizer.window.ConfirmBoxWindow;
 import structvisualizer.window.InputClassWindow;
 import structvisualizer.window.InputWindow;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Main javafx class
  */
 public class Main extends Application {
+    private static final Handler handler = new ConsoleHandler();
+    private static final Logger logger = Logger.getLogger(SomeClass.class.getName());
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setOnCloseRequest(e -> {
             if (askExit()) {
+                logger.log(Level.INFO, "Closing app");
                 primaryStage.close();
             } else {
                 e.consume();
