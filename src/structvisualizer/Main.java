@@ -23,8 +23,7 @@ import java.util.logging.Logger;
  * Main javafx class
  */
 public class Main extends Application {
-    private static final Handler handler = new ConsoleHandler();
-    private static final Logger logger = Logger.getLogger(SomeClass.class.getName());
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     @Override
     public void start(Stage primaryStage) throws Exception {

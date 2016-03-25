@@ -26,7 +26,7 @@ import java.util.logging.Logger;
  * Controller of javafx app
  */
 public class Controller implements Initializable {
-    private static final Logger logger = Logger.getLogger(SomeClass.class.getName());
+    private static final Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     Button animateButton;
