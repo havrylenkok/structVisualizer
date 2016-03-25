@@ -1,11 +1,7 @@
-package structvisualizer;
+package structvisualizer.animatecollections.animatemethods;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
-import javafx.scene.control.Tooltip;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -13,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
+import structvisualizer.data.OutputStrings;
+import structvisualizer.valuefactories.TypeValueFactory;
 
 import java.util.ArrayList;
 
@@ -20,14 +18,14 @@ import java.util.ArrayList;
  * Animates ArrayList.add() on Pane
  *
  * @author Kyrylo Havrylenko
- * @see structvisualizer.AnimateMethod
+ * @see AnimateMethod
  */
 public class AnimateMethodAddArrayList extends AnimateMethod {
 
     /**
      * @param canvasPane
      * @param type
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
@@ -62,7 +60,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 
     /**
      * @param type string with type of values in ArrayList
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public void animate(String type) {
@@ -90,7 +88,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     /**
      * @param os
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public String getCode(OutputStrings os) {
@@ -120,7 +118,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     /**
      * @param os
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public String getOutput(OutputStrings os) {

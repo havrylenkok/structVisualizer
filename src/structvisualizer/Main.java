@@ -4,13 +4,15 @@ package structvisualizer;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import parser.SomeClass;
+import structvisualizer.window.AboutWindow;
+import structvisualizer.window.ConfirmBoxWindow;
+import structvisualizer.window.InputClassWindow;
+import structvisualizer.window.InputWindow;
 
 /**
  * Main javafx class
@@ -47,7 +49,7 @@ public class Main extends Application {
      * @return true if still wanted, false if dont want
      */
     public static boolean askExit() {
-        return ConfirmBox.display("Confirm exit", "Do you really wan't to exit?");
+        return ConfirmBoxWindow.display("Confirm exit", "Do you really wan't to exit?");
     }
 
     /**

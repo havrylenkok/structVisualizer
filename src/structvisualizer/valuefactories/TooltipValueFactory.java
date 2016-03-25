@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.valuefactories;
 
  /*
  * TooltipValueFactory   3/22/16, 20:52
@@ -8,6 +8,7 @@ package structvisualizer;
  */
 
 import parser.SomeClass;
+import structvisualizer.data.Types;
 
 /**
  * <what class do>

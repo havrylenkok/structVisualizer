@@ -1,4 +1,7 @@
-package structvisualizer;
+package structvisualizer.valuefactories;
+
+import structvisualizer.data.Types;
+import structvisualizer.valuefactories.TooltipValueFactory;
 
 /**
  * Factory for values in output TextArea and in StackPane (animation) which returns value of the right type
@@ -8,7 +11,7 @@ package structvisualizer;
  */
 public class TypeValueFactory {
 
-    static String get(String type, int iteration) {
+    public static String get(String type, int iteration) {
 
         switch (type) {
             case Types.INT:

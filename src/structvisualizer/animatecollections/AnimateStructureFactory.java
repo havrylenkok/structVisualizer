@@ -1,7 +1,11 @@
-package structvisualizer;
+package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
+import structvisualizer.animatecollections.AnimateArrayList;
+import structvisualizer.animatecollections.AnimateNothing;
+import structvisualizer.animatecollections.AnimateStructure;
+import structvisualizer.data.Collections;
 
 /**
  * Factory to pick right AnimateClass for input structure of data type
@@ -16,7 +20,8 @@ public class AnimateStructureFactory {
      * @param structName
      * @return object of right type for input structure of data name
      */
-    static AnimateStructure get(String structName, String methodName, String typeName, Pane canvas, SomeClass obj) {
+    public static AnimateStructure get(String structName, String methodName, String typeName, Pane canvas, SomeClass
+            obj) {
 
         switch (structName) {
             case Collections.ARRAY_LIST:

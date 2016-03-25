@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.data;
 
 /**
  * Magic constants for app

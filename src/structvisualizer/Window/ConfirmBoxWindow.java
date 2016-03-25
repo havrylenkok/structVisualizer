@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.window;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 /**
  * Shows confirmation javafx window when user tries to exit
  */
-public class ConfirmBox {
+public class ConfirmBoxWindow {
 
     static boolean answer;
 

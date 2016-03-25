@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.animatecollections;
 
 /**
  * <what class do>

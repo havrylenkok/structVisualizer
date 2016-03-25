@@ -1,7 +1,9 @@
-package structvisualizer;
+package structvisualizer.animatecollections.animatemethods;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
+import structvisualizer.data.Collections;
+import structvisualizer.data.Methods;
 
 /**
  * Factory of methods which select needed class of <T extends AnimateMethod>
@@ -18,9 +20,9 @@ public class AnimateMethodFactory {
      * @param collectionName
      * @param type           typeName
      * @return object of needed animation class
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
-    static AnimateMethod get(String methodName, Pane canvas, String collectionName, String type, SomeClass obj) {
+    public static AnimateMethod get(String methodName, Pane canvas, String collectionName, String type, SomeClass obj) {
         switch (methodName) {
             case Methods.ADD:
                 switch (collectionName) {

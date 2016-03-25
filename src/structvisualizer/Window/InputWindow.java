@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.window;
 
  /*
  * InputWindow   3/24/16, 21:41
@@ -11,10 +11,7 @@ import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 

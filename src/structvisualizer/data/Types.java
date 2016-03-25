@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.data;
 
 /**
  * Enum inteface for supported types

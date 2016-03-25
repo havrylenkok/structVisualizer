@@ -1,9 +1,12 @@
-package structvisualizer;
+package structvisualizer.animatecollections.animatemethods;
 
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import parser.SomeClass;
+import structvisualizer.data.DataForMethodAnimate;
+import structvisualizer.data.OutputStrings;
+import structvisualizer.valuefactories.TooltipValueFactory;
 
 import java.util.ArrayList;
 
@@ -25,7 +28,7 @@ public class AnimateMethod {
      * @param canvasPane
      * @param type       string with name of type
      */
-    AnimateMethod(Pane canvasPane, String type, SomeClass obj) {
+    public AnimateMethod(Pane canvasPane, String type, SomeClass obj) {
         this.canvasPane = canvasPane;
         this.type = type;
         this.customClass = obj;
@@ -38,7 +41,7 @@ public class AnimateMethod {
      * @param type
      * @throws UnsupportedOperationException
      */
-    void animate(String type) throws UnsupportedOperationException {
+    public void animate(String type) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
@@ -57,7 +60,7 @@ public class AnimateMethod {
      * @return String with code to recreate process in animation
      * @throws UnsupportedOperationException
      */
-    String getCode(OutputStrings os) throws UnsupportedOperationException {
+    public String getCode(OutputStrings os) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 
@@ -68,7 +71,7 @@ public class AnimateMethod {
      * @return string
      * @throws UnsupportedOperationException
      */
-    String getOutput(OutputStrings os) throws UnsupportedOperationException {
+    public String getOutput(OutputStrings os) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 }

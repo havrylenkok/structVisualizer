@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.data;
 
 /**
  * Enum interface with strings for animation API and comboboxes in GUI javafx

@@ -1,17 +1,11 @@
-package structvisualizer;
+package structvisualizer.window;
 
 import javafx.geometry.*;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.awt.Button;
-import java.net.URI;
 
 /**
  * shows user error message

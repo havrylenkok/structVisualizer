@@ -1,4 +1,4 @@
-package structvisualizer;
+package structvisualizer.animatecollections.animatemethods;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -6,22 +6,23 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import parser.SomeClass;
+import structvisualizer.data.OutputStrings;
+import structvisualizer.valuefactories.TypeValueFactory;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Animates constructor of ArrayList with 3 elements
  *
  * @author Kyrylo Havrylenko
- * @see structvisualizer.AnimateMethod
+ * @see AnimateMethod
  */
 public class AnimateMethodConstructArrayList extends AnimateMethod {
 
     /**
      * @param canvasPane
      * @param type
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     AnimateMethodConstructArrayList(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
@@ -57,10 +58,10 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
 
     /**
      * @param type
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
-    void animate(String type) {
+    public void animate(String type) {
 
         ArrayList<StackPane> rectangles = createArrayList(type);
 
@@ -71,10 +72,10 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
     /**
      * @param os Class with templates of result
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
-    String getCode(OutputStrings os) {
+    public String getCode(OutputStrings os) {
 
         String result = os.getCode() + "\n\t}\n}";
 
@@ -103,10 +104,10 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
     /**
      * @param os Class with templates of result
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
-    String getOutput(OutputStrings os) {
+    public String getOutput(OutputStrings os) {
         return formOutput() + "]";
     }
 }

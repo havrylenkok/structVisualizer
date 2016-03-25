@@ -1,6 +1,6 @@
-package structvisualizer;
+package structvisualizer.data;
 
-import java.util.List;
+import structvisualizer.data.DataForMethodAnimate;
 
 /**
  * Base class to create text for codeOutput and output TextAreas in javafx GUI
@@ -12,7 +12,7 @@ public class OutputStrings {
     private String code;
     private String output;
 
-    OutputStrings(String collectionType, String method, String type) {
+    public OutputStrings(String collectionType, String method, String type) {
         DataForMethodAnimate data = new DataForMethodAnimate();
         StringBuilder codeBuilder = new StringBuilder();
         codeBuilder
@@ -37,7 +37,7 @@ public class OutputStrings {
 
     public String getOutput() {
         return output;
-    }
+    } // // TODO: 3/25/16 update functionality to something meanful 
 
     public void setOutput(String output) {
         this.output = output;

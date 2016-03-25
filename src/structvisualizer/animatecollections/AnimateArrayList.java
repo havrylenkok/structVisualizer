@@ -1,9 +1,8 @@
-package structvisualizer;
+package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
-
-import java.util.ArrayList;
+import structvisualizer.data.Collections;
 
 /**
  * Animates ArrayList
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 public class AnimateArrayList extends AnimateStructure {
 
     /**
-     * @see structvisualizer.AnimateStructure
+     * @see AnimateStructure
      * @param method
      * @param type
      * @param canvasPane

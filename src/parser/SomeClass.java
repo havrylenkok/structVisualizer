@@ -7,8 +7,7 @@ package parser;
  *
  */
 
-import structvisualizer.Types;
-import sun.jvm.hotspot.oops.IntField;
+import structvisualizer.data.Types;
 
 import java.util.Arrays;
 

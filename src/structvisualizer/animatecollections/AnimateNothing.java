@@ -1,13 +1,14 @@
-package structvisualizer;
+package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
+import structvisualizer.data.Collections;
 
 /**
  * method with nothing to draw for unsupported collection or set
  *
  * @author Kyrylo Havrylenko
- * @see structvisualizer.AnimateStructure
+ * @see AnimateStructure
  */
 public class AnimateNothing extends AnimateStructure {
 
@@ -20,7 +21,7 @@ public class AnimateNothing extends AnimateStructure {
      * @param type
      * @param canvasPane
      * @throws UnsupportedOperationException
-     * @see structvisualizer.AnimateStructure
+     * @see AnimateStructure
      */
     @Override
     public void animate(String type) throws UnsupportedOperationException {
@@ -31,7 +32,7 @@ public class AnimateNothing extends AnimateStructure {
     /**
      * @return
      * @throws UnsupportedOperationException
-     * @see structvisualizer.AnimateStructure
+     * @see AnimateStructure
      */
     @Override
     public String getCode() throws UnsupportedOperationException {
@@ -42,7 +43,7 @@ public class AnimateNothing extends AnimateStructure {
     /**
      * @return
      * @throws UnsupportedOperationException
-     * @see structvisualizer.AnimateStructure
+     * @see AnimateStructure
      */
     @Override
     public String getOutput() throws UnsupportedOperationException {

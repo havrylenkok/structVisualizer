@@ -1,9 +1,10 @@
-package structvisualizer;
+package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
-
-import java.util.Collection;
+import structvisualizer.data.OutputStrings;
+import structvisualizer.animatecollections.animatemethods.AnimateMethod;
+import structvisualizer.animatecollections.animatemethods.AnimateMethodFactory;
 
 /**
  * Interface for classes to draw COLLECTION's methods
@@ -35,7 +36,7 @@ public class AnimateStructure {
      *
      * @param type       typeName
      */
-    void animate(String type) {
+    public void animate(String type) {
         am.animate(type);
     }
 
@@ -44,7 +45,7 @@ public class AnimateStructure {
      *
      * @return Strng
      */
-    String getCode() {
+    public String getCode() {
         return am.getCode(os);
     }
 
@@ -53,7 +54,7 @@ public class AnimateStructure {
      *
      * @return String
      */
-    String getOutput() {
+    public String getOutput() {
         return am.getOutput(os);
     }
 }

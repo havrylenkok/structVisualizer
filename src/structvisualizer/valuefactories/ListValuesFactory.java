@@ -1,11 +1,10 @@
-package structvisualizer;
+package structvisualizer.valuefactories;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-
-import java.util.*;
+import structvisualizer.data.Collections;
+import structvisualizer.data.Methods;
+import structvisualizer.data.Types;
 
 
 /**
