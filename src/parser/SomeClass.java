@@ -18,10 +18,10 @@ import java.util.Arrays;
  * @see
  */
 public class SomeClass {
-    Integer[] intFields;
-    Double[] doubleFields;
-    String[] stringFields;
-    Character[] charFields;
+    public Integer[] intFields;
+    public Double[] doubleFields;
+    public String[] stringFields;
+    public Character[] charFields;
 
     public SomeClass(int ints, int doubles, int strings, int chars) {
         this(ints, doubles, strings, chars, "a");
@@ -31,13 +31,13 @@ public class SomeClass {
         if(ints > 0) {
             intFields = new Integer[ints];
             for(int i = 0; i < intFields.length; i++) {
-                intFields[i] = i;
+                intFields[i] = i + 1;
             }
         }
         if(doubles > 0) {
             doubleFields = new Double[doubles];
             for(int i = 0; i < doubleFields.length; i++) {
-                doubleFields[i] = 0.0 + i;
+                doubleFields[i] = 0.0 + i + 1;
             }
         }
         if(strings > 0) {
@@ -50,6 +50,7 @@ public class SomeClass {
                     str++;
                 }
             }
+            System.out.println(stringFields[0] + ", " + stringFields[1]); // // TODO: 3/25/16 log
 
         }
         if(chars > 0) {
@@ -61,10 +62,6 @@ public class SomeClass {
             }
         }
     }
-
-//    public SomeClass(SomeClass obj, String inp) {
-//        this(obj.intFields.length, obj.doubleFields.length, obj.stringFields.length, obj.charFields.length, inp);
-//    }
 
     private SomeClass(SomeClass obj, int iteration) {
         this.intFields = obj.intFields;
@@ -102,7 +99,7 @@ public class SomeClass {
             this(args[0], args[1], args[2], args[3]);
     }
 
-    public String getOneInstanceString(int index) {
+    public String getThisToStringForIteration(int index) {
         SomeClass tmp = new SomeClass(this, index);
         return tmp.toString();
     }

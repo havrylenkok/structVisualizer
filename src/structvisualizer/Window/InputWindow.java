@@ -34,6 +34,7 @@ public class InputWindow {
         window.setMaxHeight(200);
 
         VBox container = new VBox();
+        container.setSpacing(10);
 
         TextField input = new TextField();
         input.setPromptText("Please write your preferable input according to the type here.");

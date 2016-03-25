@@ -23,6 +23,7 @@ public class TooltipValueFactory {
             strRes++;
         }
         StringBuilder sb = new StringBuilder(strRes);
+        sb.append(strRes);
         for(int i = 0; i < iteration; i++) {
             sb.append(strRes);
         }
@@ -36,10 +37,10 @@ public class TooltipValueFactory {
             case Types.STRING:
                 return getStringValue(iteration);
             case Types.CUSTOM:
-                return obj.getOneInstanceString(iteration);
+                return obj.getThisToStringForIteration(iteration);
             case Types.SOME_CLASS:
-                obj = new SomeClass(1, 2, 3, 4);
-                return obj.getOneInstanceString(iteration);
+                obj = new SomeClass(3, 3, 3, 3);
+                return obj.getThisToStringForIteration(iteration);
             default:
                 return "";
         }
