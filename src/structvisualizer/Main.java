@@ -1,50 +1,36 @@
 package structvisualizer;
 
-/*
- * Main   3/13/16, 20:48
- *
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Kyrylo Havrylenko
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+import parser.SomeClass;
+import structvisualizer.window.AboutWindow;
+import structvisualizer.window.ConfirmBoxWindow;
+import structvisualizer.window.InputClassWindow;
+import structvisualizer.window.InputWindow;
+
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Main javafx class
  */
 public class Main extends Application {
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setOnCloseRequest(e -> {
             if (askExit()) {
+                logger.log(Level.INFO, "Closing app");
                 primaryStage.close();
             } else {
                 e.consume();
@@ -70,7 +56,7 @@ public class Main extends Application {
      * @return true if still wanted, false if dont want
      */
     public static boolean askExit() {
-        return ConfirmBox.display("Confirm exit", "Do you really wan't to exit?");
+        return ConfirmBoxWindow.display("Confirm exit", "Do you really wan't to exit?");
     }
 
     /**
@@ -81,5 +67,13 @@ public class Main extends Application {
             Platform.exit();
             System.exit(0);
         }
+    }
+
+    public static String showInput() {
+        return InputWindow.display();
+    }
+
+    public static SomeClass showCustomClassDialog() {
+       return InputClassWindow.display();
     }
 }

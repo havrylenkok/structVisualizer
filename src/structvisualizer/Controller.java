@@ -1,31 +1,5 @@
 package structvisualizer;
 
-/*
- * Controller   3/13/16, 20:48
- *
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Kyrylo Havrylenko
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -35,15 +9,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Pane;
+import parser.SomeClass;
+import structvisualizer.animatecollections.AnimateStructure;
+import structvisualizer.animatecollections.AnimateStructureFactory;
+import structvisualizer.data.Types;
+import structvisualizer.valuefactories.ListValuesFactory;
+import structvisualizer.window.ErrorWindow;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Controller of javafx app
  */
 public class Controller implements Initializable {
+    private static final Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     Button animateButton;
@@ -63,23 +46,42 @@ public class Controller implements Initializable {
     MenuItem menuItemClose;
     @FXML
     MenuItem menuItemAbout;
+    SomeClass customClass = null;
+
+    private boolean checkIfComboxesIsNotNull() {
+        logger.log(Level.FINE, "Checking if comboboxes null");
+
+        if(collectionBox.getSelectionModel().getSelectedItem() != null &&
+                methodBox.getSelectionModel().getSelectedItem() != null && checkIfTypeNotNull()) {
+            logger.log(Level.FINE, "Comboboxes is not null");
+            return true;
+        } else {
+            logger.log(Level.FINE, "Comboboxes are null");
+            return false;
+        }
+    }
+
+    private boolean checkIfTypeNotNull() {
+        logger.log(Level.FINE, "Checking if Type combobox !null");
+        return typeBox.getSelectionModel().getSelectedItem() != null;
+    }
 
     @FXML
     private void animate(ActionEvent event) {
-        if (collectionBox.getSelectionModel().getSelectedItem() != null && methodBox.getSelectionModel()
-                .getSelectedItem() != null && typeBox.getSelectionModel().getSelectedItem() != null) {
-
+        if(checkIfComboxesIsNotNull()) {
+            logger.log(Level.FINE, "animating event " + event);
             canvasPane.getChildren().clear();
 
             String collection = collectionBox.getValue().toString();
             String method = methodBox.getValue().toString();
             String type = typeBox.getValue().toString();
 
-            AnimateStructure animationStruct = AnimateStructureFactory.get(collection);
-            animationStruct.animate(method, type, canvasPane);
-            setCodeOutput(animationStruct.getCode());
-            setOutput(animationStruct.getOutput());
+            logger.log(Level.FINER, "Collection " + collection + " method" + method + " type" + type);
+
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane, customClass);
+            animationStruct.animate(type);
         } else {
+            logger.log(Level.FINE, "User didnt picked any combobox and clicked Animate");
             ErrorWindow.display("You should pick collection, method and type before animating!");
         }
 
@@ -87,11 +89,14 @@ public class Controller implements Initializable {
 
     @FXML
     private void setCodeOutput(String text) {
+        logger.log(Level.FINER, "setting Code ouput to " + text);
         codeOutput.setText(text);
     }
 
     @FXML
     private void setOutput(String text) {
+
+        logger.log(Level.FINER, "setting output to " + text);
         output.setText(text);
     }
 
@@ -111,11 +116,57 @@ public class Controller implements Initializable {
         menuItemClose.setOnAction(event -> Main.askExit());
         menuItemAbout.setOnAction(event -> Main.showAbout());
 
-//        canvasPane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY,
-//                BorderWidths.DEFAULT)));
+        typeBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            /**
+             * @param observable
+             * @param oldValue
+             * @param newValue
+             */
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                logger.log(Level.FINE, "Setting code&output on type change");
+                output.clear();
+                codeOutput.clear();
+                customClass = null;
+
+                if(checkIfTypeNotNull() && (typeBox.getValue().toString().equals(Types.CUSTOM))) {
+                    customClass = Main.showCustomClassDialog();
+                }
+
+                setCodeAndOutput();
+            }
+        });
+
+
+        methodBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                logger.log(Level.FINE, "Setting code&output on method change");
+                output.clear();
+                codeOutput.clear();
+                setCodeAndOutput();
+            }
+        });
+
+        //        canvasPane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY,
+        //                BorderWidths.DEFAULT)));
         canvasPane.setStyle("-fx-border-style: solid; -fx-border-color: #C1C1C1");
 
 
+    }
+
+    private void setCodeAndOutput() {
+
+        if(checkIfComboxesIsNotNull()) {
+            String collection = collectionBox.getValue().toString();
+            String method = methodBox.getValue().toString();
+            String type = typeBox.getValue().toString();
+
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
+                                                                           canvasPane, customClass);
+            setCodeOutput(animationStruct.getCode());
+            setOutput(animationStruct.getOutput());
+        }
     }
 
 

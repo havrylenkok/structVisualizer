@@ -1,29 +1,4 @@
-package structvisualizer;
- /*
- * AnimateMethodAddArrayList   3/15/16, 15:43
- *
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Kyrylo Havrylenko
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+package structvisualizer.animatecollections.animatemethods;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -33,6 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import parser.SomeClass;
+import structvisualizer.data.OutputStrings;
+import structvisualizer.valuefactories.TypeValueFactory;
 
 import java.util.ArrayList;
 
@@ -40,17 +18,18 @@ import java.util.ArrayList;
  * Animates ArrayList.add() on Pane
  *
  * @author Kyrylo Havrylenko
- * @see structvisualizer.AnimateMethod
+ * @see AnimateMethod
  */
 public class AnimateMethodAddArrayList extends AnimateMethod {
 
     /**
      * @param canvasPane
      * @param type
-     * @see structvisualizer.AnimateMethod
+     * @param obj
+     * @see AnimateMethod
      */
-    AnimateMethodAddArrayList(Pane canvasPane, String type) {
-        super(canvasPane, type);
+    AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {
+        super(canvasPane, type, obj);
 
     }
 
@@ -65,6 +44,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         StackPane stack = new StackPane();
         stack.setLayoutX(data.getStackPaneSize());
         stack.setLayoutY(data.getStackPaneSize());
+
         rectangles.add(data.getNumOfStackPanes(), stack);
         Rectangle r = new Rectangle();
         r.setWidth(data.getWidth());
@@ -81,7 +61,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
 
     /**
      * @param type string with type of values in ArrayList
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public void animate(String type) {
@@ -92,6 +72,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         rectangles = addToArrayList(rectangles, type);
 
         canvasPane.getChildren().addAll(rectangles);
+        AnimateMethod.setTooltip(rectangles, type, customClass);
 
         FadeTransition ft = new FadeTransition(Duration.millis(data.getTimeFade()), rectangles.get(data.getNumOfStackPanes()));
         ft.setFromValue(data.getTransitionInvisible());
@@ -108,7 +89,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     /**
      * @param os
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public String getCode(OutputStrings os) {
@@ -127,13 +108,10 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
      *
      * @return String
      */
-    public static String formOutput() {
+    public static String formOutput(String origin) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
-            sb.append("valueAtIndex(").append(i).append("), ");
-        }
-        sb.append("valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
+        sb.append(origin)
+                .append(", valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
 
         return sb.toString();
     }
@@ -141,13 +119,13 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     /**
      * @param os
      * @return
-     * @see structvisualizer.AnimateMethod
+     * @see AnimateMethod
      */
     @Override
     public String getOutput(OutputStrings os) {
 
 
-        os.setOutput(formOutput());
+        os.setOutput(formOutput(AnimateMethodConstructArrayList.formOutput()));
 
         return os.getOutput();
     }

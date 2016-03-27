@@ -1,6 +1,5 @@
-package structvisualizer;
- /*
- * AnimateStructure   3/15/16, 15:21
+/*
+ * structVisualizer   3/13/16, 20:48
  *
  * The MIT License (MIT)
  *
@@ -24,38 +23,3 @@ package structvisualizer;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-import javafx.scene.layout.Pane;
-
-import java.util.Collection;
-
-/**
- * Interface for classes to draw COLLECTION's methods
- *
- * @author Kyrylo Havrylenko
- * @see
- */
-public interface AnimateStructure {
-    /**
-     * animate method
-     *
-     * @param method     methodName
-     * @param type       typeName
-     * @param canvasPane Pane where to draw
-     */
-    void animate(String method, String type, Pane canvasPane);
-
-    /**
-     * get code to recreate process in animation
-     *
-     * @return Strng
-     */
-    String getCode();
-
-    /**
-     * get output of {@link AnimateStructure#getCode()} method's execution
-     *
-     * @return String
-     */
-    String getOutput();
-}
