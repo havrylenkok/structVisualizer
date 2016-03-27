@@ -128,7 +128,6 @@ public class SomeClass {
 
     @Override
     public String toString() {
-        logger.log(Level.FINE, "Called SomeClass toString " + this);
         StringBuilder sb = new StringBuilder();
         if(intFields != null) {
             sb.append("Int fields:\n").append(iterateForToString(intFields, Types.INT));
