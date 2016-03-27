@@ -17,6 +17,12 @@ public class ConfirmBoxWindow {
 
     static boolean answer;
 
+    /**
+     * @param title
+     * @param message
+     *
+     * @return
+     */
     public static boolean display(String title, String message) {
         Stage window = new Stage(); // пустое окно (stage)
 

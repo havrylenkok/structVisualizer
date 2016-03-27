@@ -51,7 +51,7 @@ public class Controller implements Initializable {
     private boolean checkIfComboxesIsNotNull() {
         logger.log(Level.FINE, "Checking if comboboxes null");
 
-        if(collectionBox.getSelectionModel().getSelectedItem() != null && 
+        if(collectionBox.getSelectionModel().getSelectedItem() != null &&
                 methodBox.getSelectionModel().getSelectedItem() != null && checkIfTypeNotNull()) {
             logger.log(Level.FINE, "Comboboxes is not null");
             return true;
@@ -69,13 +69,13 @@ public class Controller implements Initializable {
     @FXML
     private void animate(ActionEvent event) {
         if(checkIfComboxesIsNotNull()) {
-            logger.log(Level.FINE, "animating event" + event);
+            logger.log(Level.FINE, "animating event " + event);
             canvasPane.getChildren().clear();
 
             String collection = collectionBox.getValue().toString();
             String method = methodBox.getValue().toString();
             String type = typeBox.getValue().toString();
-            
+
             logger.log(Level.FINER, "Collection " + collection + " method" + method + " type" + type);
 
             AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane, customClass);
@@ -117,6 +117,11 @@ public class Controller implements Initializable {
         menuItemAbout.setOnAction(event -> Main.showAbout());
 
         typeBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            /**
+             * @param observable
+             * @param oldValue
+             * @param newValue
+             */
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on type change");
@@ -124,7 +129,7 @@ public class Controller implements Initializable {
                 codeOutput.clear();
                 customClass = null;
 
-                if(checkIfTypeNotNull() && typeBox.getValue().toString() == Types.CUSTOM) {
+                if(checkIfTypeNotNull() && (typeBox.getValue().toString().equals(Types.CUSTOM))) {
                     customClass = Main.showCustomClassDialog();
                 }
 

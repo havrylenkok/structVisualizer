@@ -26,6 +26,12 @@ public class SomeClass {
     public String[] stringFields;
     public Character[] charFields;
 
+    /**
+     * @param ints
+     * @param doubles
+     * @param strings
+     * @param chars
+     */
     public SomeClass(int ints, int doubles, int strings, int chars) {
         this(ints, doubles, strings, chars, "a");
         logger.log(Level.FINE, "Args:\tint " + ints + " double" + doubles + " String" + strings + " char" + chars);

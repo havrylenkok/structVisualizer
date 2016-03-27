@@ -35,6 +35,9 @@ public class OutputStrings {
         this.code = code;
     }
 
+    /**
+     * @return
+     */
     public String getOutput() {
         return output;
     } // // TODO: 3/25/16 update functionality to something meanful 

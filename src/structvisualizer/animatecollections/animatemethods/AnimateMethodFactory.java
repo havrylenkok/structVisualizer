@@ -19,6 +19,7 @@ public class AnimateMethodFactory {
      * @param canvas         Pane where to draw
      * @param collectionName
      * @param type           typeName
+     * @param obj
      * @return object of needed animation class
      * @see AnimateMethod
      */

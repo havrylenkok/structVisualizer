@@ -27,6 +27,7 @@ public class AnimateMethod {
      *
      * @param canvasPane
      * @param type       string with name of type
+     * @param obj
      */
     public AnimateMethod(Pane canvasPane, String type, SomeClass obj) {
         this.canvasPane = canvasPane;

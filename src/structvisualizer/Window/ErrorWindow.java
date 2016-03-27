@@ -16,6 +16,11 @@ import javafx.stage.Stage;
 public class ErrorWindow {
     static boolean answer;
 
+    /**
+     * @param message
+     *
+     * @return
+     */
     public static boolean display(String message) {
         Stage window = new Stage(); // пустое окно (stage)
 

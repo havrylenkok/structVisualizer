@@ -17,9 +17,15 @@ import structvisualizer.data.Types;
  * @see
  */
 public class TooltipValueFactory {
+    /**
+     * @param iteration
+     *
+     * @return
+     */
     public static String getStringValue(int iteration) {
+
         char strRes = 'a';
-        for (int i = 0; i < iteration; i++) {
+        for(int i = 0; i < iteration; i++) {
             strRes++;
         }
         StringBuilder sb = new StringBuilder(strRes);
@@ -28,6 +34,7 @@ public class TooltipValueFactory {
             sb.append(strRes);
         }
         return sb.toString();
+
     }
 
     public static String get(String type, int iteration, SomeClass obj) {

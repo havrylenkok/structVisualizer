@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 /**
- * <what class do>
+ * Tests for SomeClass
  *
  * @author Kyrylo Havrylenko
  * @see

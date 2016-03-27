@@ -12,10 +12,10 @@ import org.junit.Test;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
 /**
- * <what class do>
+ * Tests for TooltipValueFactory
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see TooltipValueFactory
  */
 public class TooltipValueFactoryTest {
 

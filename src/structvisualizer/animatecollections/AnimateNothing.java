@@ -21,9 +21,7 @@ public class AnimateNothing extends AnimateStructure {
     }
 
     /**
-     * @param method
      * @param type
-     * @param canvasPane
      * @throws UnsupportedOperationException
      * @see AnimateStructure
      */

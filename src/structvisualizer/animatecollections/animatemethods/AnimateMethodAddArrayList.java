@@ -25,6 +25,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
     /**
      * @param canvasPane
      * @param type
+     * @param obj
      * @see AnimateMethod
      */
     AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {

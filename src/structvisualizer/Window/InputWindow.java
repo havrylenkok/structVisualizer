@@ -28,6 +28,9 @@ public class InputWindow {
     private static final Logger logger = Logger.getLogger(InputWindow.class.getName());
     static String answer;
 
+    /**
+     * @return
+     */
     public static String display() {
         Stage window = new Stage(); // пустое окно (stage)
 

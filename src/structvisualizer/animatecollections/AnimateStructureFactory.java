@@ -18,6 +18,10 @@ public class AnimateStructureFactory {
      * getter
      *
      * @param structName
+     * @param methodName
+     * @param typeName
+     * @param canvas
+     * @param obj
      * @return object of right type for input structure of data name
      */
     public static AnimateStructure get(String structName, String methodName, String typeName, Pane canvas, SomeClass

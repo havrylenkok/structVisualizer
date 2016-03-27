@@ -39,6 +39,9 @@ public class InputClassWindow {
     static SomeClass sc = null;
 
 
+    /**
+     * @return
+     */
     public static SomeClass display() {
         String[] userInput = new String[1];
         userInput[0] = "";

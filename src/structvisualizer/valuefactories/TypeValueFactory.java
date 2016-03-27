@@ -11,6 +11,12 @@ import structvisualizer.valuefactories.TooltipValueFactory;
  */
 public class TypeValueFactory {
 
+    /**
+     * @param type
+     * @param iteration
+     *
+     * @return
+     */
     public static String get(String type, int iteration) {
 
         switch (type) {

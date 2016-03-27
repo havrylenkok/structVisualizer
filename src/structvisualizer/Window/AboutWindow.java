@@ -21,6 +21,9 @@ public class AboutWindow {
 
     static boolean answer;
 
+    /**
+     * @return
+     */
     public static boolean display() {
         Stage window = new Stage(); // пустое окно (stage)
 
