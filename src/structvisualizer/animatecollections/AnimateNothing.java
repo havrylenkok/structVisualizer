@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 import parser.SomeClass;
 import structvisualizer.data.Collections;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * method with nothing to draw for unsupported collection or set
  *
@@ -11,6 +14,7 @@ import structvisualizer.data.Collections;
  * @see AnimateStructure
  */
 public class AnimateNothing extends AnimateStructure {
+    private static final Logger logger = Logger.getLogger(AnimateNothing.class.getName());
 
     public AnimateNothing(String method, String type, Pane canvasPane, SomeClass obj) {
         super(Collections.ARRAY_LIST, method, type, canvasPane, obj);
@@ -25,7 +29,7 @@ public class AnimateNothing extends AnimateStructure {
      */
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        System.err.println("UnsupportedOperation animate(" + type + ") -> AnimateNothig.java(51)"); // TODO: log
+        logger.log(Level.INFO, "UnsupportedOperation animate(" + type + ")");
         throw new UnsupportedOperationException();
     }
 
@@ -36,7 +40,7 @@ public class AnimateNothing extends AnimateStructure {
      */
     @Override
     public String getCode() throws UnsupportedOperationException {
-        System.err.println("UnsupportedOperation on getCode(AnimateNothing->57)"); // TODO: log
+        logger.log(Level.INFO, "UnsupportedOperation on getCode()");
         throw new UnsupportedOperationException();
     }
 
@@ -47,7 +51,7 @@ public class AnimateNothing extends AnimateStructure {
      */
     @Override
     public String getOutput() throws UnsupportedOperationException {
-        System.err.println("UnsupportedOperation on getOutput(AnimateNothing->68)"); // TODO: log
+        logger.log(Level.INFO, "UnsupportedOperation on getOutput(AnimateNothing->68)");
         throw new UnsupportedOperationException();
     }
 }

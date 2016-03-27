@@ -15,6 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * <what class do>
  *
@@ -22,6 +25,7 @@ import javafx.stage.Stage;
  * @see
  */
 public class InputWindow {
+    private static final Logger logger = Logger.getLogger(InputWindow.class.getName());
     static String answer;
 
     public static String display() {
@@ -59,7 +63,7 @@ public class InputWindow {
         window.setScene(scene);
         window.showAndWait(); // fn+f1 to see documentation | ждет пока окно закроется прежде чем показывать другу сцену
 
-        System.out.println("User input" + input.getText()); //// TODO: 3/24/16 log
+        logger.log(Level.FINE, "User input" + input.getText());
         return input.getText();
     }
 }

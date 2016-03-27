@@ -24,6 +24,8 @@ import structvisualizer.Main;
 import structvisualizer.data.Types;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <what class do>
@@ -32,6 +34,7 @@ import java.util.HashMap;
  * @see
  */
 public class InputClassWindow {
+    private static final Logger logger = Logger.getLogger(InputClassWindow.class.getName());
     static boolean answer;
     static SomeClass sc = null;
 
@@ -123,7 +126,7 @@ public class InputClassWindow {
         window.setScene(scene);
         window.showAndWait(); // fn+f1 to see documentation | ждет пока окно закроется прежде чем показывать другу сцену
 
-        System.out.println("User input is empty?" + userInput[0].isEmpty()); //// TODO: 3/24/16 log 
+        logger.log(Level.FINE, "User input is empty?" + userInput[0].isEmpty());
         return sc;
     }
 }
