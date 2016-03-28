@@ -17,10 +17,10 @@ import java.util.ArrayList;
  * @see
  */
 public class AnimateMethod {
-    Pane canvasPane;
-    String type;
-    SomeClass customClass = null;
-    static DataForMethodAnimate data;
+    public Pane canvasPane;
+    public String type;
+    public SomeClass customClass = null;
+    public static DataForMethodAnimate data;
 
     /**
      * Constructor
@@ -65,14 +65,5 @@ public class AnimateMethod {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * Forms string with supposed output of getCode()
-     *
-     * @param os Class with templates of result
-     * @return string
-     * @throws UnsupportedOperationException
-     */
-    public String getOutput(OutputStrings os) throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
-    }
+
 }

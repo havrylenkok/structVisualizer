@@ -1,4 +1,4 @@
-package structvisualizer.animatecollections.animatemethods;
+package structvisualizer.animatecollections.animatemethods.arraylist;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -9,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
+import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.valuefactories.TypeValueFactory;
 
@@ -28,7 +29,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
      * @param obj
      * @see AnimateMethod
      */
-    AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {
+    public AnimateMethodAddArrayList(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
 
     }
@@ -40,7 +41,7 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
      * @param type       Type of values in ArrayList
      * @return ArrayList<StackPane>
      */
-    static ArrayList<StackPane> addToArrayList(ArrayList<StackPane> rectangles, String type) {
+    public static ArrayList<StackPane> addToArrayList(ArrayList<StackPane> rectangles, String type) {
         StackPane stack = new StackPane();
         stack.setLayoutX(data.getStackPaneSize());
         stack.setLayoutY(data.getStackPaneSize());
@@ -103,30 +104,4 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         return os.getCode();
     }
 
-    /**
-     * static method to form string with output
-     *
-     * @return String
-     */
-    public static String formOutput(String origin) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(origin)
-                .append(", valueAtIndex(").append(data.getNumOfStackPanes()).append(") ").append(" ]");
-
-        return sb.toString();
-    }
-
-    /**
-     * @param os
-     * @return
-     * @see AnimateMethod
-     */
-    @Override
-    public String getOutput(OutputStrings os) {
-
-
-        os.setOutput(formOutput(AnimateMethodConstructArrayList.formOutput()));
-
-        return os.getOutput();
-    }
 }

@@ -15,6 +15,15 @@ public class DataForMethodAnimate {
     private float transitionVisible = 1.0f;
     private int timeFade = 1000;
     private int timeTranslate = 3000;
+    private int fade = 2000;
+
+    public int getFade() {
+        return fade;
+    }
+
+    public void setFade(int fade) {
+        this.fade = fade;
+    }
 
     public int getNumOfStackPanes() {
         return numOfStackPanes;

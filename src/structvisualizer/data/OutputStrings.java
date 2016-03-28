@@ -10,7 +10,6 @@ import structvisualizer.data.DataForMethodAnimate;
  */
 public class OutputStrings {
     private String code;
-    private String output;
 
     public OutputStrings(String collectionType, String method, String type) {
         DataForMethodAnimate data = new DataForMethodAnimate();
@@ -24,7 +23,7 @@ public class OutputStrings {
                 .append("for(int i = 0; i < ").append(data.getNumOfStackPanes()).append("; i++) {\n\t\t\t")
                 .append("tmp.add(i, i);\n\t\t}\n\t\t");
         code = codeBuilder.toString();
-        output = "";
+
     }
 
     public String getCode() {
@@ -35,14 +34,5 @@ public class OutputStrings {
         this.code = code;
     }
 
-    /**
-     * @return
-     */
-    public String getOutput() {
-        return output;
-    } // // TODO: 3/25/16 update functionality to something meanful 
 
-    public void setOutput(String output) {
-        this.output = output;
-    }
 }

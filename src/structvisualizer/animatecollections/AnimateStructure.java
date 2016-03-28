@@ -19,9 +19,10 @@ public class AnimateStructure {
 
     /**
      * Constructor
+     *
      * @param collection collectionName
-     * @param method methodName
-     * @param type typeName
+     * @param method     methodName
+     * @param type       typeName
      * @param canvasPane Pane where to draw
      */
     public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj) {
@@ -34,7 +35,7 @@ public class AnimateStructure {
     /**
      * animate method
      *
-     * @param type       typeName
+     * @param type typeName
      */
     public void animate(String type) {
         am.animate(type);
@@ -49,12 +50,4 @@ public class AnimateStructure {
         return am.getCode(os);
     }
 
-    /**
-     * get output of {@link AnimateStructure#getCode()} method's execution
-     *
-     * @return String
-     */
-    public String getOutput() {
-        return am.getOutput(os);
-    }
 }

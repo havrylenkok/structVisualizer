@@ -1,4 +1,4 @@
-package structvisualizer.animatecollections.animatemethods;
+package structvisualizer.animatecollections.animatemethods.arraylist;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import parser.SomeClass;
+import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.valuefactories.TypeValueFactory;
 
@@ -25,7 +26,7 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      * @param obj
      * @see AnimateMethod
      */
-    AnimateMethodConstructArrayList(Pane canvasPane, String type, SomeClass obj) {
+    public AnimateMethodConstructArrayList(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
     }
 
@@ -83,32 +84,7 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         return result;
     }
 
-    /**
-     * static method to form string with output
-     *
-     * @return String
-     */
-    public static String formOutput() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
-            if(i < data.getNumOfStackPanes() - 1) {
-                sb.append("valueAtIndex(").append(i).append("), ");
-            } else {
-                sb.append("valueAtIndex(").append(i).append(") ");
-            }
-        }
 
-        return sb.toString();
-    }
 
-    /**
-     * @param os Class with templates of result
-     * @return
-     * @see AnimateMethod
-     */
-    @Override
-    public String getOutput(OutputStrings os) {
-        return formOutput() + "]";
-    }
+
 }

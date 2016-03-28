@@ -41,8 +41,6 @@ public class Controller implements Initializable {
     @FXML
     TextArea codeOutput;
     @FXML
-    TextArea output;
-    @FXML
     MenuItem menuItemClose;
     @FXML
     MenuItem menuItemAbout;
@@ -93,13 +91,6 @@ public class Controller implements Initializable {
         codeOutput.setText(text);
     }
 
-    @FXML
-    private void setOutput(String text) {
-
-        logger.log(Level.FINER, "setting output to " + text);
-        output.setText(text);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -125,7 +116,7 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on type change");
-                output.clear();
+
                 codeOutput.clear();
                 customClass = null;
 
@@ -142,7 +133,7 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on method change");
-                output.clear();
+
                 codeOutput.clear();
                 setCodeAndOutput();
             }
@@ -165,7 +156,6 @@ public class Controller implements Initializable {
             AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
                                                                            canvasPane, customClass);
             setCodeOutput(animationStruct.getCode());
-            setOutput(animationStruct.getOutput());
         }
     }
 

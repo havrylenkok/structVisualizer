@@ -2,6 +2,9 @@ package structvisualizer.animatecollections.animatemethods;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
+import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodAddArrayList;
+import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodClearArrayList;
+import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodConstructArrayList;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
 
@@ -40,6 +43,12 @@ public class AnimateMethodFactory {
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CLEAR:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodClearArrayList(canvas, type, obj);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.CONTAINS:
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
