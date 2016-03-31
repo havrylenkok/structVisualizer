@@ -1,5 +1,7 @@
 package structvisualizer.data;
 
+import javafx.scene.paint.Color;
+
 /**
  * Magic constants for app
  *
@@ -16,6 +18,21 @@ public class DataForMethodAnimate {
     private int timeFade = 1000;
     private int timeTranslate = 3000;
     private int fade = 2000;
+    private Color normalColor = Color.BLACK;
+    private Color hightlightColor = Color.RED;
+    private Color successColor = Color.GREEN;
+
+    public Color getNormalColor() {
+        return normalColor;
+    }
+
+    public Color getHightlightColor() {
+        return hightlightColor;
+    }
+
+    public Color getSuccessColor() {
+        return successColor;
+    }
 
     public int getFade() {
         return fade;
