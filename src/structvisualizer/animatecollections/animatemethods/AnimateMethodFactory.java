@@ -5,8 +5,10 @@ import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodAddArrayList;
 import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodClearArrayList;
 import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodConstructArrayList;
+import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodGetIndexArrayList;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
+import structvisualizer.valuefactories.TypeValueFactory;
 
 /**
  * Factory of methods which select needed class of <T extends AnimateMethod>
@@ -49,6 +51,13 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.GET_INDEX:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodGetIndexArrayList(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.CONTAINS:
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
@@ -57,7 +66,6 @@ public class AnimateMethodFactory {
             case Methods.CLONE:
             case Methods.GET:
             case Methods.SET:
-            case Methods.GET_INDEX:
             case Methods.SORT:
             case Methods.SUBLIST:
             case Methods.PEEK:

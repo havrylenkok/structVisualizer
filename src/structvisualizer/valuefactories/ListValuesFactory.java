@@ -51,8 +51,6 @@ public class ListValuesFactory {
     );
     private static final ObservableList<String> methodsHashMap = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
-            Methods.CLEAR,
-            Methods.CLONE,
             Methods.CONTAINS_KEY,
             Methods.CONTAINS_VALUE,
             Methods.GET,
