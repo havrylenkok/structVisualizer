@@ -2,10 +2,7 @@ package structvisualizer.animatecollections.animatemethods;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
-import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodAddArrayList;
-import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodClearArrayList;
-import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodConstructArrayList;
-import structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodGetIndexArrayList;
+import structvisualizer.animatecollections.animatemethods.arraylist.*;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
 import structvisualizer.valuefactories.TypeValueFactory;
@@ -58,13 +55,25 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.GET:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodGetArrayList(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
+            case Methods.CLONE:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodCloneArrayList(canvas, type, obj);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.CONTAINS:
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.REMOVE:
             case Methods.SIZE:
-            case Methods.CLONE:
-            case Methods.GET:
             case Methods.SET:
             case Methods.SORT:
             case Methods.SUBLIST:

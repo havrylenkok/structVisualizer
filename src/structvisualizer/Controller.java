@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import parser.SomeClass;
 import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.animatecollections.AnimateStructureFactory;
@@ -44,6 +45,8 @@ public class Controller implements Initializable {
     MenuItem menuItemClose;
     @FXML
     MenuItem menuItemAbout;
+    @FXML
+    TextArea resultArea;
     SomeClass customClass = null;
 
     private boolean checkIfComboxesIsNotNull() {
@@ -91,6 +94,12 @@ public class Controller implements Initializable {
         codeOutput.setText(text);
     }
 
+    @FXML
+    private void setResultArea(String text) {
+        logger.log(Level.FINER, "setting resultArea to " + text);
+        resultArea.setText(text);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -118,6 +127,7 @@ public class Controller implements Initializable {
                 logger.log(Level.FINE, "Setting code&output on type change");
 
                 codeOutput.clear();
+                resultArea.clear();
                 customClass = null;
 
                 if(checkIfTypeNotNull() && (typeBox.getValue().toString().equals(Types.CUSTOM))) {
@@ -135,6 +145,7 @@ public class Controller implements Initializable {
                 logger.log(Level.FINE, "Setting code&output on method change");
 
                 codeOutput.clear();
+                resultArea.clear();
                 setCodeAndOutput();
             }
         });
@@ -156,6 +167,7 @@ public class Controller implements Initializable {
             AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
                                                                            canvasPane, customClass);
             setCodeOutput(animationStruct.getCode());
+            setResultArea(animationStruct.getResults());
         }
     }
 

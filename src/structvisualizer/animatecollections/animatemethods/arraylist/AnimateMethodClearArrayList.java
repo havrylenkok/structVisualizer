@@ -69,4 +69,10 @@ public class AnimateMethodClearArrayList extends AnimateMethod {
 
         return result;
     }
+
+    @Override
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
+        results = "Your data structure was cleared";
+        return results;
+    }
 }

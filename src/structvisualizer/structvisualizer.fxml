@@ -51,5 +51,17 @@
             </HBox>
          </children>
       </VBox>
+      <VBox prefHeight="100.0" prefWidth="800.0">
+         <children>
+            <HBox minWidth="800.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="resultArea" minHeight="90.0" minWidth="770.0" promptText="Here go your results" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </VBox>

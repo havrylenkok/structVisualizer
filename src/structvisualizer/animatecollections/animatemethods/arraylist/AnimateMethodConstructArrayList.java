@@ -37,12 +37,20 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      * @return ArrayList<StackPane>
      */
     public static ArrayList<StackPane> createArrayList(String type) {
+        return createArrayList(type, data.getNumOfStackPanes());
+    }
 
+    public static ArrayList<StackPane> createArrayList(String type, int size) {
+        return createArrayList(type, size, data.getWidth(), 0);
+    }
+
+    public static ArrayList<StackPane> createArrayList(String type, int size, int posX, int posY) {
         ArrayList<StackPane> rectangles = new ArrayList<>();
-        for (int i = 0; i < data.getNumOfStackPanes(); i++) {
+        for (int i = 0; i < size; i++) {
             StackPane stack = new StackPane();
             stack.setMinWidth(data.getWidth());
-            stack.setLayoutX(data.getWidth() + i * data.getWidth());
+            stack.setLayoutX(posX + i * data.getWidth());
+            stack.setLayoutY(posY);
             rectangles.add(i, stack);
 
             Rectangle r = new Rectangle();
@@ -84,7 +92,9 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         return result;
     }
 
-
-
-
+    @Override
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
+        results = "Data structure was created";
+        return results;
+    }
 }

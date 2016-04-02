@@ -104,4 +104,9 @@ public class AnimateMethodAddArrayList extends AnimateMethod {
         return os.getCode();
     }
 
+    @Override
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
+        results = "Element was added to your data structure";
+        return results;
+    }
 }

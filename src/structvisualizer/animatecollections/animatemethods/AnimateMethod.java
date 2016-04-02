@@ -21,6 +21,7 @@ public class AnimateMethod {
     public String type;
     public SomeClass customClass = null;
     public static DataForMethodAnimate data;
+    public String results = "";
 
     /**
      * Constructor
@@ -34,6 +35,7 @@ public class AnimateMethod {
         this.type = type;
         this.customClass = obj;
         this.data = new DataForMethodAnimate();
+        this.results = "";
     }
 
     /**
@@ -62,6 +64,10 @@ public class AnimateMethod {
      * @throws UnsupportedOperationException
      */
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException();
+    }
+
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
 

@@ -50,4 +50,8 @@ public class AnimateStructure {
         return am.getCode(os);
     }
 
+    public String getResults() {
+        return am.getResults(os);
+    }
+
 }

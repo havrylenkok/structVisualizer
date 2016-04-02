@@ -39,6 +39,7 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
         super(canvasPane, type, obj);
         this.indexOf = indexOf;
         this.index = index;
+        this.results = "";
     }
 
     public static void highlightNode(Rectangle rectangle, Color colorFrom, Color colorTo) {
@@ -93,6 +94,7 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
         StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
 
         double finalX = 0;
+        if(type == Types.INT) finalX += data.getWidth();
         for(int i = 0; i < data.getNumOfStackPanes(); i++) {
             String text = rectangles.get(i).getChildren().get(1).toString();
             // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
@@ -101,11 +103,6 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
             }
         }
         animateSearch(sp, 0, 0, finalX, 0, canvasPane);
-
-        final Text result = new Text("The index is " + index);
-        result.setLayoutX(data.getWidth() * 4);
-        result.setLayoutY(data.getWidth() * 2);
-        canvasPane.getChildren().addAll(result);
     }
 
     @Override
@@ -113,5 +110,11 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
         String result = os.getCode() + "\n\ttmp.indexOf(" + indexOf +")\n\t}\n}";
 
         return result;
+    }
+
+    @Override
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
+        results = "The index is " + index;
+        return results;
     }
 }

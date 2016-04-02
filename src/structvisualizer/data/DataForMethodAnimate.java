@@ -21,6 +21,11 @@ public class DataForMethodAnimate {
     private Color normalColor = Color.BLACK;
     private Color hightlightColor = Color.RED;
     private Color successColor = Color.GREEN;
+    private int yCoordForClone = 100;
+
+    public int getyCoordForClone() {
+        return yCoordForClone;
+    }
 
     public Color getNormalColor() {
         return normalColor;
