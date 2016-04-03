@@ -10,13 +10,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import parser.SomeClass;
 import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.animatecollections.AnimateStructureFactory;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.ListValuesFactory;
-import structvisualizer.window.ErrorWindow;
+import structvisualizer.win.ErrorWindow;
 
 import java.net.URL;
 import java.util.ResourceBundle;

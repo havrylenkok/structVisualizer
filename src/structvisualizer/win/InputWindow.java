@@ -1,4 +1,4 @@
-package structvisualizer.window;
+package structvisualizer.win;
 
  /*
  * InputWindow   3/24/16, 21:41

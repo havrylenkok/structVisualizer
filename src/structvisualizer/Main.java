@@ -9,13 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import parser.SomeClass;
-import structvisualizer.window.AboutWindow;
-import structvisualizer.window.ConfirmBoxWindow;
-import structvisualizer.window.InputClassWindow;
-import structvisualizer.window.InputWindow;
+import structvisualizer.win.AboutWindow;
+import structvisualizer.win.ConfirmBoxWindow;
+import structvisualizer.win.InputClassWindow;
+import structvisualizer.win.InputWindow;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

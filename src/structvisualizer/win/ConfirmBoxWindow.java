@@ -1,4 +1,4 @@
-package structvisualizer.window;
+package structvisualizer.win;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
