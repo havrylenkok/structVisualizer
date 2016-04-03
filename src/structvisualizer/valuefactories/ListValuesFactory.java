@@ -31,9 +31,7 @@ public class ListValuesFactory {
             Methods.CLEAR,
             Methods.CONTAINS,
             Methods.EQUALS,
-            Methods.IS_EMPTY,
             Methods.REMOVE,
-            Methods.SIZE,
             Methods.CLONE,
             Methods.GET,
             Methods.SET,
@@ -43,7 +41,6 @@ public class ListValuesFactory {
     );
     private static final ObservableList<String> methodsStack = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
-            Methods.IS_EMPTY,
             Methods.PEEK,
             Methods.POP,
             Methods.PUSH,
@@ -54,11 +51,9 @@ public class ListValuesFactory {
             Methods.CONTAINS_KEY,
             Methods.CONTAINS_VALUE,
             Methods.GET,
-            Methods.IS_EMPTY,
             Methods.PUT,
             Methods.REMOVE,
             Methods.REPLACE,
-            Methods.SIZE,
             Methods.VALUES
     );
     private static final ObservableList<String> methodsSet = FXCollections.observableArrayList(
@@ -67,8 +62,6 @@ public class ListValuesFactory {
             Methods.CLEAR,
             Methods.CONTAINS,
             Methods.EQUALS,
-            Methods.IS_EMPTY,
-            Methods.SIZE,
             Methods.REMOVE
     );
     private static final ObservableList<String> types = FXCollections.observableArrayList(
