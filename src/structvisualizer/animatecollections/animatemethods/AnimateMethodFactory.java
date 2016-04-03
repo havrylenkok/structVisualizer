@@ -62,6 +62,13 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.SET:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodSetArrayList(canvas, type, obj, TypeValueFactory.get(type, 6), 2, 6);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.CLONE:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
@@ -74,7 +81,6 @@ public class AnimateMethodFactory {
             case Methods.IS_EMPTY:
             case Methods.REMOVE:
             case Methods.SIZE:
-            case Methods.SET:
             case Methods.SORT:
             case Methods.SUBLIST:
             case Methods.PEEK:

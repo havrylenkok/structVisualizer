@@ -56,6 +56,13 @@ public class AnimateMethod {
         }
     }
 
+    public static void setTooltip(ArrayList<StackPane> where, String value) {
+        int i = 0;
+        for(StackPane s : where) {
+            Tooltip.install(s, new Tooltip(value));
+        }
+    }
+
     /**
      * Forms String with code to recreate process in animation
      *

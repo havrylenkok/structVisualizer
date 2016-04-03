@@ -44,14 +44,18 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
         return createArrayList(type, size, data.getWidth(), 0);
     }
 
-    public static ArrayList<StackPane> createArrayList(String type, int size, int posX, int posY) {
+    public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY) {
+        return createArrayList(type, size, posX, posY, 0);
+    }
+
+    public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int iteration) {
         ArrayList<StackPane> rectangles = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
+        for (; iteration < size; iteration++) {
             StackPane stack = new StackPane();
             stack.setMinWidth(data.getWidth());
-            stack.setLayoutX(posX + i * data.getWidth());
+            stack.setLayoutX(posX + iteration * data.getWidth());
             stack.setLayoutY(posY);
-            rectangles.add(i, stack);
+            rectangles.add(iteration, stack);
 
             Rectangle r = new Rectangle();
             r.setWidth(data.getWidth());
@@ -59,9 +63,9 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
             r.setFill(Color.TRANSPARENT);
             r.setStroke(Color.BLACK);
 
-            Text text = new Text(TypeValueFactory.get(type, i));
+            Text text = new Text(TypeValueFactory.get(type, iteration));
 
-            rectangles.get(i).getChildren().addAll(r, text);
+            rectangles.get(iteration).getChildren().addAll(r, text);
         }
         return rectangles;
     }
