@@ -1,4 +1,4 @@
-package structvisualizer.win;
+package structvisualizer.window;
 
 import javafx.geometry.*;
 import javafx.scene.Scene;

@@ -15,7 +15,7 @@ import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.animatecollections.AnimateStructureFactory;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.ListValuesFactory;
-import structvisualizer.win.ErrorWindow;
+import structvisualizer.window.ErrorWindow;
 
 import java.net.URL;
 import java.util.ResourceBundle;
