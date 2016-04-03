@@ -28,26 +28,45 @@ public class AnimateMethodCloneArrayList extends AnimateMethod {
         super(canvasPane, type, obj);
     }
 
+    public void translateStackpanes(ArrayList<StackPane> clone) {
+        double x = 0;
+        for(StackPane sp : clone) {
+//            translateStackpane(sp, 0, 0, sp.getLayoutX(), data.getyCoordForClone()); // прикольный эффект
+            translateStackpane(sp, 0, 0, 0, data.getyCoordForClone());
+        }
+    }
+
+    public void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
+        TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
+        tt.setFromX(fromX);
+        tt.setFromY(fromY);
+        tt.setToX(toX);
+        tt.setToY(toY);
+        tt.play();
+    }
+
     @Override
     public void animate(String type) throws UnsupportedOperationException {
         ArrayList<StackPane> origin = AnimateMethodConstructArrayList.createArrayList(type);
-        ArrayList<StackPane> clone = AnimateMethodConstructArrayList.createArrayList(type, data.getNumOfStackPanes(),
-                                                                                     data.getWidth(),
-                                                                                     data.getyCoordForClone());
-
+        ArrayList<StackPane> clone = AnimateMethodConstructArrayList.createArrayList(type);
+        translateStackpanes(clone);
 //        TranslateTransition tt = new TranslateTransition(Duration.ZERO, origin);
 
         canvasPane.getChildren().addAll(origin);
         canvasPane.getChildren().addAll(clone);
+        AnimateMethod.setTooltip(origin, type, customClass);
+        AnimateMethod.setTooltip(clone, type, customClass);
     }
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        return super.getCode(os);
+        String result = os.getCode() + "\n\tArrayList<" + type + "> clone = tmp.clone();" + "\n\t}\n}";
+
+        return result;
     }
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return super.getResults(os);
+        return "You now have 2 identical structures in memory.";
     }
 }
