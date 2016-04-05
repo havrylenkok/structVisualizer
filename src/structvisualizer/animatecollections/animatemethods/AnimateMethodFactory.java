@@ -76,10 +76,16 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.REMOVE:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new AnimateMethodRemoveArrayList(canvas, type, obj, TypeValueFactory.get(type, 6), 2);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.CONTAINS:
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
-            case Methods.REMOVE:
             case Methods.SIZE:
             case Methods.SORT:
             case Methods.SUBLIST:
