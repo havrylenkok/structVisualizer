@@ -42,4 +42,9 @@ public class AnimateNothing extends AnimateStructure {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public String getResults() {
+        logger.log(Level.INFO, "UnsupportedOperation on getResults()");
+        throw new UnsupportedOperationException();
+    }
 }
