@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class DataForMethodAnimate {
+public class DataForAnimation {
     private int numOfStackPanes = 3;
     private int width = 50;
     private int height = 50;

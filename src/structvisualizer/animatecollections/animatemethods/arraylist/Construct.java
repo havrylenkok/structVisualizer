@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author Kyrylo Havrylenko
  * @see AnimateMethod
  */
-public class AnimateMethodConstructArrayList extends AnimateMethod {
+public class Construct extends AnimateMethod {
 
     /**
      * @param canvasPane
@@ -26,7 +26,7 @@ public class AnimateMethodConstructArrayList extends AnimateMethod {
      * @param obj
      * @see AnimateMethod
      */
-    public AnimateMethodConstructArrayList(Pane canvasPane, String type, SomeClass obj) {
+    public Construct(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
     }
 

@@ -1,7 +1,7 @@
 package structvisualizer.animatecollections.animatemethods.arraylist;
 
  /*
- * AnimateMethodGetIndexArrayList   3/29/16, 16:30
+ * GetIndex   3/29/16, 16:30
  *
  * By Kyrylo Havrylenko
  *
@@ -13,17 +13,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
-import structvisualizer.data.Collections;
 import structvisualizer.data.OutputStrings;
-import structvisualizer.data.Types;
 
-import java.util.ArrayList;
-
-import static structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodConstructArrayList.createArrayList;
+import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
 
 /**
  * <what class do>
@@ -31,11 +26,11 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Anima
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateMethodGetIndexArrayList extends AnimateMethod {
+public class GetIndex extends AnimateMethod implements MethodsForSearch {
     Object indexOf;
     int index;
 
-    public AnimateMethodGetIndexArrayList(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
+    public GetIndex(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
         this.indexOf = indexOf;
         this.index = index;
@@ -69,7 +64,7 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
 
     }
 
-    public static void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
+    public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
         tt.setFromX(fromX);
         tt.setFromY(fromY);
@@ -87,22 +82,7 @@ public class AnimateMethodGetIndexArrayList extends AnimateMethod {
     @Override
     public void animate(String type) throws UnsupportedOperationException {
 
-        ArrayList<StackPane> rectangles = createArrayList(type);
-        canvasPane.getChildren().addAll(rectangles);
-        AnimateMethod.setTooltip(rectangles, type, customClass);
-
-        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
-
-        double finalX = 0;
-        if(type == Types.INT) finalX += data.getWidth();
-        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-            String text = rectangles.get(i).getChildren().get(1).toString();
-            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
-            if(!text.substring(11, 12).equals(indexOf)) {
-                finalX += data.getWidth();
-            }
-        }
-        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
+        Set.searchForElement(this, type, canvasPane, customClass, indexOf);
     }
 
     @Override

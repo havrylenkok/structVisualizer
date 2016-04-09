@@ -30,60 +30,67 @@ public class AnimateMethodFactory {
             case Methods.ADD:
                 switch (collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodAddArrayList(canvas, type, obj);
+                        return new Add(canvas, type, obj);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CONSTRUCT:
                 switch (collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodConstructArrayList(canvas, type, obj);
+                        return new Construct(canvas, type, obj);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CLEAR:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodClearArrayList(canvas, type, obj);
+                        return new Clear(canvas, type, obj);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.GET_INDEX:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodGetIndexArrayList(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
+                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.GET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodGetArrayList(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
+                        return new Get(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.SET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodSetArrayList(canvas, type, obj, TypeValueFactory.get(type, 6), 2, 6);
+                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 6), 2, 6);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CLONE:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodCloneArrayList(canvas, type, obj);
+                        return new Clone(canvas, type, obj);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.REMOVE:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new AnimateMethodRemoveArrayList(canvas, type, obj, TypeValueFactory.get(type, 6), 2);
+                        return new Remove(canvas, type, obj, TypeValueFactory.get(type, 6), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CONTAINS:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new Contains(canvas, type, obj, TypeValueFactory.get(type, 20),
+                                            20);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.SIZE:

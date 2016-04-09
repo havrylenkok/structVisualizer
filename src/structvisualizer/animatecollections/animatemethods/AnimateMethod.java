@@ -4,7 +4,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import parser.SomeClass;
-import structvisualizer.data.DataForMethodAnimate;
+import structvisualizer.data.DataForAnimation;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
@@ -20,7 +20,7 @@ public class AnimateMethod {
     public Pane canvasPane;
     public String type;
     public SomeClass customClass = null;
-    public static DataForMethodAnimate data;
+    public static DataForAnimation data;
     public String results = "";
 
     /**
@@ -34,7 +34,7 @@ public class AnimateMethod {
         this.canvasPane = canvasPane;
         this.type = type;
         this.customClass = obj;
-        this.data = new DataForMethodAnimate();
+        this.data = new DataForAnimation();
         this.results = "";
     }
 

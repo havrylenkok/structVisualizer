@@ -1,7 +1,7 @@
 package structvisualizer.animatecollections.animatemethods.arraylist;
 
  /*
- * AnimateMethodRemoveArrayList   4/5/16, 23:33
+ * Remove   4/5/16, 23:33
  *
  * By Kyrylo Havrylenko
  *
@@ -14,12 +14,11 @@ import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
-import structvisualizer.data.Types;
 
 import java.util.ArrayList;
 
-import static structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodConstructArrayList.createArrayList;
-import static structvisualizer.animatecollections.animatemethods.arraylist.AnimateMethodGetIndexArrayList.newStackPane;
+import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
+import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
 
 /**
  * <what class do>
@@ -27,11 +26,11 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Anima
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateMethodRemoveArrayList extends AnimateMethod {
+public class Remove extends AnimateMethod {
     Object indexOf;
     int index;
 
-    public AnimateMethodRemoveArrayList(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
+    public Remove(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
         this.indexOf = indexOf;
         this.index = index;

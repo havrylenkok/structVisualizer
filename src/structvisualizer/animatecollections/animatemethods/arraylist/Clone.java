@@ -1,7 +1,7 @@
 package structvisualizer.animatecollections.animatemethods.arraylist;
 
  /*
- * AnimateMethodCloneArrayList   4/2/16, 19:48
+ * Clone   4/2/16, 19:48
  *
  * By Kyrylo Havrylenko
  *
@@ -23,8 +23,8 @@ import java.util.ArrayList;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateMethodCloneArrayList extends AnimateMethod {
-    public AnimateMethodCloneArrayList(Pane canvasPane, String type, SomeClass obj) {
+public class Clone extends AnimateMethod {
+    public Clone(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
     }
 
@@ -47,8 +47,8 @@ public class AnimateMethodCloneArrayList extends AnimateMethod {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        ArrayList<StackPane> origin = AnimateMethodConstructArrayList.createArrayList(type);
-        ArrayList<StackPane> clone = AnimateMethodConstructArrayList.createArrayList(type);
+        ArrayList<StackPane> origin = Construct.createArrayList(type);
+        ArrayList<StackPane> clone = Construct.createArrayList(type);
         translateStackpanes(clone);
 //        TranslateTransition tt = new TranslateTransition(Duration.ZERO, origin);
 

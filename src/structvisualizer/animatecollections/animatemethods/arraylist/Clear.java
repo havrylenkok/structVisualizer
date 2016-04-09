@@ -1,7 +1,7 @@
 package structvisualizer.animatecollections.animatemethods.arraylist;
 
  /*
- * AnimateMethodClearArrayList   3/28/16, 21:54
+ * Clear   3/28/16, 21:54
  *
  * By Kyrylo Havrylenko
  *
@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class AnimateMethodClearArrayList extends AnimateMethod {
+public class Clear extends AnimateMethod {
 
 
     /**
@@ -33,7 +33,7 @@ public class AnimateMethodClearArrayList extends AnimateMethod {
      * @param type       string with name of type
      * @param obj
      */
-    public AnimateMethodClearArrayList(Pane canvasPane, String type, SomeClass obj) {
+    public Clear(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
     }
 
@@ -52,7 +52,7 @@ public class AnimateMethodClearArrayList extends AnimateMethod {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        ArrayList<StackPane> stack = AnimateMethodConstructArrayList.createArrayList(type);
+        ArrayList<StackPane> stack = Construct.createArrayList(type);
         canvasPane.getChildren().addAll(stack);
         clearAnimation(stack);
     }
