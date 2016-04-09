@@ -28,15 +28,15 @@ public class Clone extends AnimateMethod {
         super(canvasPane, type, obj);
     }
 
-    public void translateStackpanes(ArrayList<StackPane> clone) {
+    public static void translateStackpanes(ArrayList<StackPane> clone) {
         double x = 0;
         for(StackPane sp : clone) {
-//            translateStackpane(sp, 0, 0, sp.getLayoutX(), data.getyCoordForClone()); // прикольный эффект
+            //            translateStackpane(sp, 0, 0, sp.getLayoutX(), data.getyCoordForClone()); // прикольный эффект
             translateStackpane(sp, 0, 0, 0, data.getyCoordForClone());
         }
     }
 
-    public void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
+    public static void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
         tt.setFromX(fromX);
         tt.setFromY(fromY);
@@ -50,7 +50,7 @@ public class Clone extends AnimateMethod {
         ArrayList<StackPane> origin = Construct.createArrayList(type);
         ArrayList<StackPane> clone = Construct.createArrayList(type);
         translateStackpanes(clone);
-//        TranslateTransition tt = new TranslateTransition(Duration.ZERO, origin);
+        //        TranslateTransition tt = new TranslateTransition(Duration.ZERO, origin);
 
         canvasPane.getChildren().addAll(origin);
         canvasPane.getChildren().addAll(clone);

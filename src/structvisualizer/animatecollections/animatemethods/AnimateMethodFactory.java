@@ -65,7 +65,7 @@ public class AnimateMethodFactory {
             case Methods.SET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 6), 1, 2);
+                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 2), 1, 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
@@ -91,11 +91,17 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.SUBLIST:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new Sublist(canvas, type, obj, 1, 3);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.SIZE:
             case Methods.SORT:
-            case Methods.SUBLIST:
             case Methods.PEEK:
             case Methods.POP:
             case Methods.PUSH:

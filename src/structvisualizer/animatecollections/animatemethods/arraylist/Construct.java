@@ -50,12 +50,13 @@ public class Construct extends AnimateMethod {
 
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int iteration) {
         ArrayList<StackPane> rectangles = new ArrayList<>();
+        int index = 0;
         for (; iteration < size; iteration++) {
             StackPane stack = new StackPane();
             stack.setMinWidth(data.getWidth());
             stack.setLayoutX(posX + iteration * data.getWidth());
             stack.setLayoutY(posY);
-            rectangles.add(iteration, stack);
+            rectangles.add(index, stack);
 
             Rectangle r = new Rectangle();
             r.setWidth(data.getWidth());
@@ -65,7 +66,8 @@ public class Construct extends AnimateMethod {
 
             Text text = new Text(TypeValueFactory.get(type, iteration));
 
-            rectangles.get(iteration).getChildren().addAll(r, text);
+            rectangles.get(index).getChildren().addAll(r, text);
+            index++;
         }
         return rectangles;
     }
