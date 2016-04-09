@@ -82,7 +82,7 @@ public class GetIndex extends AnimateMethod implements MethodsForSearch {
     @Override
     public void animate(String type) throws UnsupportedOperationException {
 
-        Set.searchForElement(this, type, canvasPane, customClass, indexOf);
+        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override

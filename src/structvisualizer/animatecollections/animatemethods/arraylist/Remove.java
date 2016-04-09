@@ -26,7 +26,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.GetIn
  * @author Kyrylo Havrylenko
  * @see
  */
-public class Remove extends AnimateMethod {
+public class Remove extends AnimateMethod implements MethodsForSearch {
     Object indexOf;
     int index;
 
@@ -55,22 +55,24 @@ public class Remove extends AnimateMethod {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        ArrayList<StackPane> rectangles = createArrayList(type);
-        canvasPane.getChildren().addAll(rectangles);
-        AnimateMethod.setTooltip(rectangles, type, customClass);
+//        ArrayList<StackPane> rectangles = createArrayList(type);
+//        canvasPane.getChildren().addAll(rectangles);
+//        AnimateMethod.setTooltip(rectangles, type, customClass);
+//
+//        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
+//
+//        double finalX = 0;
+//
+//        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
+//            String text = rectangles.get(i).getChildren().get(1).toString();
+//            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
+//            if(!text.substring(11, 12).equals(indexOf)) {
+//                finalX += data.getWidth();
+//            }
+//        }
+//        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
 
-        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
-
-        double finalX = 0;
-
-        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-            String text = rectangles.get(i).getChildren().get(1).toString();
-            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
-            if(!text.substring(11, 12).equals(indexOf)) {
-                finalX += data.getWidth();
-            }
-        }
-        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
+        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override

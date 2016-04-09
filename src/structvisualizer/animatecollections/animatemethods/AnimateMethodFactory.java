@@ -65,7 +65,7 @@ public class AnimateMethodFactory {
             case Methods.SET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 6), 2, 6);
+                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 6), 1, 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
@@ -79,7 +79,7 @@ public class AnimateMethodFactory {
             case Methods.REMOVE:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Remove(canvas, type, obj, TypeValueFactory.get(type, 6), 2);
+                        return new Remove(canvas, type, obj, TypeValueFactory.get(type, 2), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }

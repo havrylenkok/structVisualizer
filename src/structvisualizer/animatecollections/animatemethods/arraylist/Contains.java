@@ -7,10 +7,17 @@ package structvisualizer.animatecollections.animatemethods.arraylist;
  *
  */
 
+import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
+
+import java.util.ArrayList;
+
+import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
 
 /**
  * <what class do>
@@ -18,22 +25,47 @@ import structvisualizer.data.OutputStrings;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class Contains extends AnimateMethod {
-    Get animateObj;
+public class Contains extends AnimateMethod implements MethodsForSearch {
+    Object indexOf;
+    int index;
+    boolean contains = false;
+
     public Contains(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
-        animateObj = new Get(canvasPane, type, obj, indexOf, index);
+        this.index = index;
+        this.indexOf = indexOf;
     }
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        // TODO: now don't work with false, make it
-        animateObj.animate(type);
+
+        if(index < data.getNumOfStackPanes()) {
+            contains = true;
+        }
+        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
+    }
+
+    @Override
+    public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
+        TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
+        tt.setFromX(fromX);
+        tt.setFromY(fromY);
+        tt.setToX(toX);
+        tt.setToY(toY);
+        tt.play();
+
+        tt.setOnFinished(event -> {
+            redRectangle.setVisible(false);
+            if(contains) {
+                redRectangle.setVisible(false);
+                StackPane greenStackpane = newStackPane(toX, toY, canvas, data.getSuccessColor());
+            }
+        });
     }
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        String result = os.getCode() + "\n\ttmp.contains(" + animateObj.indexOf +")\n\t}\n}";
+        String result = os.getCode() + "\n\ttmp.contains(" + indexOf +")\n\t}\n}";
 
         return result;
     }
@@ -41,8 +73,7 @@ public class Contains extends AnimateMethod {
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
         boolean res = false;
-        System.out.println(animateObj.index);
-        if(animateObj.index < data.getNumOfStackPanes()) res = true;
+        if(index < data.getNumOfStackPanes()) res = true;
         return "The result is " + res;
     }
 }

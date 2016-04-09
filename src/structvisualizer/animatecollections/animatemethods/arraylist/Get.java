@@ -57,7 +57,7 @@ public class Get extends AnimateMethod implements MethodsForSearch {
 //            }
 //        }
 //        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
-        Set.searchForElement(this, type, canvasPane, customClass, indexOf);
+        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override

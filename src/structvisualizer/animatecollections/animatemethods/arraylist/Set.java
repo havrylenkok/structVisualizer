@@ -13,12 +13,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
+import structvisualizer.Main;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.TypeValueFactory;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
 import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
@@ -30,6 +33,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.GetIn
  * @see
  */
 public class Set extends AnimateMethod implements MethodsForSearch {
+    private static final Logger logger = Logger.getLogger(Set.class.getName());
     Object indexOf;
     int index;
     int iterationNumOfNewVal;
@@ -47,22 +51,26 @@ public class Set extends AnimateMethod implements MethodsForSearch {
     }
 
     public static void searchForElement(MethodsForSearch method, String type, Pane canvasPane, SomeClass customClass,
-                                        Object indexOf) {
+                                        Object indexOf, int index) {
         ArrayList<StackPane> rectangles = createArrayList(type);
         canvasPane.getChildren().addAll(rectangles);
         AnimateMethod.setTooltip(rectangles, type, customClass);
 
         StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
 
-        double finalX = 0;
+        int x = (index + 1) * data.getWidth();
+        int anotherX = data.getNumOfStackPanes() * data.getWidth();
+        logger.log(Level.FINE, index + " " + x + " " + anotherX);
+        double finalX =  (x < anotherX) ? x : anotherX;
 
-        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-            String text = rectangles.get(i).getChildren().get(1).toString();
-            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
-            if(!text.substring(11, 12).equals(indexOf)) {
-                finalX += data.getWidth();
-            }
-        }
+//        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
+//            String text = rectangles.get(i).getChildren().get(1).toString();
+//            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
+//            if(!text.substring(11, 12).equals(indexOf)) {
+//                System.out.println(text.substring(11, 12) + " " + indexOf);
+//                finalX += data.getWidth();
+//            }
+//        }
         method.animateSearch(sp, 0, 0, finalX, 0, canvasPane);
     }
 
@@ -117,7 +125,7 @@ public class Set extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        searchForElement(this, type, canvasPane, customClass, indexOf);
+        searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override
