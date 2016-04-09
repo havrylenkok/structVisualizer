@@ -30,11 +30,13 @@ public class Clone extends AnimateMethod {
 
     public static void translateStackpanes(ArrayList<StackPane> clone) {
         double x = 0;
+
         for(StackPane sp : clone) {
             //            translateStackpane(sp, 0, 0, sp.getLayoutX(), data.getyCoordForClone()); // прикольный эффект
             translateStackpane(sp, 0, 0, 0, data.getyCoordForClone());
         }
     }
+
 
     public static void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);

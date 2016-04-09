@@ -20,7 +20,7 @@ public interface Methods {
     final String SET = "set(int index, E e)";
     final String GET_INDEX = "getIndex(O o)";
     final String SORT = "sort()";
-    final String SUBLIST = "sublist()";
+    final String SUBLIST = "sublist(int fr, int to)";
     final String PEEK = "peek()";
     final String POP = "pop()";
     final String PUSH = "push(E e)";

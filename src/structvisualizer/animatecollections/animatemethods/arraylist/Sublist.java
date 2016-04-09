@@ -38,10 +38,9 @@ public class Sublist extends AnimateMethod {
     public void animate(String type) throws UnsupportedOperationException {
         ArrayList<StackPane> origin = Construct.createArrayList(type);
 
-        ArrayList<StackPane> clone = Construct.createArrayList(type, 3, 0, 0, 1);
+        ArrayList<StackPane> clone = Construct.createArrayList(type, size, data.getWidth(), 0, elementFrom);
 
         Clone.translateStackpanes(clone);
-
 
         canvasPane.getChildren().addAll(origin);
         canvasPane.getChildren().addAll(clone);
@@ -51,11 +50,14 @@ public class Sublist extends AnimateMethod {
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        String result = os.getCode() + "\n\tArrayList<" + type + "> sublist = tmp.sublist(" + elementFrom + ", " +
+                elementTo + ");" + "\n\t}\n}";
+
+        return result;
     }
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        return "You now have sublist(" + elementFrom + ", " + elementTo + ") from original list";
     }
 }
