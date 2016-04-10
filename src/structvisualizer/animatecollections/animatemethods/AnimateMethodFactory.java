@@ -51,21 +51,21 @@ public class AnimateMethodFactory {
             case Methods.GET_INDEX:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, 2, false), 2);
+                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.GET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Get(canvas, type, obj, TypeValueFactory.get(type, 2, false), 2);
+                        return new Get(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.SET:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 2, false), 1, 2);
+                        return new Set(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 1, 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
@@ -79,14 +79,14 @@ public class AnimateMethodFactory {
             case Methods.REMOVE:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Remove(canvas, type, obj, TypeValueFactory.get(type, 2, false), 2);
+                        return new Remove(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 2);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
             case Methods.CONTAINS:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Contains(canvas, type, obj, TypeValueFactory.get(type, 20, false),
+                        return new Contains(canvas, type, obj, TypeValueFactory.get(type, 20, false, null, true),
                                             20);
                     default:
                         return new AnimateMethod(canvas, type, obj);
@@ -98,10 +98,16 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.SORT:
+                switch(collectionName) {
+                    case Collections.ARRAY_LIST:
+                        return new Sort(canvas, type, obj);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.SIZE:
-            case Methods.SORT:
             case Methods.PEEK:
             case Methods.POP:
             case Methods.PUSH:

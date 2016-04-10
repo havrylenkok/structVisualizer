@@ -53,17 +53,17 @@ public class Arraylists {
     }
 
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int iteration) {
-        return createArrayList(type, size, posX, posY, iteration, false);
+        return createArrayList(type, size, posX, posY, iteration, false, null, false);
     }
 
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int
-            iteration, boolean rand) {
-//        List<String> values = new ArrayList<>();
-//        for(; iteration < size; iteration++) {
-//            values.add(TypeValueFactory.get(type, iteration));
-//        }
-//
-//        return createArrayList(type, size, posX, posY, iteration, values);
+            iteration, boolean rand, List<Integer> iterations, boolean write) {
+        //        List<String> values = new ArrayList<>();
+        //        for(; iteration < size; iteration++) {
+        //            values.add(TypeValueFactory.get(type, iteration));
+        //        }
+        //
+        //        return createArrayList(type, size, posX, posY, iteration, values);
         ArrayList<StackPane> rectangles = new ArrayList<>();
         int index = 0;
         for(; iteration < size; iteration++) {
@@ -79,7 +79,7 @@ public class Arraylists {
             r.setFill(Color.TRANSPARENT);
             r.setStroke(Color.BLACK);
 
-            Text text = new Text(TypeValueFactory.get(type, iteration, rand));
+            Text text = new Text(TypeValueFactory.get(type, iteration, rand, iterations, write));
 
 
             rectangles.get(index).getChildren().addAll(r, text);
@@ -88,30 +88,30 @@ public class Arraylists {
         return rectangles;
     }
 
-//    public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int
-//            iteration, List<String> values) {
-//        ArrayList<StackPane> rectangles = new ArrayList<>();
-//        int index = 0;
-//        for(; iteration < size; iteration++) {
-//            StackPane stack = new StackPane();
-//            stack.setMinWidth(data.getWidth());
-//            stack.setLayoutX(posX + iteration * data.getWidth());
-//            stack.setLayoutY(posY);
-//            rectangles.add(index, stack);
-//
-//            Rectangle r = new Rectangle();
-//            r.setWidth(data.getWidth());
-//            r.setHeight(data.getHeight());
-//            r.setFill(Color.TRANSPARENT);
-//            r.setStroke(Color.BLACK);
-//
-//            Text text = new Text(values.get(index));
-//
-//            rectangles.get(index).getChildren().addAll(r, text);
-//            index++;
-//        }
-//        return rectangles;
-//    }
+    //    public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int
+    //            iteration, List<String> values) {
+    //        ArrayList<StackPane> rectangles = new ArrayList<>();
+    //        int index = 0;
+    //        for(; iteration < size; iteration++) {
+    //            StackPane stack = new StackPane();
+    //            stack.setMinWidth(data.getWidth());
+    //            stack.setLayoutX(posX + iteration * data.getWidth());
+    //            stack.setLayoutY(posY);
+    //            rectangles.add(index, stack);
+    //
+    //            Rectangle r = new Rectangle();
+    //            r.setWidth(data.getWidth());
+    //            r.setHeight(data.getHeight());
+    //            r.setFill(Color.TRANSPARENT);
+    //            r.setStroke(Color.BLACK);
+    //
+    //            Text text = new Text(values.get(index));
+    //
+    //            rectangles.get(index).getChildren().addAll(r, text);
+    //            index++;
+    //        }
+    //        return rectangles;
+    //    }
 
     /**
      * Static method to create ArrayList<StackPane> of elements to show on Pane (canvas)
@@ -133,7 +133,7 @@ public class Arraylists {
         r.setFill(Color.TRANSPARENT);
         r.setStroke(Color.BLACK);
 
-        Text text = new Text(TypeValueFactory.get(type, data.getNumOfStackPanes(), false));
+        Text text = new Text(TypeValueFactory.get(type, data.getNumOfStackPanes(), false, null, true));
 
         rectangles.get(data.getNumOfStackPanes()).getChildren().addAll(r, text);
         return rectangles;
@@ -236,7 +236,7 @@ public class Arraylists {
 
         Text text = new Text("no value");
         if(value == null) {
-            text = new Text(TypeValueFactory.get(type, iteration, false));
+            text = new Text(TypeValueFactory.get(type, iteration, false, null, true));
         } else {
             text = new Text(value);
         }
@@ -244,5 +244,24 @@ public class Arraylists {
 
         return stack;
 
+    }
+
+    public static void fadeAndShowTransition(ArrayList<StackPane> origin, ArrayList<StackPane> sorted) {
+        int counter = 1000;
+
+        for(StackPane s : origin) {
+            FadeTransition fade = new FadeTransition(Duration.millis(data.getFade() + counter), s);
+            fade.setFromValue(1);
+            fade.setToValue(0);
+            fade.play();
+            counter -= 100;
+
+            fade.setOnFinished(event -> {
+                for(StackPane z : sorted) {
+                    z.setVisible(true);
+                }
+            });
+
+        }
     }
 }

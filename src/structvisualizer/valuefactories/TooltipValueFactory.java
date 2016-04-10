@@ -10,6 +10,8 @@ package structvisualizer.valuefactories;
 import parser.SomeClass;
 import structvisualizer.data.Types;
 
+import java.util.Random;
+
 /**
  * <what class do>
  *
@@ -38,6 +40,9 @@ public class TooltipValueFactory {
     }
 
     public static String get(String type, int iteration, SomeClass obj) {
+
+
+
         switch(type) {
             case Types.INT:
                 return "" + iteration;

@@ -22,6 +22,11 @@ public class DataForAnimation {
     private Color hightlightColor = Color.RED;
     private Color successColor = Color.GREEN;
     private int yCoordForClone = 100;
+    private int maxIteration = 10;
+
+    public int getMaxIteration() {
+        return maxIteration;
+    }
 
     public int getyCoordForClone() {
         return yCoordForClone;

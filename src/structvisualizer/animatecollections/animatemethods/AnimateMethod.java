@@ -9,6 +9,7 @@ import structvisualizer.data.OutputStrings;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Parent class for concrete animation classes
@@ -52,6 +53,14 @@ public class AnimateMethod {
         int i = 0;
         for(StackPane s : where) {
             Tooltip.install(s, new Tooltip(TooltipValueFactory.get(type, i, obj)));
+            i++;
+        }
+    }
+
+    public static void setTooltip(ArrayList<StackPane> where, String type, SomeClass obj, List<Integer> iterations) {
+        int i = 0;
+        for(StackPane s : where) {
+            Tooltip.install(s, new Tooltip(TooltipValueFactory.get(type, iterations.get(i), obj)));
             i++;
         }
     }

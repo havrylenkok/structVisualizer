@@ -8,9 +8,13 @@ package structvisualizer.data;
  */
 public class OutputStrings {
     private String code;
+    private String collectionType;
+    private String type;
 
     public OutputStrings(String collectionType, String method, String type) {
         DataForAnimation data = new DataForAnimation();
+        this.collectionType = collectionType;
+        this.type = type;
         StringBuilder codeBuilder = new StringBuilder();
         codeBuilder
                 .append("package ").append(collectionType).append(";\n\n")
@@ -22,6 +26,18 @@ public class OutputStrings {
                 .append("tmp.add(i, i);\n\t\t}\n\t\t");
         code = codeBuilder.toString();
 
+    }
+
+    public String getPackage() {
+        return "package " + collectionType + ";\n\n";
+    }
+
+    public String getImportMain() {
+        return "public class Main\n\tpublic static void main(String[] args) {\n";
+    }
+
+    public String getCollection() {
+        return "\t\t" + collectionType + "<" + type + ">" + " tmp = new " + collectionType + "<>()\n";
     }
 
     public String getCode() {

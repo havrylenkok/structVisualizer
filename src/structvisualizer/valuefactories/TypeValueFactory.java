@@ -1,8 +1,10 @@
 package structvisualizer.valuefactories;
 
+import structvisualizer.data.DataForAnimation;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,6 +14,7 @@ import java.util.Random;
  * @see
  */
 public class TypeValueFactory {
+    static DataForAnimation data = new DataForAnimation();
 
     /**
      * @param type
@@ -19,11 +22,16 @@ public class TypeValueFactory {
      *
      * @return
      */
-    public static String get(String type, int iteration, boolean rand) {
+    public static String get(String type, int iteration, boolean rand, List<Integer> iterations, boolean write) {
 
         if(rand) {
-            Random random = new Random();
-            iteration = random.nextInt();
+            if(write) {
+                Random random = new Random();
+                iteration = random.nextInt(data.getMaxIteration());
+                iterations.add(iteration);
+            } else {
+                iteration = iterations.get(iteration);
+            }
         }
 
         switch (type) {
