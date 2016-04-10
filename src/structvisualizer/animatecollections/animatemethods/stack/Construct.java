@@ -1,7 +1,7 @@
-package structvisualizer.animatecollections.animatemethods.arraylist;
+package structvisualizer.animatecollections.animatemethods.stack;
 
  /*
- * Equals   4/10/16, 15:17
+ * Construct   4/10/16, 15:57
  *
  * By Kyrylo Havrylenko
  *
@@ -18,9 +18,8 @@ import structvisualizer.data.OutputStrings;
  * @author Kyrylo Havrylenko
  * @see
  */
-public class Equals extends AnimateMethod {
-
-    public Equals(Pane canvasPane, String type, SomeClass obj) {
+public class Construct extends AnimateMethod {
+    public Construct(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
     }
 

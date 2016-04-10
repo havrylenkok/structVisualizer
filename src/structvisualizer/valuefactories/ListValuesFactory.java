@@ -30,7 +30,6 @@ public class ListValuesFactory {
             Methods.ADD,
             Methods.CLEAR,
             Methods.CONTAINS,
-            Methods.EQUALS,
             Methods.REMOVE,
             Methods.CLONE,
             Methods.GET,
@@ -61,7 +60,6 @@ public class ListValuesFactory {
             Methods.ADD,
             Methods.CLEAR,
             Methods.CONTAINS,
-            Methods.EQUALS,
             Methods.REMOVE
     );
     private static final ObservableList<String> types = FXCollections.observableArrayList(
