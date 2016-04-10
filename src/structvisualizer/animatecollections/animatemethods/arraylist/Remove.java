@@ -15,11 +15,6 @@ import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
-import java.util.ArrayList;
-
-import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
-import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
-
 /**
  * <what class do>
  *
@@ -55,24 +50,24 @@ public class Remove extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-//        ArrayList<StackPane> rectangles = createArrayList(type);
-//        canvasPane.getChildren().addAll(rectangles);
-//        AnimateMethod.setTooltip(rectangles, type, customClass);
-//
-//        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
-//
-//        double finalX = 0;
-//
-//        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-//            String text = rectangles.get(i).getChildren().get(1).toString();
-//            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
-//            if(!text.substring(11, 12).equals(indexOf)) {
-//                finalX += data.getWidth();
-//            }
-//        }
-//        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
+        //        ArrayList<StackPane> rectangles = createArrayList(type);
+        //        canvasPane.getChildren().addAll(rectangles);
+        //        AnimateMethod.setTooltip(rectangles, type, customClass);
+        //
+        //        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
+        //
+        //        double finalX = 0;
+        //
+        //        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
+        //            String text = rectangles.get(i).getChildren().get(1).toString();
+        //            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
+        //            if(!text.substring(11, 12).equals(indexOf)) {
+        //                finalX += data.getWidth();
+        //            }
+        //        }
+        //        animateSearch(sp, 0, 0, finalX, 0, canvasPane);
 
-        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
+        Arraylists.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override

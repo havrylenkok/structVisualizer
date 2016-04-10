@@ -3,6 +3,8 @@ package structvisualizer.valuefactories;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
+import java.util.Random;
+
 /**
  * Factory for values in output TextArea and in StackPane (animation) which returns value of the right type
  *
@@ -17,7 +19,12 @@ public class TypeValueFactory {
      *
      * @return
      */
-    public static String get(String type, int iteration) {
+    public static String get(String type, int iteration, boolean rand) {
+
+        if(rand) {
+            Random random = new Random();
+            iteration = random.nextInt();
+        }
 
         switch (type) {
             case Types.INT:

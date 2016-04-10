@@ -7,18 +7,16 @@ package structvisualizer.animatecollections.animatemethods.arraylist;
  *
  */
 
-import javafx.animation.FillTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
-import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
+import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.newStackPane;
+
 
 /**
  * <what class do>
@@ -37,32 +35,6 @@ public class GetIndex extends AnimateMethod implements MethodsForSearch {
         this.results = "";
     }
 
-    public static void highlightNode(Rectangle rectangle, Color colorFrom, Color colorTo) {
-
-        FillTransition ft = new FillTransition(Duration.millis(data.getTransitionInvisible()), rectangle, colorFrom,
-                                               colorTo);
-        ft.play();
-    }
-
-    public static StackPane newStackPane(double x, double y, Pane canvas, Color color) {
-        StackPane stack = new StackPane();
-        stack.setMinWidth(data.getWidth());
-        stack.setLayoutX(x);
-        stack.setLayoutY(y);
-
-        Rectangle r = new Rectangle();
-        r.setWidth(data.getWidth());
-        r.setHeight(data.getHeight());
-        r.setFill(color);
-        r.setStroke(Color.BLACK);
-
-        stack.getChildren().addAll(r);
-
-        canvas.getChildren().addAll(stack);
-        return stack;
-
-
-    }
 
     public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
@@ -82,12 +54,12 @@ public class GetIndex extends AnimateMethod implements MethodsForSearch {
     @Override
     public void animate(String type) throws UnsupportedOperationException {
 
-        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
+        Arraylists.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        String result = os.getCode() + "\n\ttmp.indexOf(" + indexOf +")\n\t}\n}";
+        String result = os.getCode() + "\n\ttmp.indexOf(" + indexOf + ")\n\t}\n}";
 
         return result;
     }

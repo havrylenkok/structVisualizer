@@ -15,10 +15,6 @@ import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
-import java.util.ArrayList;
-
-import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
-
 /**
  * <what class do>
  *
@@ -42,7 +38,7 @@ public class Contains extends AnimateMethod implements MethodsForSearch {
         if(index < data.getNumOfStackPanes()) {
             contains = true;
         }
-        Set.searchForElement(this, type, canvasPane, customClass, indexOf, index);
+        Arraylists.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override
@@ -58,14 +54,14 @@ public class Contains extends AnimateMethod implements MethodsForSearch {
             redRectangle.setVisible(false);
             if(contains) {
                 redRectangle.setVisible(false);
-                StackPane greenStackpane = newStackPane(toX, toY, canvas, data.getSuccessColor());
+                StackPane greenStackpane = Arraylists.newStackPane(toX, toY, canvas, data.getSuccessColor());
             }
         });
     }
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        String result = os.getCode() + "\n\ttmp.contains(" + indexOf +")\n\t}\n}";
+        String result = os.getCode() + "\n\ttmp.contains(" + indexOf + ")\n\t}\n}";
 
         return result;
     }

@@ -7,15 +7,15 @@ package structvisualizer.animatecollections.animatemethods.arraylist;
  *
  */
 
-import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
 import java.util.ArrayList;
+
+import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.translateStackpanes;
 
 /**
  * <what class do>
@@ -28,29 +28,11 @@ public class Clone extends AnimateMethod {
         super(canvasPane, type, obj);
     }
 
-    public static void translateStackpanes(ArrayList<StackPane> clone) {
-        double x = 0;
-
-        for(StackPane sp : clone) {
-            //            translateStackpane(sp, 0, 0, sp.getLayoutX(), data.getyCoordForClone()); // прикольный эффект
-            translateStackpane(sp, 0, 0, 0, data.getyCoordForClone());
-        }
-    }
-
-
-    public static void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
-        TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
-        tt.setFromX(fromX);
-        tt.setFromY(fromY);
-        tt.setToX(toX);
-        tt.setToY(toY);
-        tt.play();
-    }
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        ArrayList<StackPane> origin = Construct.createArrayList(type);
-        ArrayList<StackPane> clone = Construct.createArrayList(type);
+        ArrayList<StackPane> origin = Arraylists.createArrayList(type);
+        ArrayList<StackPane> clone = Arraylists.createArrayList(type);
         translateStackpanes(clone);
         //        TranslateTransition tt = new TranslateTransition(Duration.ZERO, origin);
 

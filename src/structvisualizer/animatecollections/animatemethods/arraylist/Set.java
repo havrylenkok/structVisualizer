@@ -10,21 +10,16 @@ package structvisualizer.animatecollections.animatemethods.arraylist;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
-import structvisualizer.Main;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.data.Types;
-import structvisualizer.valuefactories.TypeValueFactory;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static structvisualizer.animatecollections.animatemethods.arraylist.Construct.createArrayList;
-import static structvisualizer.animatecollections.animatemethods.arraylist.GetIndex.newStackPane;
+import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.newValStackpane;
 
 /**
  * <what class do>
@@ -50,53 +45,6 @@ public class Set extends AnimateMethod implements MethodsForSearch {
         }
     }
 
-    public static void searchForElement(MethodsForSearch method, String type, Pane canvasPane, SomeClass customClass,
-                                        Object indexOf, int index) {
-        ArrayList<StackPane> rectangles = createArrayList(type);
-        canvasPane.getChildren().addAll(rectangles);
-        AnimateMethod.setTooltip(rectangles, type, customClass);
-
-        StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
-
-        int x = (index + 1) * data.getWidth();
-        int anotherX = data.getNumOfStackPanes() * data.getWidth();
-        logger.log(Level.FINE, index + " " + x + " " + anotherX);
-        double finalX =  (x < anotherX) ? x : anotherX;
-
-//        for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-//            String text = rectangles.get(i).getChildren().get(1).toString();
-//            // indexOf - VALUE OF ELEMENT WHAT WE LOOKING FOR
-//            if(!text.substring(11, 12).equals(indexOf)) {
-//                System.out.println(text.substring(11, 12) + " " + indexOf);
-//                finalX += data.getWidth();
-//            }
-//        }
-        method.animateSearch(sp, 0, 0, finalX, 0, canvasPane);
-    }
-
-    public StackPane newValStackpane(double x, double y, String value, int iteration) {
-        StackPane stack = new StackPane();
-        stack.setMinWidth(data.getWidth());
-        stack.setLayoutX(x);
-        stack.setLayoutY(y);
-
-        javafx.scene.shape.Rectangle r = new javafx.scene.shape.Rectangle();
-        r.setWidth(data.getWidth());
-        r.setHeight(data.getHeight());
-        r.setFill(javafx.scene.paint.Color.TRANSPARENT);
-        r.setStroke(javafx.scene.paint.Color.BLACK);
-
-        Text text = new Text("no value");
-        if(value == null) {
-            text = new Text(TypeValueFactory.get(type, iteration));
-        } else {
-            text = new Text(value);
-        }
-        stack.getChildren().addAll(r, text);
-
-        return stack;
-
-    }
 
     public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
@@ -108,7 +56,7 @@ public class Set extends AnimateMethod implements MethodsForSearch {
 
         tt.setOnFinished(event -> {
             redRectangle.setVisible(false);
-            StackPane setToThis = newValStackpane((index + 1) * data.getWidth(), redRectangle.getLayoutY(),
+            StackPane setToThis = newValStackpane(type, (index + 1) * data.getWidth(), redRectangle.getLayoutY(),
                                                   null, iterationNumOfNewVal);
             canvas.getChildren().remove(index);
             canvas.getChildren().addAll(setToThis);
@@ -125,7 +73,7 @@ public class Set extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        searchForElement(this, type, canvasPane, customClass, indexOf, index);
+        Arraylists.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override

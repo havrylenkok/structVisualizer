@@ -36,11 +36,11 @@ public class Sublist extends AnimateMethod {
 
     @Override
     public void animate(String type) throws UnsupportedOperationException {
-        ArrayList<StackPane> origin = Construct.createArrayList(type);
+        ArrayList<StackPane> origin = Arraylists.createArrayList(type);
 
-        ArrayList<StackPane> clone = Construct.createArrayList(type, size, data.getWidth(), 0, elementFrom);
+        ArrayList<StackPane> clone = Arraylists.createArrayList(type, size, data.getWidth(), 0, elementFrom);
 
-        Clone.translateStackpanes(clone);
+        Arraylists.translateStackpanes(clone);
 
         canvasPane.getChildren().addAll(origin);
         canvasPane.getChildren().addAll(clone);
