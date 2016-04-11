@@ -27,7 +27,7 @@ public class AnimateStructure {
      */
     public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj) {
         collectionType = collection;
-        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type, obj);
+        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type, obj, null);
         os = new OutputStrings(collectionType, method, type);
     }
 

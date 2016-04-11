@@ -25,7 +25,11 @@ public class AnimateMethodFactory {
      * @return object of needed animation class
      * @see AnimateMethod
      */
-    public static AnimateMethod get(String methodName, Pane canvas, String collectionName, String type, SomeClass obj) {
+    public static AnimateMethod get(String methodName, Pane canvas, String collectionName, String type, SomeClass
+            obj, DataForValueFactory input) {
+        if(input == null) {
+            input = new DataForValueFactory(2, false, null, true, null, null);
+        }
         switch (methodName) {
             case Methods.ADD:
                 switch (collectionName) {
@@ -51,7 +55,8 @@ public class AnimateMethodFactory {
             case Methods.GET_INDEX:
                 switch(collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 2);
+//                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, 2, false, null, true), 2);
+                        return new GetIndex(canvas, type, obj, TypeValueFactory.get(type, input), input.getIteration());
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
