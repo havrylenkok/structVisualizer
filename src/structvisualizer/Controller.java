@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import parser.SomeClass;
 import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.animatecollections.AnimateStructureFactory;
+import structvisualizer.data.DataForValueFactory;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.ListValuesFactory;
 import structvisualizer.window.ErrorWindow;
@@ -47,6 +48,7 @@ public class Controller implements Initializable {
     @FXML
     TextArea resultArea;
     SomeClass customClass = null;
+    DataForValueFactory userInputSearchable = null;
 
     private boolean checkIfComboxesIsNotNull() {
         logger.log(Level.FINE, "Checking if comboboxes null");
@@ -78,7 +80,8 @@ public class Controller implements Initializable {
 
             logger.log(Level.FINER, "Collection " + collection + " method" + method + " type" + type);
 
-            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane, customClass);
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane,
+                                                                           customClass, userInputSearchable);
             animationStruct.animate(type);
         } else {
             logger.log(Level.FINE, "User didnt picked any combobox and clicked Animate");
@@ -133,6 +136,12 @@ public class Controller implements Initializable {
                     customClass = Main.showCustomClassDialog();
                 }
 
+                if(checkIfTypeNotNull() && (ListValuesFactory.getNeedsInput().contains(methodBox.getValue().toString())
+                )) {
+                    userInputSearchable = Main.showInputSearchable(methodBox.getValue().toString(), typeBox.getValue().toString
+                            ());
+                }
+
                 setCodeAndOutput();
             }
         });
@@ -164,7 +173,7 @@ public class Controller implements Initializable {
             String type = typeBox.getValue().toString();
 
             AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
-                                                                           canvasPane, customClass);
+                                                                           canvasPane, customClass, userInputSearchable);
             setCodeOutput(animationStruct.getCode());
             setResultArea(animationStruct.getResults());
         }

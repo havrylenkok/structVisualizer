@@ -69,6 +69,19 @@ public class ListValuesFactory {
             Types.CUSTOM
     );
 
+    private static final ObservableList<String> needsInput = FXCollections.observableArrayList(
+            Methods.CONTAINS,
+            Methods.GET,
+            Methods.GET_INDEX,
+            Methods.REMOVE,
+            Methods.SET,
+            Methods.SUBLIST
+    );
+
+    public static ObservableList<String> getNeedsInput() {
+        return needsInput;
+    }
+
     /**
      * getter
      *

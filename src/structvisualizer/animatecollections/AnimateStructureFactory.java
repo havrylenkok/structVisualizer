@@ -6,6 +6,7 @@ import structvisualizer.animatecollections.AnimateArrayList;
 import structvisualizer.animatecollections.AnimateNothing;
 import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.data.Collections;
+import structvisualizer.data.DataForValueFactory;
 
 /**
  * Factory to pick right AnimateClass for input structure of data type
@@ -25,19 +26,19 @@ public class AnimateStructureFactory {
      * @return object of right type for input structure of data name
      */
     public static AnimateStructure get(String structName, String methodName, String typeName, Pane canvas, SomeClass
-            obj) {
+            obj, DataForValueFactory input) {
 
         switch (structName) {
             case Collections.ARRAY_LIST:
-                return new AnimateArrayList(methodName, typeName, canvas, obj);
+                return new AnimateArrayList(methodName, typeName, canvas, obj, input);
             case Collections.HASH_MAP:
-                return new AnimateNothing(methodName, typeName, canvas, obj);
+                return new AnimateNothing(methodName, typeName, canvas, obj, input);
             case Collections.STACK:
-                return new AnimateNothing(methodName, typeName, canvas, obj);
+                return new AnimateNothing(methodName, typeName, canvas, obj, input);
             case Collections.SET:
-                return new AnimateNothing(methodName, typeName, canvas, obj);
+                return new AnimateNothing(methodName, typeName, canvas, obj, input);
             default:
-                return new AnimateNothing(methodName, typeName, canvas, obj);
+                return new AnimateNothing(methodName, typeName, canvas, obj, input);
         }
     }
 }

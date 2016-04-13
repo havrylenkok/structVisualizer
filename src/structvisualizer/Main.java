@@ -9,10 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import parser.SomeClass;
-import structvisualizer.window.AboutWindow;
-import structvisualizer.window.ConfirmBoxWindow;
-import structvisualizer.window.InputClassWindow;
-import structvisualizer.window.InputWindow;
+import structvisualizer.data.DataForValueFactory;
+import structvisualizer.window.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,6 +67,10 @@ public class Main extends Application {
 
     public static String showInput() {
         return InputWindow.display();
+    }
+
+    public static DataForValueFactory showInputSearchable(String method, String type) {
+        return InputClassSearchableWindow.display(method, type);
     }
 
     public static SomeClass showCustomClassDialog() {

@@ -1,4 +1,4 @@
-package structvisualizer.animatecollections.animatemethods;
+package structvisualizer.data;
 
  /*
  * DataForValueFactory   4/11/16, 19:02
@@ -71,7 +71,8 @@ public class DataForValueFactory {
         this.write = write;
     }
 
-    DataForValueFactory(Integer iter, boolean rand, List<Integer> iters, boolean write, Integer setWhat, Integer setToWhat) {
+    public DataForValueFactory(Integer iter, boolean rand, List<Integer> iters, boolean write, Integer setWhat, Integer
+            setToWhat) {
         iteration = iter;
         this.rand = rand;
         iterations = iters;

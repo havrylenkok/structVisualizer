@@ -1,9 +1,8 @@
 package structvisualizer.valuefactories;
 
-import structvisualizer.animatecollections.animatemethods.DataForValueFactory;
 import structvisualizer.data.DataForAnimation;
+import structvisualizer.data.DataForValueFactory;
 import structvisualizer.data.Types;
-import structvisualizer.valuefactories.TooltipValueFactory;
 
 import java.util.List;
 import java.util.Random;

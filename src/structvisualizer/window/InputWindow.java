@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import structvisualizer.data.DataForValueFactory;
+import structvisualizer.data.Methods;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
