@@ -1,12 +1,14 @@
 package structvisualizer.data;
 
+import javafx.scene.paint.Color;
+
 /**
  * Magic constants for app
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-public class DataForMethodAnimate {
+public class DataForAnimation {
     private int numOfStackPanes = 3;
     private int width = 50;
     private int height = 50;
@@ -15,6 +17,40 @@ public class DataForMethodAnimate {
     private float transitionVisible = 1.0f;
     private int timeFade = 1000;
     private int timeTranslate = 3000;
+    private int fade = 2000;
+    private Color normalColor = Color.BLACK;
+    private Color hightlightColor = Color.RED;
+    private Color successColor = Color.GREEN;
+    private int yCoordForClone = 100;
+    private int maxIteration = 10;
+
+    public int getMaxIteration() {
+        return maxIteration;
+    }
+
+    public int getyCoordForClone() {
+        return yCoordForClone;
+    }
+
+    public Color getNormalColor() {
+        return normalColor;
+    }
+
+    public Color getHightlightColor() {
+        return hightlightColor;
+    }
+
+    public Color getSuccessColor() {
+        return successColor;
+    }
+
+    public int getFade() {
+        return fade;
+    }
+
+    public void setFade(int fade) {
+        this.fade = fade;
+    }
 
     public int getNumOfStackPanes() {
         return numOfStackPanes;

@@ -3,6 +3,7 @@ package structvisualizer.animatecollections;
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
 import structvisualizer.data.Collections;
+import structvisualizer.data.DataForValueFactory;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +17,8 @@ import java.util.logging.Logger;
 public class AnimateNothing extends AnimateStructure {
     private static final Logger logger = Logger.getLogger(AnimateNothing.class.getName());
 
-    public AnimateNothing(String method, String type, Pane canvasPane, SomeClass obj) {
-        super(Collections.ARRAY_LIST, method, type, canvasPane, obj);
+    public AnimateNothing(String method, String type, Pane canvasPane, SomeClass obj, DataForValueFactory input) {
+        super(Collections.ARRAY_LIST, method, type, canvasPane, obj, input);
     }
 
     /**
@@ -42,14 +43,9 @@ public class AnimateNothing extends AnimateStructure {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * @return
-     * @throws UnsupportedOperationException
-     * @see AnimateStructure
-     */
     @Override
-    public String getOutput() throws UnsupportedOperationException {
-        logger.log(Level.INFO, "UnsupportedOperation on getOutput(AnimateNothing->68)");
+    public String getResults() {
+        logger.log(Level.INFO, "UnsupportedOperation on getResults()");
         throw new UnsupportedOperationException();
     }
 }

@@ -14,15 +14,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import structvisualizer.data.DataForValueFactory;
+import structvisualizer.data.Methods;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * <what class do>
+ * Shows a form for String input from user
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.Main
  */
 public class InputWindow {
     private static final Logger logger = Logger.getLogger(InputWindow.class.getName());

@@ -2,6 +2,7 @@ package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
+import structvisualizer.data.DataForValueFactory;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.animatecollections.animatemethods.AnimateMethodFactory;
@@ -19,14 +20,18 @@ public class AnimateStructure {
 
     /**
      * Constructor
+     *
      * @param collection collectionName
-     * @param method methodName
-     * @param type typeName
+     * @param method     methodName
+     * @param type       typeName
      * @param canvasPane Pane where to draw
+     * @param obj
+     * @param input
      */
-    public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj) {
+    public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj,
+                            DataForValueFactory input) {
         collectionType = collection;
-        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type, obj);
+        am = AnimateMethodFactory.get(method, canvasPane, collectionType, type, obj, input);
         os = new OutputStrings(collectionType, method, type);
     }
 
@@ -34,7 +39,7 @@ public class AnimateStructure {
     /**
      * animate method
      *
-     * @param type       typeName
+     * @param type typeName
      */
     public void animate(String type) {
         am.animate(type);
@@ -49,12 +54,8 @@ public class AnimateStructure {
         return am.getCode(os);
     }
 
-    /**
-     * get output of {@link AnimateStructure#getCode()} method's execution
-     *
-     * @return String
-     */
-    public String getOutput() {
-        return am.getOutput(os);
+    public String getResults() {
+        return am.getResults(os);
     }
+
 }

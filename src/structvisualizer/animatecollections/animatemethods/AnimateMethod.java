@@ -4,11 +4,12 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import parser.SomeClass;
-import structvisualizer.data.DataForMethodAnimate;
+import structvisualizer.data.DataForAnimation;
 import structvisualizer.data.OutputStrings;
 import structvisualizer.valuefactories.TooltipValueFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Parent class for concrete animation classes
@@ -17,10 +18,11 @@ import java.util.ArrayList;
  * @see
  */
 public class AnimateMethod {
-    Pane canvasPane;
-    String type;
-    SomeClass customClass = null;
-    static DataForMethodAnimate data;
+    public Pane canvasPane;
+    public String type;
+    public SomeClass customClass = null;
+    public static DataForAnimation data;
+    public String results = "";
 
     /**
      * Constructor
@@ -33,7 +35,8 @@ public class AnimateMethod {
         this.canvasPane = canvasPane;
         this.type = type;
         this.customClass = obj;
-        this.data = new DataForMethodAnimate();
+        this.data = new DataForAnimation();
+        this.results = "";
     }
 
     /**
@@ -54,6 +57,21 @@ public class AnimateMethod {
         }
     }
 
+    public static void setTooltip(ArrayList<StackPane> where, String type, SomeClass obj, List<Integer> iterations) {
+        int i = 0;
+        for(StackPane s : where) {
+            Tooltip.install(s, new Tooltip(TooltipValueFactory.get(type, iterations.get(i), obj)));
+            i++;
+        }
+    }
+
+    public static void setTooltip(ArrayList<StackPane> where, String value) {
+        int i = 0;
+        for(StackPane s : where) {
+            Tooltip.install(s, new Tooltip(value));
+        }
+    }
+
     /**
      * Forms String with code to recreate process in animation
      *
@@ -65,14 +83,9 @@ public class AnimateMethod {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * Forms string with supposed output of getCode()
-     *
-     * @param os Class with templates of result
-     * @return string
-     * @throws UnsupportedOperationException
-     */
-    public String getOutput(OutputStrings os) throws UnsupportedOperationException {
+    public String getResults(OutputStrings os) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
+
 }

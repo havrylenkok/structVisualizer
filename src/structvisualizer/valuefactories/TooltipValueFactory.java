@@ -10,15 +10,17 @@ package structvisualizer.valuefactories;
 import parser.SomeClass;
 import structvisualizer.data.Types;
 
+import java.util.Random;
+
 /**
- * <what class do>
+ * Generates tooltip values for animation objects
  *
  * @author Kyrylo Havrylenko
  * @see
  */
 public class TooltipValueFactory {
     /**
-     * @param iteration
+     * @param iteration step of multipling base input
      *
      * @return
      */
@@ -37,7 +39,16 @@ public class TooltipValueFactory {
 
     }
 
+    /**
+     * Generetaes tooltip for SomeClass
+     * @see SomeClass
+     * @param type
+     * @param iteration
+     * @param obj
+     * @return
+     */
     public static String get(String type, int iteration, SomeClass obj) {
+
         switch(type) {
             case Types.INT:
                 return "" + iteration;

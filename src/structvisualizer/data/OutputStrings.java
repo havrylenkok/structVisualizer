@@ -1,7 +1,5 @@
 package structvisualizer.data;
 
-import structvisualizer.data.DataForMethodAnimate;
-
 /**
  * Base class to create text for codeOutput and output TextAreas in javafx GUI
  *
@@ -10,10 +8,19 @@ import structvisualizer.data.DataForMethodAnimate;
  */
 public class OutputStrings {
     private String code;
-    private String output;
+    private String collectionType;
+    private String type;
 
+    /**
+     * Constructor
+     * @param collectionType
+     * @param method
+     * @param type
+     */
     public OutputStrings(String collectionType, String method, String type) {
-        DataForMethodAnimate data = new DataForMethodAnimate();
+        DataForAnimation data = new DataForAnimation();
+        this.collectionType = collectionType;
+        this.type = type;
         StringBuilder codeBuilder = new StringBuilder();
         codeBuilder
                 .append("package ").append(collectionType).append(";\n\n")
@@ -24,25 +31,48 @@ public class OutputStrings {
                 .append("for(int i = 0; i < ").append(data.getNumOfStackPanes()).append("; i++) {\n\t\t\t")
                 .append("tmp.add(i, i);\n\t\t}\n\t\t");
         code = codeBuilder.toString();
-        output = "";
+
     }
 
+    /**
+     * String of package java code
+     * @return
+     */
+    public String getPackage() {
+        return "package " + collectionType + ";\n\n";
+    }
+
+    /**
+     * String of import and main java code
+     * @return
+     */
+    public String getImportMain() {
+        return "public class Main\n\tpublic static void main(String[] args) {\n";
+    }
+
+    /**
+     * String of inputted to constructor collection
+     * @return
+     */
+    public String getCollection() {
+        return "\t\t" + collectionType + "<" + type + ">" + " tmp = new " + collectionType + "<>()\n";
+    }
+
+    /**
+     * String with all the code for your collection method
+     * @return
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Setter
+     * @param code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
-    /**
-     * @return
-     */
-    public String getOutput() {
-        return output;
-    } // // TODO: 3/25/16 update functionality to something meanful 
 
-    public void setOutput(String output) {
-        this.output = output;
-    }
 }

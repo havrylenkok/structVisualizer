@@ -28,10 +28,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * <what class do>
+ * Shows form for user input to SomeClass instance
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see SomeClass
+ * @see Main
  */
 public class InputClassWindow {
     private static final Logger logger = Logger.getLogger(InputClassWindow.class.getName());

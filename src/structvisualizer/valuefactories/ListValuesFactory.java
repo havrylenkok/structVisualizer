@@ -30,10 +30,7 @@ public class ListValuesFactory {
             Methods.ADD,
             Methods.CLEAR,
             Methods.CONTAINS,
-            Methods.EQUALS,
-            Methods.IS_EMPTY,
             Methods.REMOVE,
-            Methods.SIZE,
             Methods.CLONE,
             Methods.GET,
             Methods.SET,
@@ -43,7 +40,6 @@ public class ListValuesFactory {
     );
     private static final ObservableList<String> methodsStack = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
-            Methods.IS_EMPTY,
             Methods.PEEK,
             Methods.POP,
             Methods.PUSH,
@@ -51,16 +47,12 @@ public class ListValuesFactory {
     );
     private static final ObservableList<String> methodsHashMap = FXCollections.observableArrayList(
             Methods.CONSTRUCT,
-            Methods.CLEAR,
-            Methods.CLONE,
             Methods.CONTAINS_KEY,
             Methods.CONTAINS_VALUE,
             Methods.GET,
-            Methods.IS_EMPTY,
             Methods.PUT,
             Methods.REMOVE,
             Methods.REPLACE,
-            Methods.SIZE,
             Methods.VALUES
     );
     private static final ObservableList<String> methodsSet = FXCollections.observableArrayList(
@@ -68,9 +60,6 @@ public class ListValuesFactory {
             Methods.ADD,
             Methods.CLEAR,
             Methods.CONTAINS,
-            Methods.EQUALS,
-            Methods.IS_EMPTY,
-            Methods.SIZE,
             Methods.REMOVE
     );
     private static final ObservableList<String> types = FXCollections.observableArrayList(
@@ -79,6 +68,24 @@ public class ListValuesFactory {
             Types.SOME_CLASS,
             Types.CUSTOM
     );
+
+    private static final ObservableList<String> needsInput = FXCollections.observableArrayList(
+            Methods.CONTAINS,
+            Methods.GET,
+            Methods.GET_INDEX,
+            Methods.REMOVE,
+            Methods.SET,
+            Methods.SUBLIST
+    );
+
+    /**
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
+     * @return list of MethodsForSearch classes and Arraylist.Sublist
+     */
+    public static ObservableList<String> getNeedsInput() {
+        return needsInput;
+    }
 
     /**
      * getter

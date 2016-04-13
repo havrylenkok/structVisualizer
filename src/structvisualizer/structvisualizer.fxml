@@ -51,13 +51,17 @@
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="BOTTOM_LEFT" minWidth="800.0" prefHeight="100.0" prefWidth="800.0" scaleShape="false" spacing="20.0" VBox.vgrow="NEVER">
+      <VBox prefHeight="100.0" prefWidth="800.0">
          <children>
-            <TextArea fx:id="output" editable="false" minHeight="100.0" minWidth="800.0" promptText="There will be System.out.print output of your data structure" HBox.hgrow="ALWAYS" />
+            <HBox minWidth="800.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="resultArea" minHeight="90.0" minWidth="770.0" promptText="Here go your results" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </HBox>
          </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" />
-         </padding>
-      </HBox>
+      </VBox>
    </children>
 </VBox>

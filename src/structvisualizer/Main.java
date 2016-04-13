@@ -9,13 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import parser.SomeClass;
-import structvisualizer.window.AboutWindow;
-import structvisualizer.window.ConfirmBoxWindow;
-import structvisualizer.window.InputClassWindow;
-import structvisualizer.window.InputWindow;
+import structvisualizer.data.DataForValueFactory;
+import structvisualizer.window.*;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,10 +65,34 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Shows form for input string to SomeClass
+     * @see SomeClass
+     * @return user-inputted String
+     */
     public static String showInput() {
         return InputWindow.display();
     }
 
+    /**
+     * Shows form for user input in MethodsForSearch classes and Arraylist.Sublist. Also works as factory because of
+     * different controls which needed for different MethodsForSearch classes
+     * @param method
+     * @param type
+     * @return parsed user input
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
+     * @see DataForValueFactory
+     */
+    public static DataForValueFactory showInputSearchable(String method, String type) {
+        return InputClassSearchableWindow.display(method, type);
+    }
+
+    /**
+     * Shows form for user input to SomeClass
+     * @see SomeClass
+     * @return SomeClass instance
+     */
     public static SomeClass showCustomClassDialog() {
        return InputClassWindow.display();
     }

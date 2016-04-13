@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import parser.SomeClass;
 import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.animatecollections.AnimateStructureFactory;
+import structvisualizer.data.DataForValueFactory;
 import structvisualizer.data.Types;
 import structvisualizer.valuefactories.ListValuesFactory;
 import structvisualizer.window.ErrorWindow;
@@ -41,12 +42,13 @@ public class Controller implements Initializable {
     @FXML
     TextArea codeOutput;
     @FXML
-    TextArea output;
-    @FXML
     MenuItem menuItemClose;
     @FXML
     MenuItem menuItemAbout;
+    @FXML
+    TextArea resultArea;
     SomeClass customClass = null;
+    DataForValueFactory userInputSearchable = null;
 
     private boolean checkIfComboxesIsNotNull() {
         logger.log(Level.FINE, "Checking if comboboxes null");
@@ -78,7 +80,8 @@ public class Controller implements Initializable {
 
             logger.log(Level.FINER, "Collection " + collection + " method" + method + " type" + type);
 
-            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane, customClass);
+            AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type, canvasPane,
+                                                                           customClass, userInputSearchable);
             animationStruct.animate(type);
         } else {
             logger.log(Level.FINE, "User didnt picked any combobox and clicked Animate");
@@ -94,10 +97,9 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void setOutput(String text) {
-
-        logger.log(Level.FINER, "setting output to " + text);
-        output.setText(text);
+    private void setResultArea(String text) {
+        logger.log(Level.FINER, "setting resultArea to " + text);
+        resultArea.setText(text);
     }
 
     @Override
@@ -125,12 +127,19 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on type change");
-                output.clear();
+
                 codeOutput.clear();
+                resultArea.clear();
                 customClass = null;
 
                 if(checkIfTypeNotNull() && (typeBox.getValue().toString().equals(Types.CUSTOM))) {
                     customClass = Main.showCustomClassDialog();
+                }
+
+                if(checkIfTypeNotNull() && (ListValuesFactory.getNeedsInput().contains(methodBox.getValue().toString())
+                )) {
+                    userInputSearchable = Main.showInputSearchable(methodBox.getValue().toString(), typeBox.getValue().toString
+                            ());
                 }
 
                 setCodeAndOutput();
@@ -142,8 +151,9 @@ public class Controller implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on method change");
-                output.clear();
+
                 codeOutput.clear();
+                resultArea.clear();
                 setCodeAndOutput();
             }
         });
@@ -163,9 +173,9 @@ public class Controller implements Initializable {
             String type = typeBox.getValue().toString();
 
             AnimateStructure animationStruct = AnimateStructureFactory.get(collection, method, type,
-                                                                           canvasPane, customClass);
+                                                                           canvasPane, customClass, userInputSearchable);
             setCodeOutput(animationStruct.getCode());
-            setOutput(animationStruct.getOutput());
+            setResultArea(animationStruct.getResults());
         }
     }
 

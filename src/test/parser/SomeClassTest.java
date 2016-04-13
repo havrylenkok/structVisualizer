@@ -1,34 +1,37 @@
-package parser.Tests;
+package test.parser;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 import parser.SomeClass;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
 
  /*
- * TestSomeClass   3/25/16, 18:17
+ * SomeClassTest   4/3/16, 23:32
  *
  * By Kyrylo Havrylenko
  *
  */
 
 /**
- * Tests for SomeClass
+ * <what class do>
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-public class TestSomeClass {
-    private static final Logger logger = Logger.getLogger(TestSomeClass.class.getName());
+public class SomeClassTest {
+
+    private static final Logger logger = Logger.getLogger(SomeClassTest.class.getName());
 
     @Test
     public void incrementDoubleValues() {
         SomeClass sc = new SomeClass(2, 2, 2, 2);
         Double[] actuals = { 1.0, 2.0 };
-            Assert.assertArrayEquals(sc.doubleFields, actuals);
+        Assert.assertArrayEquals(sc.doubleFields, actuals);
     }
 
     @Test
@@ -41,6 +44,4 @@ public class TestSomeClass {
 
         Assert.assertArrayEquals(sc.stringFields, strings);
     }
-
-
 }
