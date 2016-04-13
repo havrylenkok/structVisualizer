@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  * shows user error message
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.Main
  */
 public class ErrorWindow {
     static boolean answer;

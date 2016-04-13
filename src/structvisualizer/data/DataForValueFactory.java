@@ -10,7 +10,7 @@ package structvisualizer.data;
 import java.util.List;
 
 /**
- * <what class do>
+ * Class to save user input from the GUI forms and use later in animation
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -71,6 +71,16 @@ public class DataForValueFactory {
         this.write = write;
     }
 
+    /**
+     *
+     * @param iter {@code iteration}
+     * @param rand does {@iter iter} has to be rand
+     * @param iters
+     * @param write
+     * @param setWhat from
+     * @param setToWhat to
+     * @see structvisualizer.valuefactories.TypeValueFactory
+     */
     public DataForValueFactory(Integer iter, boolean rand, List<Integer> iters, boolean write, Integer setWhat, Integer
             setToWhat) {
         iteration = iter;

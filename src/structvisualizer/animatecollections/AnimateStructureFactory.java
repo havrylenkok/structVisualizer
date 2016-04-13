@@ -22,7 +22,10 @@ public class AnimateStructureFactory {
      * @param methodName
      * @param typeName
      * @param canvas
-     * @param obj
+     * @param obj SomeClass
+     * @param input DataForValueFactory
+     * @see SomeClass
+     * @see DataForValueFactory
      * @return object of right type for input structure of data name
      */
     public static AnimateStructure get(String structName, String methodName, String typeName, Pane canvas, SomeClass

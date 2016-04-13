@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <what class do>
+ * API for animations of ArrayList on javafx
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -44,18 +44,54 @@ public class Arraylists {
         return createArrayList(type, data.getNumOfStackPanes());
     }
 
+    /**
+     *
+     * @param type
+     * @param size
+     * @return
+     */
     public static ArrayList<StackPane> createArrayList(String type, int size) {
         return createArrayList(type, size, data.getWidth(), 0);
     }
 
+    /**
+     *
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @return
+     */
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY) {
         return createArrayList(type, size, posX, posY, 0);
     }
 
+    /**
+     *
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @param iteration
+     * @return
+     */
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int iteration) {
         return createArrayList(type, size, posX, posY, iteration, false, null, false);
     }
 
+    /**
+     *
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @param iteration
+     * @param rand
+     * @param iterations
+     * @param write
+     * @see structvisualizer.data.DataForValueFactory
+     * @return
+     */
     public static ArrayList<StackPane> createArrayList(String type, int size, double posX, double posY, int
             iteration, boolean rand, List<Integer> iterations, boolean write) {
         //        List<String> values = new ArrayList<>();
@@ -139,6 +175,11 @@ public class Arraylists {
         return rectangles;
     }
 
+    /**
+     * Clear animation for list of StackPanes
+     * @param stack
+     * @return
+     */
     public static ArrayList<StackPane> clearAnimation(ArrayList<StackPane> stack) {
         int counter = 1000;
         for(StackPane s : stack) {
@@ -152,6 +193,10 @@ public class Arraylists {
         return stack;
     }
 
+    /**
+     * Move list of StackPanes
+     * @param clone
+     */
     public static void translateStackpanes(ArrayList<StackPane> clone) {
         double x = 0;
 
@@ -162,6 +207,14 @@ public class Arraylists {
     }
 
 
+    /**
+     * Move StackPane from and to
+     * @param sp
+     * @param fromX
+     * @param fromY
+     * @param toX
+     * @param toY
+     */
     public static void translateStackpane(StackPane sp, double fromX, double fromY, double toX, double toY) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
         tt.setFromX(fromX);
@@ -171,6 +224,12 @@ public class Arraylists {
         tt.play();
     }
 
+    /**
+     * Hightlight node from red to green color
+     * @param rectangle
+     * @param colorFrom
+     * @param colorTo
+     */
     public static void highlightNode(Rectangle rectangle, Color colorFrom, Color colorTo) {
 
         FillTransition ft = new FillTransition(Duration.millis(data.getTransitionInvisible()), rectangle, colorFrom,
@@ -178,6 +237,14 @@ public class Arraylists {
         ft.play();
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param canvas
+     * @param color
+     * @return
+     */
     public static StackPane newStackPane(double x, double y, Pane canvas, Color color) {
         StackPane stack = new StackPane();
         stack.setMinWidth(data.getWidth());
@@ -198,6 +265,15 @@ public class Arraylists {
 
     }
 
+    /**
+     * Animates search for element in List of StackPanes
+     * @param method
+     * @param type
+     * @param canvasPane
+     * @param customClass
+     * @param indexOf
+     * @param index
+     */
     public static void searchForElement(MethodsForSearch method, String type, Pane canvasPane, SomeClass customClass,
                                         Object indexOf, int index) {
         ArrayList<StackPane> rectangles = createArrayList(type);
@@ -222,6 +298,17 @@ public class Arraylists {
         method.animateSearch(sp, 0, 0, finalX, 0, canvasPane);
     }
 
+    /**
+     * Create new StackPane on Pane
+     * @param type
+     * @param x
+     * @param y
+     * @param value
+     * @param iteration
+     * @see StackPane
+     * @see Pane
+     * @return
+     */
     public static StackPane newValStackpane(String type, double x, double y, String value, int iteration) {
         StackPane stack = new StackPane();
         stack.setMinWidth(data.getWidth());
@@ -246,6 +333,11 @@ public class Arraylists {
 
     }
 
+    /**
+     * Fade and show StackPane
+     * @param origin
+     * @param sorted
+     */
     public static void fadeAndShowTransition(ArrayList<StackPane> origin, ArrayList<StackPane> sorted) {
         int counter = 1000;
 

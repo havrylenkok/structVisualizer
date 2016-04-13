@@ -16,7 +16,7 @@ import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
 /**
- * <what class do>
+ * Animates ArrayList.remove
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -32,6 +32,16 @@ public class Remove extends AnimateMethod implements MethodsForSearch {
     }
 
 
+    /**
+     *
+     * @param redRectangle
+     * @param fromX
+     * @param fromY
+     * @param toX
+     * @param toY
+     * @param canvas
+     * @see MethodsForSearch
+     */
     public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
         tt.setFromX(fromX);

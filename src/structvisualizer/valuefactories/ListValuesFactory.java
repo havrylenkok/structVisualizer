@@ -78,6 +78,11 @@ public class ListValuesFactory {
             Methods.SUBLIST
     );
 
+    /**
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
+     * @return list of MethodsForSearch classes and Arraylist.Sublist
+     */
     public static ObservableList<String> getNeedsInput() {
         return needsInput;
     }

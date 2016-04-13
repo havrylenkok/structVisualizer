@@ -26,10 +26,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * <what class do>
+ * Shows form for user input to MethodsForSearch and Arraylist.Sublist
  *
  * @author Kyrylo Havrylenko
- * @see
+ * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+ * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
+ * @see structvisualizer.Main
  */
 public class InputClassSearchableWindow {
     private static final Logger logger = Logger.getLogger(InputWindow.class.getName());

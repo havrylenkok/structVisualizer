@@ -21,12 +21,13 @@ import java.util.logging.Logger;
  */
 public class SomeClass {
     private static final Logger logger = Logger.getLogger(SomeClass.class.getName());
-    public Integer[] intFields;
+    private Integer[] intFields;
     public Double[] doubleFields;
     public String[] stringFields;
-    public Character[] charFields;
+    private Character[] charFields;
 
     /**
+     * SomeClass - is a class with different type's fields for user input. It is used in animation as data placeholder.
      * @param ints
      * @param doubles
      * @param strings
@@ -37,6 +38,14 @@ public class SomeClass {
         logger.log(Level.FINE, "Args:\tint " + ints + " double" + doubles + " String" + strings + " char" + chars);
     }
 
+    /**
+     * @see SomeClass
+     * @param ints
+     * @param doubles
+     * @param strings
+     * @param chars
+     * @param inp
+     */
     public SomeClass(int ints, int doubles, int strings, int chars, String inp) {
         logger.log(Level.FINE, "New SomeClass object");
         if(ints > 0) {
@@ -111,11 +120,20 @@ public class SomeClass {
         }
     }
 
+    /**
+     * @see SomeClass
+     * @param args
+     */
     public SomeClass(int[] args) {
         this(args[0], args[1], args[2], args[3]);
         logger.log(Level.FINE, "New SomeClass obj via int[] args: " + this);
     }
 
+    /**
+     * Getter for concrete data
+     * @param index
+     * @return toString of SomeClass
+     */
     public String getThisToStringForIteration(int index) {
         SomeClass tmp = new SomeClass(this, index);
         logger.log(Level.FINE, "Get toString for iteration" + index + "in " + this);

@@ -21,9 +21,12 @@ public class TypeValueFactory {
     }
 
     /**
-     * @param type
-     * @param iteration
      *
+     * @param type type of needed value
+     * @param iteration step of multipling base input
+     * @param rand does randomized {@code iteration} needed
+     * @param iterations ArrayList for saving {@code iteration} values
+     * @param write do you need to save values (into your {@code iterations})
      * @return
      */
     public static String get(String type, int iteration, boolean rand, List<Integer> iterations, boolean write) {

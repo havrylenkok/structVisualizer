@@ -16,7 +16,7 @@ import structvisualizer.data.OutputStrings;
 import java.util.ArrayList;
 
 /**
- * <what class do>
+ * Animates ArrayList.sublist() method
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -27,6 +27,14 @@ public class Sublist extends AnimateMethod {
     int size;
 
 
+    /**
+     *
+     * @param canvasPane
+     * @param type
+     * @param obj
+     * @param elementFrom
+     * @param elementTo
+     */
     public Sublist(Pane canvasPane, String type, SomeClass obj, int elementFrom, int elementTo) {
         super(canvasPane, type, obj);
         this.elementFrom = elementFrom;
@@ -34,6 +42,11 @@ public class Sublist extends AnimateMethod {
         this.size = elementTo - elementFrom + 1;
     }
 
+    /**
+     * @param type
+     *
+     * @throws UnsupportedOperationException
+     */
     @Override
     public void animate(String type) throws UnsupportedOperationException {
         ArrayList<StackPane> origin = Arraylists.createArrayList(type);

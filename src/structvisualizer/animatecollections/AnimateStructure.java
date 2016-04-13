@@ -25,6 +25,8 @@ public class AnimateStructure {
      * @param method     methodName
      * @param type       typeName
      * @param canvasPane Pane where to draw
+     * @param obj
+     * @param input
      */
     public AnimateStructure(String collection, String method, String type, Pane canvasPane, SomeClass obj,
                             DataForValueFactory input) {

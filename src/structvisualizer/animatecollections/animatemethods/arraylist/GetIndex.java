@@ -19,7 +19,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Array
 
 
 /**
- * <what class do>
+ * Animates ArrayList.getIndex
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -28,6 +28,14 @@ public class GetIndex extends AnimateMethod implements MethodsForSearch {
     Object indexOf;
     int index;
 
+    /**
+     *
+     * @param canvasPane
+     * @param type
+     * @param obj
+     * @param indexOf
+     * @param index
+     */
     public GetIndex(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
         this.indexOf = indexOf;
@@ -36,6 +44,16 @@ public class GetIndex extends AnimateMethod implements MethodsForSearch {
     }
 
 
+    /**
+     *
+     * @param redRectangle
+     * @param fromX
+     * @param fromY
+     * @param toX
+     * @param toY
+     * @param canvas
+     * @see MethodsForSearch
+     */
     public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
         tt.setFromX(fromX);

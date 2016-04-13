@@ -14,7 +14,7 @@ import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
 /**
- * <what class do>
+ * Animates ArrayList.get
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -23,6 +23,14 @@ public class Get extends AnimateMethod implements MethodsForSearch {
     Object indexOf;
     int index;
 
+    /**
+     *
+     * @param canvasPane
+     * @param type
+     * @param obj
+     * @param indexOf
+     * @param index
+     */
     public Get(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
         this.indexOf = indexOf;

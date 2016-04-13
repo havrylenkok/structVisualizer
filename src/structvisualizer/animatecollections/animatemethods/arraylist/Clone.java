@@ -29,6 +29,11 @@ public class Clone extends AnimateMethod {
     }
 
 
+    /**
+     * @param type
+     *
+     * @throws UnsupportedOperationException
+     */
     @Override
     public void animate(String type) throws UnsupportedOperationException {
         ArrayList<StackPane> origin = Arraylists.createArrayList(type);

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.newValStackpane;
 
 /**
- * <what class do>
+ * Animates ArrayList.set method
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -33,6 +33,15 @@ public class Set extends AnimateMethod implements MethodsForSearch {
     int index;
     int iterationNumOfNewVal;
 
+    /**
+     *
+     * @param canvasPane
+     * @param type
+     * @param obj
+     * @param indexOf
+     * @param index
+     * @param iterationNumOfNewVal
+     */
     public Set(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index, int
             iterationNumOfNewVal) {
         super(canvasPane, type, obj);
@@ -46,6 +55,16 @@ public class Set extends AnimateMethod implements MethodsForSearch {
     }
 
 
+    /**
+     * Animating search for this concrete {@code MethodsForSearch}
+     * @param redRectangle
+     * @param fromX
+     * @param fromY
+     * @param toX
+     * @param toY
+     * @param canvas
+     * @see MethodsForSearch
+     */
     public void animateSearch(StackPane redRectangle, double fromX, double fromY, double toX, double toY, Pane canvas) {
         TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), redRectangle);
         tt.setFromX(fromX);

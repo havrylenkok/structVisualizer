@@ -11,6 +11,12 @@ public class OutputStrings {
     private String collectionType;
     private String type;
 
+    /**
+     * Constructor
+     * @param collectionType
+     * @param method
+     * @param type
+     */
     public OutputStrings(String collectionType, String method, String type) {
         DataForAnimation data = new DataForAnimation();
         this.collectionType = collectionType;
@@ -28,22 +34,42 @@ public class OutputStrings {
 
     }
 
+    /**
+     * String of package java code
+     * @return
+     */
     public String getPackage() {
         return "package " + collectionType + ";\n\n";
     }
 
+    /**
+     * String of import and main java code
+     * @return
+     */
     public String getImportMain() {
         return "public class Main\n\tpublic static void main(String[] args) {\n";
     }
 
+    /**
+     * String of inputted to constructor collection
+     * @return
+     */
     public String getCollection() {
         return "\t\t" + collectionType + "<" + type + ">" + " tmp = new " + collectionType + "<>()\n";
     }
 
+    /**
+     * String with all the code for your collection method
+     * @return
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Setter
+     * @param code
+     */
     public void setCode(String code) {
         this.code = code;
     }

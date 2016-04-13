@@ -28,6 +28,7 @@ public class AnimateMethodFactory {
      * @param collectionName
      * @param type           typeName
      * @param obj
+     * @param input
      * @return object of needed animation class
      * @see AnimateMethod
      */

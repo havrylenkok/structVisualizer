@@ -65,14 +65,34 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Shows form for input string to SomeClass
+     * @see SomeClass
+     * @return user-inputted String
+     */
     public static String showInput() {
         return InputWindow.display();
     }
 
+    /**
+     * Shows form for user input in MethodsForSearch classes and Arraylist.Sublist. Also works as factory because of
+     * different controls which needed for different MethodsForSearch classes
+     * @param method
+     * @param type
+     * @return parsed user input
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
+     * @see DataForValueFactory
+     */
     public static DataForValueFactory showInputSearchable(String method, String type) {
         return InputClassSearchableWindow.display(method, type);
     }
 
+    /**
+     * Shows form for user input to SomeClass
+     * @see SomeClass
+     * @return SomeClass instance
+     */
     public static SomeClass showCustomClassDialog() {
        return InputClassWindow.display();
     }

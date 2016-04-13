@@ -16,7 +16,7 @@ import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.data.OutputStrings;
 
 /**
- * <what class do>
+ * Animates ArrayList.contains
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -26,6 +26,14 @@ public class Contains extends AnimateMethod implements MethodsForSearch {
     int index;
     boolean contains = false;
 
+    /**
+     *
+     * @param canvasPane
+     * @param type
+     * @param obj
+     * @param indexOf
+     * @param index
+     */
     public Contains(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
         super(canvasPane, type, obj);
         this.index = index;

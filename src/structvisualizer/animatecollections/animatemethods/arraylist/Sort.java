@@ -23,7 +23,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Array
 import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.fadeAndShowTransition;
 
 /**
- * <what class do>
+ * Animates ArrayList.sort() method (and other type of sort in Java)
  *
  * @author Kyrylo Havrylenko
  * @see
