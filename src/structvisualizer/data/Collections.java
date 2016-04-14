@@ -7,7 +7,7 @@ package structvisualizer.data;
  * @see
  */
 public interface Collections {
-    final String ARRAY_LIST = "ArrayList";
+    final String ARRAY_LIST = "LinkedList";
     final String STACK = "Stack";
     final String HASH_MAP = "HashMap";
     final String SET = "Set";

@@ -69,7 +69,7 @@ public class Contains extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        String result = os.getCode() + "\n\ttmp.contains(" + indexOf + ")\n\t}\n}";
+        String result = os.getCode() + "\n\ttmp.contains(" + indexOf + ");\n\t}\n}";
 
         return result;
     }

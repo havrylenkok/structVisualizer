@@ -147,10 +147,19 @@ public class Controller implements Initializable {
         });
 
 
+
+
         methodBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 logger.log(Level.FINE, "Setting code&output on method change");
+
+                if(checkIfTypeNotNull() && checkIfComboxesIsNotNull() && (ListValuesFactory.getNeedsInput().contains(methodBox.getValue()
+                                                                                                  .toString())
+                )) {
+                    userInputSearchable = Main.showInputSearchable(methodBox.getValue().toString(), typeBox.getValue().toString
+                            ());
+                }
 
                 codeOutput.clear();
                 resultArea.clear();

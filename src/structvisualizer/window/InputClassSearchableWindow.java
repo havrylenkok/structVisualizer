@@ -78,7 +78,7 @@ public class InputClassSearchableWindow {
                 ComboBox comboGet = new ComboBox();
                 ArrayList<String> valuesGet = new ArrayList<>();
                 for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-                    valuesGet.add(TypeValueFactory.get(type, i, false, null, true));
+                    valuesGet.add(TypeValueFactory.get(Types.INT, i, false, null, true));
                 }
                 comboGet.getItems().addAll(valuesGet);
                 comboGet.getSelectionModel().select(0);
