@@ -48,7 +48,10 @@ public class AnimateMethodFactory {
             case Methods.CONSTRUCT:
                 switch (collectionName) {
                     case Collections.ARRAY_LIST:
-                        return new Construct(canvas, type, obj);
+                        return new structvisualizer.animatecollections.animatemethods.arraylist.Construct(canvas, type, obj);
+                    case Collections.STACK:
+                        return new structvisualizer.animatecollections.animatemethods.stack.Construct(canvas, type,
+                                                                                                      obj);
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
