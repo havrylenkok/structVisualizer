@@ -1,7 +1,7 @@
-package structvisualizer.animatecollections.animatemethods.arraylist;
+package structvisualizer.animatecollections.animatemethods.stack;
 
  /*
- * Contains   4/5/16, 23:41
+ * Peek   4/28/16, 21:02
  *
  * By Kyrylo Havrylenko
  *
@@ -14,40 +14,19 @@ import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
+import structvisualizer.animatecollections.animatemethods.arraylist.Arraylists;
 import structvisualizer.data.OutputStrings;
 
 /**
- * Animates ArrayList.contains
+ * <what class do>
  *
  * @author Kyrylo Havrylenko
  * @see
  */
-public class Contains extends AnimateMethod implements MethodsForSearch {
-    Object indexOf;
-    int index;
-    boolean contains = false;
+public class Peek extends AnimateMethod implements MethodsForSearch {
 
-    /**
-     *
-     * @param canvasPane
-     * @param type
-     * @param obj
-     * @param indexOf
-     * @param index
-     */
-    public Contains(Pane canvasPane, String type, SomeClass obj, Object indexOf, int index) {
+    public Peek(Pane canvasPane, String type, SomeClass obj) {
         super(canvasPane, type, obj);
-        this.index = index;
-        this.indexOf = indexOf;
-    }
-
-    @Override
-    public void animate(String type) throws UnsupportedOperationException {
-
-        if(index < data.getNumOfStackPanes()) {
-            contains = true;
-        }
-        Arraylists.searchForElement(this, type, canvasPane, customClass, indexOf, index);
     }
 
     @Override
@@ -61,24 +40,25 @@ public class Contains extends AnimateMethod implements MethodsForSearch {
 
         tt.setOnFinished(event -> {
             redRectangle.setVisible(false);
-            if(contains) {
+
                 redRectangle.setVisible(false);
                 StackPane greenStackpane = Arraylists.newStackPane(toX, toY, canvas, data.getSuccessColor());
-            }
+
         });
     }
 
     @Override
-    public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        String result = os.getCode() + "\n\ttmp.contains(" + indexOf + ");\n\t}\n}";
+    public void animate(String type) throws UnsupportedOperationException {
+        Stacks.searchForElement(this, type, canvasPane, customClass, 0, 0);
+    }
 
-        return result;
+    @Override
+    public String getCode(OutputStrings os) throws UnsupportedOperationException {
+        return "WORK IN PROGRESS";
     }
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        boolean res = false;
-        if(index < data.getNumOfStackPanes()) res = true;
-        return "The result is " + res;
+        return "WORK IN PROGRESS";
     }
 }

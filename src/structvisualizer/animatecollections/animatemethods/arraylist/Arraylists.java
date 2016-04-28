@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
+import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
 import structvisualizer.data.DataForAnimation;
 import structvisualizer.valuefactories.TypeValueFactory;
 

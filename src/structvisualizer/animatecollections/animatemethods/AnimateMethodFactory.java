@@ -4,6 +4,8 @@ import javafx.scene.layout.Pane;
 import parser.SomeClass;
 import structvisualizer.Main;
 import structvisualizer.animatecollections.animatemethods.arraylist.*;
+import structvisualizer.animatecollections.animatemethods.stack.Peek;
+import structvisualizer.animatecollections.animatemethods.stack.Pop;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
 import structvisualizer.data.DataForValueFactory;
@@ -123,11 +125,23 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.PEEK:
+                switch(collectionName) {
+                    case Collections.STACK:
+                        return new Peek(canvas, type, obj);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
+            case Methods.POP:
+                switch(collectionName) {
+                    case Collections.STACK:
+                        return new Pop(canvas, type, obj);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.SIZE:
-            case Methods.PEEK:
-            case Methods.POP:
             case Methods.PUSH:
             case Methods.SEARCH:
             case Methods.CONTAINS_KEY:

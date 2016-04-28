@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import parser.SomeClass;
+import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
 import structvisualizer.data.DataForValueFactory;
 import structvisualizer.window.*;
 
@@ -80,7 +81,7 @@ public class Main extends Application {
      * @param method
      * @param type
      * @return parsed user input
-     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see MethodsForSearch
      * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
      * @see DataForValueFactory
      */

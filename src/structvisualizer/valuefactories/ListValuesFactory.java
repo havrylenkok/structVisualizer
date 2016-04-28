@@ -2,6 +2,7 @@ package structvisualizer.valuefactories;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
 import structvisualizer.data.Types;
@@ -79,7 +80,7 @@ public class ListValuesFactory {
     );
 
     /**
-     * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+     * @see MethodsForSearch
      * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
      * @return list of MethodsForSearch classes and Arraylist.Sublist
      */
