@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
 import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
+import structvisualizer.animatecollections.animatemethods.arraylist.Arraylists;
 import structvisualizer.data.DataForAnimation;
 import structvisualizer.valuefactories.TypeValueFactory;
 
@@ -51,6 +52,79 @@ public class Stacks {
 //        double finalY = (y < anotherY) ? y : anotherY;
 
         method.animateSearch(sp, data.getStackPaneSize(), 0, data.getStackPaneSize(), 0, canvasPane);
+    }
+
+    public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY, int
+            iteration, boolean rand, List<Integer> iterations, boolean write) {
+
+        ArrayList<StackPane> rectangles = new ArrayList<>();
+        int index = 0;
+        for(; iteration < size; iteration++) {
+            StackPane stack = new StackPane();
+            stack.setMinWidth(data.getWidth());
+            stack.setLayoutX(posX);
+            stack.setLayoutY(posY + iteration * data.getHeight());
+            rectangles.add(index, stack);
+
+            Rectangle r = new Rectangle();
+            r.setWidth(data.getWidth());
+            r.setHeight(data.getHeight());
+            r.setFill(Color.TRANSPARENT);
+            r.setStroke(Color.BLACK);
+
+            Text text = new Text(TypeValueFactory.get(type, iteration, rand, iterations, write));
+
+
+            rectangles.get(index).getChildren().addAll(r, text);
+            index++;
+        }
+        return rectangles;
+    }
+
+    /**
+     * Static method to create ArrayList with StackPane elements which will be next added to Pane (canvas) in app
+     *
+     * @param type String
+     *
+     * @return ArrayList<StackPane>
+     */
+    public static ArrayList<StackPane> createStack(String type) {
+        return createStack(type, data.getNumOfStackPanes());
+    }
+
+    /**
+     *
+     * @param type
+     * @param size
+     * @return
+     */
+    public static ArrayList<StackPane> createStack(String type, int size) {
+        return createStack(type, size, data.getWidth(), 0);
+    }
+
+    /**
+     *
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @return
+     */
+    public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY) {
+        return createStack(type, size, posX, posY, 0);
+    }
+
+    /**
+     *
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @param iteration
+     * @return
+     */
+    public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY, int iteration) {
+        return createStack(type, size, posX, posY, iteration, false, null, false);
     }
 
 }
