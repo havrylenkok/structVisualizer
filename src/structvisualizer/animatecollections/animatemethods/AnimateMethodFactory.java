@@ -7,6 +7,7 @@ import structvisualizer.animatecollections.animatemethods.arraylist.*;
 import structvisualizer.animatecollections.animatemethods.stack.Peek;
 import structvisualizer.animatecollections.animatemethods.stack.Pop;
 import structvisualizer.animatecollections.animatemethods.stack.Push;
+import structvisualizer.animatecollections.animatemethods.stack.Search;
 import structvisualizer.data.Collections;
 import structvisualizer.data.Methods;
 import structvisualizer.data.DataForValueFactory;
@@ -147,10 +148,16 @@ public class AnimateMethodFactory {
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }
+            case Methods.SEARCH:
+                switch(collectionName) {
+                    case Collections.STACK:
+                        return new Search(canvas, type, obj, 1, 1);
+                    default:
+                        return new AnimateMethod(canvas, type, obj);
+                }
             case Methods.EQUALS:
             case Methods.IS_EMPTY:
             case Methods.SIZE:
-            case Methods.SEARCH:
             case Methods.CONTAINS_KEY:
             case Methods.CONTAINS_VALUE:
             case Methods.PUT:

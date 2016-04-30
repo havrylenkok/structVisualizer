@@ -48,29 +48,35 @@ public class Push extends AnimateMethod {
         ft.setFromValue(1);
         ft.setToValue(0);
         ft.play();
-        double y = 0;
+
+        final boolean[] state = {true};
         for(StackPane sp : rectangles) {
             TranslateTransition tt = new TranslateTransition(Duration.millis(1), sp);
             tt.setFromX(0);
-            tt.setFromY(sp.getLayoutY());
+            tt.setFromY(0);
             tt.setToX(0);
-            tt.setToY(y);
+            tt.setToY(-data.getHeight());
             tt.play();
-            y += data.getHeight();
+            tt.setOnFinished(event -> {
+                TranslateTransition ttp = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
+                ttp.setFromX(0);
+                ttp.setFromY(-data.getHeight());
+                ttp.setToX(0);
+                ttp.setToY(0);
+                ttp.play();
+
+                if(state[0]) {
+                    FadeTransition realFt = new FadeTransition(Duration.millis(data.getTimeFade()), rectangles.get(0));
+                    realFt.setFromValue(0);
+                    realFt.setToValue(1);
+                    realFt.play();
+                    state[0] = false;
+                }
+
+            });
         }
-        y = rectangles.get(1).getLayoutY();
-//        for(StackPane sp : rectangles) {
-//            TranslateTransition tt = new TranslateTransition(Duration.millis(data.getTimeTranslate()), sp);
-//            tt.setFromX(0);
-//            tt.setFromY(y);
-//            tt.setToX(0);
-//            tt.setToY(y + data.getHeight());
-//            tt.play();
-//            y += data.getHeight();
-//        }
-        FadeTransition realFt = new FadeTransition(Duration.millis(data.getTimeTranslate()), rectangles.get(0));
-        ft.setToValue(1);
-        ft.play();
+
+
 
 
 

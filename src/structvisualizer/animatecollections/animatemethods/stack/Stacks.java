@@ -46,12 +46,12 @@ public class Stacks {
 
         StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
 
-//        int y = (index + 1) * data.getWidth();
-//        int anotherY = data.getNumOfStackPanes() * data.getWidth();
+        int y = ((index > 0) ? index : 1) * data.getHeight();
+        int anotherY = data.getNumOfStackPanes() * data.getHeight();
 
-//        double finalY = (y < anotherY) ? y : anotherY;
+        double finalY = (y < anotherY) ? y : anotherY;
 
-        method.animateSearch(sp, data.getStackPaneSize(), 0, data.getStackPaneSize(), 0, canvasPane);
+        method.animateSearch(sp, data.getStackPaneSize(), 0, data.getStackPaneSize(), finalY, canvasPane);
     }
 
     public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY, int
@@ -126,5 +126,7 @@ public class Stacks {
     public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY, int iteration) {
         return createStack(type, size, posX, posY, iteration, false, null, false);
     }
+
+
 
 }
