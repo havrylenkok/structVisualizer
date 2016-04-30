@@ -27,7 +27,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Array
 import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.newStackPane;
 
 /**
- * <what class do>
+ * API to draw Stacks
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -35,6 +35,15 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Array
 public class Stacks {
     static DataForAnimation data = new DataForAnimation();
 
+    /**
+     * Searching for object in array of StackPanes
+     * @param method
+     * @param type
+     * @param canvasPane
+     * @param customClass
+     * @param indexOf
+     * @param index
+     */
     public static void searchForElement(MethodsForSearch method, String type, Pane canvasPane, SomeClass customClass,
                                         Object indexOf, int index) {
         ArrayList<StackPane> rectangles = createArrayList(type);
@@ -46,7 +55,7 @@ public class Stacks {
 
         StackPane sp = newStackPane(0, 0, canvasPane, data.getHightlightColor());
 
-        int y = ((index > 0) ? index : 1) * data.getHeight();
+        int y = index * data.getHeight();
         int anotherY = data.getNumOfStackPanes() * data.getHeight();
 
         double finalY = (y < anotherY) ? y : anotherY;
@@ -54,6 +63,18 @@ public class Stacks {
         method.animateSearch(sp, data.getStackPaneSize(), 0, data.getStackPaneSize(), finalY, canvasPane);
     }
 
+    /**
+     * Create Stack
+     * @param type
+     * @param size
+     * @param posX
+     * @param posY
+     * @param iteration
+     * @param rand
+     * @param iterations
+     * @param write
+     * @return
+     */
     public static ArrayList<StackPane> createStack(String type, int size, double posX, double posY, int
             iteration, boolean rand, List<Integer> iterations, boolean write) {
 
@@ -103,7 +124,7 @@ public class Stacks {
     }
 
     /**
-     *
+     * Create stack
      * @param type
      * @param size
      * @param posX
@@ -115,7 +136,7 @@ public class Stacks {
     }
 
     /**
-     *
+     * Create stack
      * @param type
      * @param size
      * @param posX

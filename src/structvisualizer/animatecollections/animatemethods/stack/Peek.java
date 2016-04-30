@@ -18,7 +18,7 @@ import structvisualizer.animatecollections.animatemethods.arraylist.Arraylists;
 import structvisualizer.data.OutputStrings;
 
 /**
- * <what class do>
+ * Animates Peek method in Stack
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -59,6 +59,6 @@ public class Peek extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        return "You got the element on the top of the Stack";
     }
 }

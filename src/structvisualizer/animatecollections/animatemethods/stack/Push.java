@@ -24,7 +24,7 @@ import static structvisualizer.animatecollections.animatemethods.arraylist.Array
 import static structvisualizer.animatecollections.animatemethods.stack.Stacks.createStack;
 
 /**
- * <what class do>
+ * Animates Push method in Stack
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -110,6 +110,6 @@ public class Push extends AnimateMethod {
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "inputted item";
+        return "You've inserted element to the head of the Stack. Method have returned value of element to you.";
     }
 }

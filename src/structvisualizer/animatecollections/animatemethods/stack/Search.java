@@ -20,7 +20,7 @@ import structvisualizer.data.OutputStrings;
 import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.newStackPane;
 
 /**
- * <what class do>
+ * Animates Search method in Stack
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -63,6 +63,6 @@ public class Search extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "INDEX OF SEARCHED OBJECT (starting from 1, not 0)";
+        return "Index of searched element: " + (index + 1) + "; It's 1-based!";
     }
 }

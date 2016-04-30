@@ -25,7 +25,7 @@ public class OutputStrings {
         codeBuilder
                 .append("package ").append(collectionType).append(";\n\n")
                 .append("import java.util.*;\n\n")
-                .append("public class Main").append(" {\n")
+                .append("public class Main {").append(" {\n")
                 .append("\tpublic static void main(String[] args) {\n\t\t").append(collectionType).append("<")
                 .append(type).append(">").append(" tmp = new ").append(collectionType).append("<").append(">();\n\t\t")
                 .append("for(int i = 0; i < ").append(data.getNumOfStackPanes()).append("; i++) {\n\t\t\t")
@@ -55,7 +55,7 @@ public class OutputStrings {
      * @return
      */
     public String getCollection() {
-        return "\t\t" + collectionType + "<" + type + ">" + " tmp = new " + collectionType + "<>()\n";
+        return "\t\t" + collectionType + "<" + type + ">" + " tmp = new " + collectionType + "<>();\n";
     }
 
     /**

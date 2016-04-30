@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import static structvisualizer.animatecollections.animatemethods.arraylist.Arraylists.createArrayList;
 
 /**
- * <what class do>
+ * Animates Pop method in Stack
  *
  * @author Kyrylo Havrylenko
  * @see
@@ -64,6 +64,6 @@ public class Pop extends AnimateMethod {
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "VALUE OF POPPED ELEMENT";
+        return "You've peeked top element of the Stack. It's value has been returned to you.";
     }
 }
