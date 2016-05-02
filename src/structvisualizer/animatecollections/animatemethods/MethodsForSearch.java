@@ -1,4 +1,4 @@
-package structvisualizer.animatecollections.animatemethods.arraylist;
+package structvisualizer.animatecollections.animatemethods;
 
  /*
  * MethodsForSearch   4/9/16, 18:58

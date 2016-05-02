@@ -2,9 +2,6 @@ package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
-import structvisualizer.animatecollections.AnimateArrayList;
-import structvisualizer.animatecollections.AnimateNothing;
-import structvisualizer.animatecollections.AnimateStructure;
 import structvisualizer.data.Collections;
 import structvisualizer.data.DataForValueFactory;
 
@@ -37,7 +34,7 @@ public class AnimateStructureFactory {
             case Collections.HASH_MAP:
                 return new AnimateNothing(methodName, typeName, canvas, obj, input);
             case Collections.STACK:
-                return new AnimateNothing(methodName, typeName, canvas, obj, input);
+                return new AnimateStack(methodName, typeName, canvas, obj, input);
             case Collections.SET:
                 return new AnimateNothing(methodName, typeName, canvas, obj, input);
             default:

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
 import structvisualizer.data.DataForAnimation;
 import structvisualizer.data.DataForValueFactory;
 import structvisualizer.data.Methods;
@@ -29,7 +30,7 @@ import java.util.logging.Logger;
  * Shows form for user input to MethodsForSearch and Arraylist.Sublist
  *
  * @author Kyrylo Havrylenko
- * @see structvisualizer.animatecollections.animatemethods.arraylist.MethodsForSearch
+ * @see MethodsForSearch
  * @see structvisualizer.animatecollections.animatemethods.arraylist.Sublist
  * @see structvisualizer.Main
  */
@@ -78,7 +79,7 @@ public class InputClassSearchableWindow {
                 ComboBox comboGet = new ComboBox();
                 ArrayList<String> valuesGet = new ArrayList<>();
                 for(int i = 0; i < data.getNumOfStackPanes(); i++) {
-                    valuesGet.add(TypeValueFactory.get(type, i, false, null, true));
+                    valuesGet.add(TypeValueFactory.get(Types.INT, i, false, null, true));
                 }
                 comboGet.getItems().addAll(valuesGet);
                 comboGet.getSelectionModel().select(0);
@@ -95,6 +96,9 @@ public class InputClassSearchableWindow {
                 container.getChildren().addAll(labelGet, comboGet, okButtonGet);
                 break;
             case Methods.GET_INDEX:
+                System.out.println("Get index");
+            case Methods.SEARCH:
+                System.out.println("Search");
                 ComboBox comboGetIndex = new ComboBox();
                 ArrayList<String> valuesGetIndex = new ArrayList<>();
                 for(int i = 0; i < data.getNumOfStackPanes(); i++) {

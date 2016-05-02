@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import parser.SomeClass;
 import structvisualizer.animatecollections.animatemethods.AnimateMethod;
+import structvisualizer.animatecollections.animatemethods.MethodsForSearch;
 import structvisualizer.data.OutputStrings;
 
 /**
