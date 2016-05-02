@@ -151,7 +151,7 @@ public class AnimateMethodFactory {
             case Methods.SEARCH:
                 switch(collectionName) {
                     case Collections.STACK:
-                        return new Search(canvas, type, obj, 1, 1);
+                        return new Search(canvas, type, obj, TypeValueFactory.get(type, input), input.getIteration());
                     default:
                         return new AnimateMethod(canvas, type, obj);
                 }

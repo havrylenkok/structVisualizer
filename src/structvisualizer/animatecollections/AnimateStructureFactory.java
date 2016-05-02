@@ -2,10 +2,6 @@ package structvisualizer.animatecollections;
 
 import javafx.scene.layout.Pane;
 import parser.SomeClass;
-import structvisualizer.animatecollections.AnimateArrayList;
-import structvisualizer.animatecollections.AnimateNothing;
-import structvisualizer.animatecollections.AnimateStructure;
-import structvisualizer.animatecollections.animatemethods.arraylist.AnimateStack;
 import structvisualizer.data.Collections;
 import structvisualizer.data.DataForValueFactory;
 

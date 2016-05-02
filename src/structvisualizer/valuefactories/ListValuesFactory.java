@@ -76,7 +76,8 @@ public class ListValuesFactory {
             Methods.GET_INDEX,
             Methods.REMOVE,
             Methods.SET,
-            Methods.SUBLIST
+            Methods.SUBLIST,
+            Methods.SEARCH
     );
 
     /**

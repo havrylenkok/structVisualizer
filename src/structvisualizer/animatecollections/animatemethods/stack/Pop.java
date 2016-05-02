@@ -59,11 +59,14 @@ public class Pop extends AnimateMethod {
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        String result = os.getPackage() + os.getImportMain() + "{\n" + os.getCollection() + "\t\t" + "for(int i = " +
+                "0; i < " + data.getNumOfStackPanes() + "; i++) {\n\t\t\t" + "tmp.push(i);\n\t\t}\n\t" +
+                type + " tmpVar = tmp.pop();\n\t}\n}";
+        return result;
     }
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "You've peeked top element of the Stack. It's value has been returned to you.";
+        return "You've poped top element of the Stack. It's value has been returned to you.";
     }
 }

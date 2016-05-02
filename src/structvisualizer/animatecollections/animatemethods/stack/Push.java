@@ -105,7 +105,10 @@ public class Push extends AnimateMethod {
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        String result = os.getPackage() + os.getImportMain() + "{\n" + os.getCollection() + "\t\t" + "for(int i = " +
+                "1; i < " + (data.getNumOfStackPanes()) + "; i++) {\n\t\t\t" + "tmp.push(i);\n\t\t}" + "" +
+                "\n\ttmp.push(0);\n\t}\n}";
+        return result;
     }
 
     @Override

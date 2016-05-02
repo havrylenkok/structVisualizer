@@ -54,11 +54,14 @@ public class Peek extends AnimateMethod implements MethodsForSearch {
 
     @Override
     public String getCode(OutputStrings os) throws UnsupportedOperationException {
-        return "WORK IN PROGRESS";
+        String result = os.getPackage() + os.getImportMain() + "{\n" + os.getCollection() + "\t\t" + "for(int i = " +
+                "0; i < " + data.getNumOfStackPanes() + "; i++) {\n\t\t\t" + "tmp.push(i);\n\t\t}\n\t" +
+                type + " tmpVar = tmp.peek();\n\t}\n}";
+        return result;
     }
 
     @Override
     public String getResults(OutputStrings os) throws UnsupportedOperationException {
-        return "You got the element on the top of the Stack";
+        return "You've peeked top element of the Stack. It's value has been returned to you.";
     }
 }

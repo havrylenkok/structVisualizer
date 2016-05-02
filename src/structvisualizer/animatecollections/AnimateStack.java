@@ -1,4 +1,4 @@
-package structvisualizer.animatecollections.animatemethods.arraylist;
+package structvisualizer.animatecollections;
 
  /*
  * AnimateStack   4/27/16, 23:57

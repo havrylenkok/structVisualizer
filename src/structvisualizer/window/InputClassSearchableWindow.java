@@ -96,6 +96,9 @@ public class InputClassSearchableWindow {
                 container.getChildren().addAll(labelGet, comboGet, okButtonGet);
                 break;
             case Methods.GET_INDEX:
+                System.out.println("Get index");
+            case Methods.SEARCH:
+                System.out.println("Search");
                 ComboBox comboGetIndex = new ComboBox();
                 ArrayList<String> valuesGetIndex = new ArrayList<>();
                 for(int i = 0; i < data.getNumOfStackPanes(); i++) {
