@@ -31,12 +31,12 @@ public class AnimateStructureFactory {
         switch (structName) {
             case Collections.ARRAY_LIST:
                 return new AnimateArrayList(methodName, typeName, canvas, obj, input);
-            case Collections.HASH_MAP:
-                return new AnimateNothing(methodName, typeName, canvas, obj, input);
+//            case Collections.HASH_MAP:
+//                return new AnimateNothing(methodName, typeName, canvas, obj, input);
             case Collections.STACK:
                 return new AnimateStack(methodName, typeName, canvas, obj, input);
-            case Collections.SET:
-                return new AnimateNothing(methodName, typeName, canvas, obj, input);
+//            case Collections.SET:
+//                return new AnimateNothing(methodName, typeName, canvas, obj, input);
             default:
                 return new AnimateNothing(methodName, typeName, canvas, obj, input);
         }

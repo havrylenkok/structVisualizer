@@ -18,9 +18,9 @@ public class ListValuesFactory {
 
     private static final ObservableList<String> collectionOptions = FXCollections.observableArrayList(
             Collections.ARRAY_LIST,
-            Collections.HASH_MAP,
-            Collections.STACK,
-            Collections.SET
+//            Collections.HASH_MAP,
+            Collections.STACK
+//            Collections.SET
     );
 
     /**
@@ -99,12 +99,12 @@ public class ListValuesFactory {
         switch (collection) {
             case Collections.ARRAY_LIST:
                 return methodsArrayList;
-            case Collections.HASH_MAP:
-                return methodsHashMap;
+//            case Collections.HASH_MAP:
+//                return methodsHashMap;
             case Collections.STACK:
                 return methodsStack;
-            case Collections.SET:
-                return methodsSet;
+//            case Collections.SET:
+//                return methodsSet;
             default:
                 return FXCollections.emptyObservableList();
 

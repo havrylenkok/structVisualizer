@@ -9,6 +9,6 @@ package structvisualizer.data;
 public interface Collections {
     final String ARRAY_LIST = "LinkedList";
     final String STACK = "Stack";
-    final String HASH_MAP = "HashMap";
-    final String SET = "Set";
+//    final String HASH_MAP = "HashMap";
+//    final String SET = "Set";
 }
